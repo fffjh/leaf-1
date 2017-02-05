@@ -1,0 +1,16 @@
+img {
+    height: 50px;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+}
+
+.dropdown-menu>li>a {
+    color: white;
+}
+
+#userPic {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
