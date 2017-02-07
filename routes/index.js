@@ -3,11 +3,12 @@
  */
 
 exports.index = function(req, res) {
-    // res.render('index');
-    res.sendfile('./views/index.html');
+    res.render('index');
+    // res.sendfile('./views/index.html');
 };
 
 exports.partials = function(req, res) {
     var name = req.params.name;
-    // res.render('partials/' + name);
+    res.render('partials/' + name);
+    // res.sendfile('./views/partials' + name + '.html');
 };
