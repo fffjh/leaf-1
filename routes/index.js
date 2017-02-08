@@ -1,14 +1,16 @@
-/*
- * GET home page.
- */
+module.exports = function(app) {
+    app.get('/', function(req, res) {
+        res.render('index');
+    });
+    app.get('/partials/:name', function(req, res) {
+        var name = req.params.name;
+        res.render('partials/' + name);
+    });
+    // otherwise
+    app.get('*', function(req, res) {
+        res.redirect('/');
+    });
 
-exports.index = function(req, res) {
-    res.render('index');
-    // res.sendfile('./views/index.html');
-};
-
-exports.partials = function(req, res) {
-    var name = req.params.name;
-    res.render('partials/' + name);
-    // res.sendfile('./views/partials' + name + '.html');
-};
+    app.use('/signup', require('./signup'));
+    app.use('/signin', require('./signin'));
+}
