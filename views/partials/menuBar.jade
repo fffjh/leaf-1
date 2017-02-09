@@ -44,7 +44,8 @@
                 a#userPic.dropdown-toggle(href='', data-toggle='dropdown')
                     img(src='https://image.freepik.com/free-icon/user-image-with-black-background_318-34564.jpg')
                     span.caret
-                ul.dropdown-menu.navbar-inverse(ng-if=("user"))
+                //- ul.dropdown-menu.navbar-inverse(ng-if=("user"))
+                ul.dropdown-menu.navbar-inverse
                     li
                         a(href='/myprofile') My Profile
                     li
@@ -58,7 +59,7 @@
                         a(href='/') Settings
                     li
                         a(href='/signout') Signout
-                ul.dropdown-menu.navbar-inverse(ng-if=("!user"))
+                    //- ul.dropdown-menu.navbar-inverse(ng-if=("!user"))
                     li
                         a(href='/signup') Signup
                     li

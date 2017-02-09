@@ -22,6 +22,10 @@ you can use supervisor as well
 
 ### 4. the lastest issues
 
-- ng-if have some problem with res.local, and I didn't find out. （导致用户未登录与已登录无差别，无法出现 my profile 等）
+- 用户未登录与已登录无差别。此问题与ng-if 和 res.locals.user 有关，正在解决。
 - 明文加密
 - 文中问题的处理 http://blog.fens.me/angularjs-url/
+- 登录后没有跳回主页面
+- 注册／登录成功／失败无提示信息，而只能在终端里查看。
+- 导航栏非最新版本。
+- 登录登出等页面太原始，需要美化。
