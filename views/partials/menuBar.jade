@@ -1,66 +1,65 @@
-// navigation bar
-.navbar.navbar-inverse(role='navigation')
-    .col-md-1
-    .col-md-1
-        a.navbar-left(href='/')
-            img(src='http://img.freepik.com/free-vector/green-tree-logo-template_1061-110.jpg?size=338&ext=jpg')
-    .col-md-6
-        ul.nav.navbar-nav
-            li.dropdown
-                a.dropdown-toggle(href='', data-toggle='dropdown')
-                    | BROWSE
-                    span.caret
-                ul.dropdown-menu.navbar-inverse
-                    li
-                        a(href='/') ALL
-                    li
-                        a(href='/') MAP
-                    li
-                        a(href='/') DOCUMENT
-                    li
-                        a(href='/') USER
-                    li
-                        a(href='/') LOCAL
-        form.navbar-form.navbar-left(action='/', rol='search')
-            .form-group.has-feedback
-                input.form-control(type='text', placeholder='Search Limb')
-                i.glyphicon.glyphicon-search.form-control-feedback
-    .col-md-1
-    .col-md-3
-        ul.nav.navbar-nav
-            li.dropdown
-                a.dropdown-toggle(href='', data-toggle='dropdown')
-                    | ADD
-                    span.caret
-                ul.dropdown-menu.navbar-inverse
-                    li
-                        a(href='/') New Map
-                    li
-                        a(href='/') New Limb
-                    li
-                        a(href='/') New ...
-        ul.nav.navbar-nav
-            li.dropdown
-                a#userPic.dropdown-toggle(href='', data-toggle='dropdown')
-                    img(src='https://image.freepik.com/free-icon/user-image-with-black-background_318-34564.jpg')
-                    span.caret
-                //- ul.dropdown-menu.navbar-inverse(ng-if=("user"))
-                ul.dropdown-menu.navbar-inverse
-                    li
-                        a(href='/myprofile') My Profile
-                    li
-                        a(href='/') My Trees
-                    li
-                        a(href='/') My ...
-                    li.divider
-                    li
-                        a(href='/') Help
-                    li
-                        a(href='/') Settings
-                    li
-                        a(href='/signout') Signout
-                    //- ul.dropdown-menu.navbar-inverse(ng-if=("!user"))
-                    li
-                        a(href='/signup') Signup
-                    li
-                        a(href='/signin') Signin
+.container
+    nav.navbar.navbar-inverse(role='navigation')
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='/bs-example-navbar-collapse-1')
+                span.sr-only Toggle navigation
+            a.navbar-brand(href='') Limb
+        // Collect the nav links, forms, and other content for toggling
+        .bs-example-navbar-collapse-1.collapse.navbar-collapse
+            ul.nav.navbar-nav.navbar-left
+                li.dropdown
+                    a.dropdown-toggle(href='', data-toggle='dropdown')
+                        | browse
+                        b.caret
+                    ul.dropdown-menu
+                        li
+                            a(href='/') all
+                        li
+                            a(href='/') map
+                        li
+                            a(href='/') document
+                        li
+                            a(href='/') user
+                        li
+                            a(href='/') local
+            form.navbar-form.navbar-left(action='/', role='search')
+                .form-group.has-feedback
+                    .input-group
+                        input.form-control(type='text', placeholder='Search Limb')
+                        span.input-group-addon
+                            span.fui-search
+            ul.nav.navbar-nav.navbar-right
+                li.dropdown
+                    a.dropdown-toggle(href='', data-toggle='dropdown')
+                        span.fui-plus
+                        b.caret
+                    ul.dropdown-menu
+                        li
+                            a(href='/') new tree
+                        li
+                            a(href='/') new limb
+                        li
+                            a(href='/') Something else..
+                li.dropdown
+                    a.dropdown-toggle(href='', data-toggle='dropdown')
+                        span.fui-user
+                        b.caret
+                    ul.dropdown-menu
+                        li
+                            a(href='/myprofile') my profile
+                        li
+                            a(href='/') my limbs
+                        li
+                            a(href='/') my stars
+                        li.divider
+                        li
+                            a(href='/') help
+                        li
+                            a(href='/') settings
+                        li
+                            a(href='/signout') sign out
+                        li
+                            a(href='/signup') sign up
+                        li
+                            a(href='/signin') sign in
