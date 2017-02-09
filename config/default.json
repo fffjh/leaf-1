@@ -1,4 +1,5 @@
 {
+    "app": "limb",
     "port": 8080,
     "session": {
       "maxAge": 2592000000

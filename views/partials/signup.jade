@@ -1,6 +1,6 @@
-div
-    input(type='text', placeholder='Email')
+form
+    input(type='text', ng-model='formData.email', placeholder='Email')
     br
-    input(type='text', placeholder='password')
+    input(type='text', ng-model='formData.password', placeholder='password')
     br
-    button(type='submit') Signup
+    button(type='summit', ng-click='signup()') Signup
