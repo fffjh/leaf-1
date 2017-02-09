@@ -28,7 +28,7 @@ exports.signup = function(req, res) {
 
     // 用户信息写入数据库
     UserModel.create(user)
-        .then(function(result) {
+        .then(function(user) {
             console.log('注册成功');
             // 将用户信息存入 session
             delete user.password;
@@ -44,31 +44,27 @@ exports.signin = function(req, res) {
     var email = req.body.email;
     var password = req.body.password;
 
-    var user = {
-        email: email,
-        password: password
-    };
-
     UserModel.getUserByEmail(email)
         .then(function(user) {
             if (!user) {
-                // req.flash('error', '用户不存在');
                 console.log('用户不存在');
                 return res.redirect('back');
             }
-            // 检查密码是否匹配
             if (password !== user.password) {
-                // req.flash('error', '用户名或密码错误');
                 console.log('邮箱或密码错误');
                 return res.redirect('back');
             }
-            // req.flash('success', '登录成功');
             console.log('登陆成功');
-            // 用户信息写入 session
             delete user.password;
             req.session.user = user;
             // 跳转到主页
-            res.redirect('back');
+            res.redirect('/');
         })
-    // .catch(next);
+};
+
+// Sign in
+exports.signout = function(req, res, next) {
+    req.session.destroy();
+    next();
+    // res.redirect('/');
 };

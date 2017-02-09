@@ -25,5 +25,15 @@ function SigninCtrl($scope, $http) {
             .catch(function(data) {
                 console.log('Error: ' + data);
             });
-    }
-}
+    };
+};
+
+function MyprofileCtrl($scope, $http) {}
+
+function SignoutCtrl($scope, $http, $location) {
+    $http.get('/api/signout')
+        .then(function() {
+            console.log('/api/signout/then ----');
+            // $location.path('/');
+        });
+};

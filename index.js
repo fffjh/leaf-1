@@ -27,12 +27,13 @@ app.use(bodyParser.json({
 app.use(methodOverride());
 
 app.use(session({
-    secret: 'Limb',
+    secret: 'recommand 128 bytes random string', // 128 个字符的随机字符串
     cookie: {
         maxAge: 86400000
     },
     user: {}
 }));
+
 app.use(autoSignin);
 // --- routes
 routes(app);

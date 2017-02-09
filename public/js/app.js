@@ -16,6 +16,14 @@ app.config(function config($locationProvider, $routeProvider) {
         templateUrl: 'partials/signin',
         controller: SigninCtrl
     }).
+    when('/myprofile', {
+        templateUrl: 'partials/myprofile',
+        controller: MyprofileCtrl
+    }).
+    when('/signout', {
+        templateUrl: 'partials/index',
+        controller: SignoutCtrl
+    }).
     otherwise({
         redirectTo: '/'
     });

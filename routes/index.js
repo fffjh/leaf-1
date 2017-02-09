@@ -10,10 +10,10 @@ module.exports = function(app) {
         res.render('partials/' + name);
     });
 
-    api.autoSignin;
     // api
     app.post('/api/signup', api.signup);
     app.post('/api/signin', api.signin);
+    app.get('/api/signout', api.signout);
 
     // otherwise
     app.get('*', function(req, res) {

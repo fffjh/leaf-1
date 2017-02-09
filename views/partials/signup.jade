@@ -1,6 +1,9 @@
+include menuBar
 form
     input(type='text', ng-model='formData.email', placeholder='Email')
     br
     input(type='text', ng-model='formData.password', placeholder='password')
     br
     button(type='summit', ng-click='signup()') Signup
+    p have an account already? 
+        a(href='/signin') signin
