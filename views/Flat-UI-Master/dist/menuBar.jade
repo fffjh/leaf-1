@@ -1,0 +1,98 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Flat UI Free 101 Template
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    // Loading Bootstrap
+    link(href='../dist/css/vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    // Loading Flat UI
+    link(href='../dist/css/flat-ui.min.css', rel='stylesheet')
+    link(rel='shortcut icon', href='img/favicon.ico')
+    style(type='text/css').
+      .navbar-inverse .navbar-form .form-control,
+      .navbar-inverse .navbar-form .select2-search input[type="text"] {
+      color: #536a81;
+      border-color: transparent;
+      background-color: white;
+      }
+      .navbar {
+      min-height: 53px;
+      margin-bottom: 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 0px;
+      }
+    // HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file.
+    //if lt IE 9
+      script(src='js/vendor/html5shiv.js')
+      script(src='js/vendor/respond.min.js')
+  body
+    .container
+      nav.navbar.navbar-inverse(role='navigation')
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+          a.navbar-brand(href='#') Limb
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-left
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                | browse
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href='#') all
+                li
+                  a(href='#') map
+                li
+                  a(href='#') document
+                li
+                  a(href='#') user
+                li
+                  a(href='#') local
+          form.navbar-form.navbar-left(action='#', role='search')
+            .form-group.has-feedback
+              .input-group
+                input.form-control(type='text', placeholder='Search Limb')
+                span.input-group-addon
+                  span.fui-search
+          ul.nav.navbar-nav.navbar-right
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                span.fui-plus
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href='#') new tree
+                li
+                  a(href='#') new limb
+                li
+                  a(href='#') Something else..
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                span.fui-user
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href='#') my profile
+                li
+                  a(href='#') my limbs
+                li
+                  a(href='#') my stars
+                li.divider
+                li
+                  a(href='#') help
+                li
+                  a(href='#') settings
+                li
+                  a(href='#') log out
+        // /.navbar-collapse
+    // /.container
+    // jQuery (necessary for Flat UI's JavaScript plugins)
+    script(src='../dist/js/vendor/jquery.min.js')
+    // Include all compiled plugins (below), or include individual files as needed
+    script(src='../dist/js/vendor/video.js')
+    script(src='../dist/js/flat-ui.min.js')
