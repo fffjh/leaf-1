@@ -1,7 +1,9 @@
 {
+    "app": "limb",
     "port": 8080,
     "session": {
       "maxAge": 2592000000
     },
-    "mongodb": "mongodb://localhost:27017/limb"
+    "mongodb": "mongodb://node:node@jello.modulusmongo.net:27017/z9apyjiS"
+    /*"mongodb": "mongodb://localhost:27017/limb"*/
 }

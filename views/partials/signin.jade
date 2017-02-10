@@ -1,6 +1,8 @@
-div
-    input(type='text', placeholder='Email')
+form
+    input(type='text', ng-model='formData.email', placeholder='Email')
     br
-    input(type='text', placeholder='password')
+    input(type='text', ng-model='formData.password', placeholder='password')
     br
-    button(type='submit') Signin
+    button(type='summit', ng-click='signin()') Signin
+    p new to Limb? 
+        a(href='/signup') signup
