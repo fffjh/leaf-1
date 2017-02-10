@@ -1,4 +1,5 @@
-.container
+.topArea
+  .container
     nav.navbar.navbar-inverse(role='navigation')
         // Brand and toggle get grouped for better mobile display
         .navbar-header
@@ -32,15 +33,18 @@
             ul.nav.navbar-nav.navbar-right
                 li.dropdown
                     a.dropdown-toggle(href='', data-toggle='dropdown')
-                        span.fui-plus
+                        span.fui-document
                         b.caret
                     ul.dropdown-menu
                         li
-                            a(href='/') new tree
+                            a(href='/') new map
                         li
-                            a(href='/') new limb
+                            a(href='/') open file
                         li
-                            a(href='/') Something else..
+                            a(href='/') delete
+                        li.divider
+                        li
+                            a(href='/') recently
                 li.dropdown
                     a.dropdown-toggle(href='', data-toggle='dropdown')
                         span.fui-user
