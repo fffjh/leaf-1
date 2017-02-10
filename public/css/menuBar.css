@@ -11,3 +11,8 @@
     border: none;
     border-radius: 0px;
 }
+
+.topArea {
+        height:53px;
+        background-color: #34495e; 
+}
