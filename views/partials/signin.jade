@@ -1,20 +1,21 @@
+link(href='css/signIn.css', rel='stylesheet')
 .row
-      .col-md-4
-      .col-md-4
+    .col-md-4
+    .col-md-4
         form.form-horizontal(role='form')
-          .form-group
-            label.col-lg-2.control-label(for='inputEmail1') Email
-            .col-lg-10
-              input#inputEmail1.form-control(type='email', placeholder='Email', ng-model='formData.email')
-          .form-group
-            label.col-lg-2.control-label(for='inputPassword1') Password
-            .col-lg-10
-              input#inputPassword1.form-control(type='password', placeholder='Password', ng-model='formData.password')
-          .form-group
-            #signInBtn.col-lg-offset-2.col-lg-10
-              button.btn.btn-primary(type='submit', ng-click='signin()') Sign in
-          span.signUp
-            | New to Leaf? 
-            a(href='/signup') Sign up
-      // /.col-md-12
+            .form-group
+                label.col-lg-2.control-label(for='inputEmail1') Email
+                .col-lg-10
+                    input#inputEmail1.form-control(type='email', placeholder='Email', ng-model='formData.email')
+            .form-group
+                label.col-lg-2.control-label(for='inputPassword1') Password
+                .col-lg-10
+                    input#inputPassword1.form-control(type='password', placeholder='Password', ng-model='formData.password')
+            .form-group
+                #signInBtn.col-lg-offset-2.col-lg-10
+                    button.btn.btn-primary(type='submit', ng-click='signin()') Sign in
+            span.signUp
+                | New to Leaf? 
+                a(href='/signup') Sign up
+    // /.col-md-12
     // /.row
