@@ -1,9 +1,13 @@
 {
-    "app": "limb",
+    "app": "leaf",
     "port": 8080,
     "session": {
-      "maxAge": 2592000000
+          "secret": "recommand 128 bytes random string", // 128 个字符的随机字符串
+          "cookie": {
+              "maxAge": 86400000
+          },
+          "user": {}
     },
     "mongodb": "mongodb://node:node@jello.modulusmongo.net:27017/z9apyjiS"
-    /*"mongodb": "mongodb://localhost:27017/limb"*/
+    /*"mongodb": "mongodb://localhost:27017/leaf"*/
 }

@@ -37,3 +37,5 @@ function SignoutCtrl($scope, $http, $location) {
             // $location.path('/');
         });
 };
+
+function LeafCtrl($scope, $http, $location) {};

@@ -62,7 +62,7 @@ exports.signin = function(req, res) {
         })
 };
 
-// Sign in
+// Sign out
 exports.signout = function(req, res, next) {
     req.session.destroy();
     next();
