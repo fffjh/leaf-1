@@ -9,3 +9,19 @@
 #signInBtn {
    padding-left: 120px;
 }
+
+form.form-horizontal {
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+input:focus {
+    background-color: #ffff77;
+}
+
+.crossButton {
+    float: right;
+    height: 15px;
+    margin-right: 20px;
+    margin-top: -28px;
+}
