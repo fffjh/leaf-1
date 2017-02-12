@@ -13,6 +13,20 @@
 }
 
 .topArea {
-        height:53px;
-        background-color: #34495e; 
+    height:53px;
+    background-color: #34495e; 
+}
+
+.navbar-collapse .navbar-nav.navbar-left:first-child>li:first-child a {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.navbar-collapse .navbar-nav.navbar-right:last-child>.dropdown:last-child>a {
+    border-radius: 0 0px 0px 0;
+}
+
+#menu {
+    position: relative;
+    z-index: 19999;
 }
