@@ -1,5 +1,6 @@
 link(href='css/signIn.css', rel='stylesheet')
 .row
+<<<<<<< HEAD
     .col-sm-4
     .col-sm-4
         form.form-horizontal(role='form')
@@ -19,3 +20,28 @@ link(href='css/signIn.css', rel='stylesheet')
                 a(href='/signup') Sign up
     // /.col-md-12
     // /.row
+=======
+  .col-sm-4
+  .col-sm-4
+    form.form-horizontal(role='form')
+      .form-group
+        label.col-lg-2.control-label(for='inputEmail1') Email
+        .col-lg-10.inputArea
+          input#inputEmail1.form-control(type='email', placeholder='Email', ng-model='formData.email')
+          input.crossButton(type='image', src='https://cdn2.iconfinder.com/data/icons/media-and-navigation-buttons-round/512/Button_12-128.png', onclick='reset(); return false;')
+      
+      .form-group
+        label.col-lg-2.control-label(for='inputPassword1') Password
+        .col-lg-10.inputArea
+          input#inputPassword1.form-control(type='password', placeholder='Password', ng-model='formData.password')
+          input.crossButton(type='image', src='https://cdn2.iconfinder.com/data/icons/media-and-navigation-buttons-round/512/Button_12-128.png', onclick='reset(); return false;')
+     
+      .form-group
+        #signInBtn.col-lg-offset-2.col-lg-10
+          button.btn.btn-primary(type='submit', ng-click='signin()') Sign in
+      span.signUp
+        | New to Leaf? 
+        a(href='/signup') Sign up
+  // /.col-md-12
+// /.row
+>>>>>>> b39ebfb36c89e03319b87bc24c59bab8c8851937
