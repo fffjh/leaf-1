@@ -24,6 +24,10 @@ app.config(function config($locationProvider, $routeProvider) {
         templateUrl: 'partials/index',
         controller: SignoutCtrl
     }).
+    when('/leaf/:leafId', {
+        templateUrl: 'partials/leaf/',
+        controller: LeafCtrl
+    }).
     otherwise({
         redirectTo: '/'
     });
