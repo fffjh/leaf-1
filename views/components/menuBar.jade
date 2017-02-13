@@ -50,24 +50,26 @@
                             span.fui-user
                             b.caret
                         ul.dropdown-menu
-                            li
-                                a(href='/myprofile') my profile
-                            li
-                                a(href='/') my leaves
-                            li
-                                a(href='/') my stars
-                            li
-                                a(href='/') my messages
-                            li
-                                a(href='/') request
-                            li.divider
-                            li
-                                a(href='/') help
-                            li
-                                a(href='/') settings
-                            li
-                                a(href='/signout') sign out
-                            li
-                                a(href='/signup') sign up
-                            li
-                                a(href='/signin') sign in
+                            - if(user)
+                                li
+                                    a(href='/myprofile') my profile
+                                li
+                                    a(href='/') my leaves
+                                li
+                                    a(href='/') my stars
+                                li
+                                    a(href='/') my messages
+                                li
+                                    a(href='/') request
+                                li.divider
+                                li
+                                    a(href='/') help
+                                li
+                                    a(href='/') settings
+                                li
+                                    a(href='/signout') sign out
+                            - else
+                                li
+                                    a(href='/signup') sign up
+                                li
+                                    a(href='/signin') sign in
