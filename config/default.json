@@ -1,6 +1,6 @@
 {
     "app": "leaf",
-    "port": 80,
+    "port": 8080,
     "session": {
           "secret": "recommand 128 bytes random string", // 128 个字符的随机字符串
           "cookie": {
@@ -8,6 +8,6 @@
           },
           "user": {}
     },
-    /*"mongodb": "mongodb://node:node@jello.modulusmongo.net:27017/z9apyjiS"*/
-    "mongodb": "mongodb://localhost:27017/leaf"
+    "mongodb": "mongodb://node:node@jello.modulusmongo.net:27017/z9apyjiS"
+    /*"mongodb": "mongodb://localhost:27017/leaf"*/
 }
