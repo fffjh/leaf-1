@@ -32,13 +32,6 @@ app.use(autoSignin);
 // --- routes
 routes(app);
 
-// // --- error page
-// app.use(function(req, res, next) {
-//     let err = new Error('Not Found');
-//     err.status = 404;
-//     next(err);
-// });
-
 // --- start server
 app.listen(config.get('port'));
 console.log(config.get('app') + ' listening on port ' + config.get('port'));

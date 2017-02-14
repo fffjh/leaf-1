@@ -39,35 +39,37 @@
                             li
                                 a(href='/leaf') new leaf
                             li
-                                a(href='/') open file
+                                a(href='/leaf') open file
                             li
-                                a(href='/') delete this leaf
+                                a(href='/leaf') delete this leaf
                             li.divider
                             li
-                                a(href='/') recently opened
+                                a(href='/leaf') recently opened
                     li.dropdown
                         a.dropdown-toggle(href='', data-toggle='dropdown')
                             span.fui-user
                             b.caret
                         ul.dropdown-menu
-                            li
-                                a(href='/myprofile') my profile
-                            li
-                                a(href='/') my leaves
-                            li
-                                a(href='/') my stars
-                            li
-                                a(href='/') my messages
-                            li
-                                a(href='/') request
-                            li.divider
-                            li
-                                a(href='/') help
-                            li
-                                a(href='/') settings
-                            li
-                                a(href='/signout') sign out
-                            li
-                                a(href='/signup') sign up
-                            li
-                                a(href='/signin') sign in
+                            - if(user)
+                                li
+                                    a(href='/myprofile') my profile
+                                li
+                                    a(href='/') my leaves
+                                li
+                                    a(href='/') my stars
+                                li
+                                    a(href='/') my messages
+                                li
+                                    a(href='/') request
+                                li.divider
+                                li
+                                    a(href='/') help
+                                li
+                                    a(href='/') settings
+                                li
+                                    a(href='/signout') sign out
+                            - else
+                                li
+                                    a(href='/signup') sign up
+                                li
+                                    a(href='/signin') sign in
