@@ -49,7 +49,9 @@ function SignoutCtrl($scope, $http, $location, $route, $window) {
         });
 };
 
-function LeafCtrl($scope, $http, $location) {};
+function NewLeafCtrl($scope, $http, $location) {};
+
+function OneLeafCtrl($scope, $http, $location) {};
 
 app.run(['$rootScope', function($rootScope) {
     $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {

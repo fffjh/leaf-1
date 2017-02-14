@@ -1,0 +1,60 @@
+div(name='toolBar')
+    div(ng-if="option.thinking")
+        button(ng-click='undo()') undo
+        button(ng-click='add-father-node()') add-father-node
+        button(ng-click='add-up-node()') add-up-node
+        button(ng-click='move-up()') move-up
+        button(ng-click='edit()') edit
+        br
+        button(ng-click='redo()') redo
+        button(ng-click='add-son-node()') add-son-node
+        button(ng-click='add-down-node()') add-down-node
+        button(ng-click='move-down()') move-down
+        button(ng-click='delete()') delete
+    div(ng-if="option.mark")
+        button(ng-click='delete()') delete
+        button(ng-click='one()') one
+        button(ng-click='two()') two
+        button(ng-click='three()') three
+        button(ng-click='four()') four
+        button(ng-click='five()') five
+        button(ng-click='star()') star
+        br
+        button(ng-click='done()') done
+        button(ng-click='four-quarter()') four-quarter
+        button(ng-click='three-quarter()') three-quarter
+        button(ng-click='two-quarter()') two-quarter
+        button(ng-click='one-quarter()') one-quarter
+        button(ng-click='o-quarter()') o-quarter
+    div(ng-if="option.add")
+        button(ng-click='link()') link
+        button(ng-click='note()') note
+        button(ng-click='markdown()') markdown
+        br
+        button(ng-click='picture()') picture
+        button(ng-click='file()') file
+        button(ng-click='leaf()') leaf
+    div(ng-if="option.operate")
+        button(ng-click='goto()') goto
+        button(ng-click='copy()') copy
+        button(ng-click='past()') past
+        button(ng-click='share()') share
+        br
+        button(ng-click='news()') news
+        button(ng-click='cut()') cut
+        button(ng-click='star()') star
+        button(ng-click='save-as-picture()') save-as-picture
+    div(ng-if="option.view")
+        button(ng-click='spread()') spread
+        button(ng-click='amplify()') amplify
+        button(ng-click='scatter()') scatter
+        button(ng-click='hand()') hand
+        br
+        button
+            b.caret
+        button(ng-click='shrink()') shrink
+        button(ng-click='assemble()') assemble
+        button(ng-click='search()') search
+    div(ng-if="option.appearance")
+        button(ng-click='theme()') theme
+        button(ng-click='color()') color
