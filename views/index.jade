@@ -1,9 +1,9 @@
 doctype html
-html(lang='en')
+html(ng-app='myApp')
 head
     base(href='/')
     meta(charset='utf-8')
-    title Leaf
+    title(ng-bind="title + 'Leaf'") Leaf
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     // Loading Bootstrap
     link(href='Flat-UI-master/dist/css/vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
@@ -14,7 +14,7 @@ head
     script(src='Flat-UI-master/dist/js/vendor/html5shiv.js')
     script(src='Flat-UI-master/dist/js/vendor/respond.min.js')    
 
-body(ng-app='myApp')
+body
     include components/menuBar
 
     div(ng-view)

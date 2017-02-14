@@ -26,24 +26,11 @@ app.use(bodyParser.json({
 })); // parse application/vnd.api+json as json
 app.use(methodOverride());
 
-app.use(session({
-    secret: 'recommand 128 bytes random string', // 128 个字符的随机字符串
-    cookie: {
-        maxAge: 86400000
-    },
-    user: {}
-}));
-
+app.use(session(config.get('session')));
 app.use(autoSignin);
+
 // --- routes
 routes(app);
-
-// // --- error page
-// app.use(function(req, res, next) {
-//     let err = new Error('Not Found');
-//     err.status = 404;
-//     next(err);
-// });
 
 // --- start server
 app.listen(config.get('port'));
