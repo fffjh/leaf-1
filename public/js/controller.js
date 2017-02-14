@@ -7,9 +7,9 @@ function SignupCtrl($scope, $http, $location, $window) {
     $scope.signup = function() {
         $http.post('/api/signup', $scope.formData)
             .then(function(data) {
-                $scope.reloadRoute = function() {
-                    $window.location.reload();
-                }
+                setTimeout(function() {
+                    window.location.reload();
+                }, 100);
                 console.log('signed up!');
                 $location.path('/');
             })
