@@ -5,20 +5,20 @@ this progect used to be `limb`, by team `Königsberg`.
 
 ### 1. clone the repo
 
-	git clone https://github.com/chroslen/leaf.git
+  git clone https://github.com/chroslen/leaf.git
 
 ### 2. NPM install
 
-	cd leaf
-	npm install
+  cd leaf
+  npm install
 
 ### 3. start the server
 
-	node index.js
-	
+  node index.js
+  
 you can use supervisor as well
 
-	supervisor --hemony index
+  supervisor --hemony index
 
 ### 4. the lastest issues
 
@@ -28,3 +28,23 @@ you can use supervisor as well
 - 登录后没有跳回主页面
 - 注册／登录成功／失败无提示信息，而只能在终端里查看。
 - 登录登出等页面太原始，需要美化。
+<<<<<<< HEAD
+=======
+
+## 开发框架（采取MVC模型）
+- config
+配置文件夹
+- lib
+
+- models
+逻辑和数据（若采用了mongodb数据库的话）
+- public
+静态文件
+- routes
+路由（控制器）
+- views
+视图
+1. 入口文件index.jade
+2. components组件
+3. partials局部
+>>>>>>> upstream/master

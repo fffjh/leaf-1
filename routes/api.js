@@ -65,6 +65,5 @@ exports.signin = function(req, res) {
 // Sign out
 exports.signout = function(req, res, next) {
     req.session.destroy();
-    next();
-    // res.redirect('/');
+    res.redirect('/');
 };
