@@ -1,7 +1,6 @@
 {
   "name": "limb-ui",
   "version": "1.0.0",
-  "description": "the ui of limb",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +10,7 @@
   "dependencies": {
     "angular": "^1.6.1",
     "angular-route": "^1.6.1",
+    "angular-toastr": "^2.1.1",
     "body-parser": "^1.4.3",
     "config": "^1.25.1",
     "express": "^4.13.4",

@@ -37,7 +37,9 @@
                             b.caret
                         ul.dropdown-menu
                             li
-                                a(href='/leaf') new leaf
+                                a(href='/leaf') new public leaf
+                            li
+                                a(href='/leaf') new private leaf
                             li
                                 a(href='/leaf') open file
                             li
@@ -45,31 +47,30 @@
                             li.divider
                             li
                                 a(href='/leaf') recently opened
-                    li.dropdown
+                    li.dropdown(ng-controller='checkSigninCtrl', ng-model='signedin')
                         a.dropdown-toggle(href='', data-toggle='dropdown')
                             span.fui-user
                             b.caret
-                        ul.dropdown-menu
-                            - if(user)
-                                li
-                                    a(href='/myprofile') my profile
-                                li
-                                    a(href='/') my leaves
-                                li
-                                    a(href='/') my stars
-                                li
-                                    a(href='/') my messages
-                                li
-                                    a(href='/') request
-                                li.divider
-                                li
-                                    a(href='/') help
-                                li
-                                    a(href='/') settings
-                                li
-                                    a(href='/signout') sign out
-                            - else
-                                li
-                                    a(href='/signup') sign up
-                                li
-                                    a(href='/signin') sign in
+                        ul.dropdown-menu(ng-if='signedin')
+                            li
+                                a(href='/myprofile') my profile
+                            li
+                                a(href='/') my leaves
+                            li
+                                a(href='/') my stars
+                            li
+                                a(href='/') my messages
+                            li
+                                a(href='/') request
+                            li.divider
+                            li
+                                a(href='/') help
+                            li
+                                a(href='/') settings
+                            li
+                                a(href='/signout') sign out
+                        ul.dropdown-menu(ng-if='!signedin')
+                            li
+                                a(href='/signup') sign up
+                            li
+                                a(href='/signin') sign in
