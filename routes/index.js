@@ -14,6 +14,7 @@ module.exports = function(app) {
     app.post('/api/signup', api.signup);
     app.post('/api/signin', api.signin);
     app.get('/api/signout', api.signout);
+    app.get('/api/checkSignin', api.checkSignin);
 
     // otherwise
     app.get('*', function(req, res) {

@@ -18,8 +18,6 @@ exports.signup = function(req, res) {
         return;
     }
 
-    // 明文密码加密
-
     // 待写入数据库的用户信息
     var user = {
         email: email,
@@ -59,11 +57,25 @@ exports.signin = function(req, res) {
             req.session.user = user;
             // 跳转到主页
             res.redirect('/');
-        })
+        });
 };
 
 // Sign out
 exports.signout = function(req, res, next) {
     req.session.destroy();
     res.redirect('/');
+};
+
+exports.checkSignin = function(req, res, next) {
+    if (!!req.session.user) {
+        console.log('true------------------');
+        res.json({
+            'signedin': true
+        });
+    } else {
+        console.log('false=================');
+        res.json({
+            'signedin': false
+        })
+    };
 };
