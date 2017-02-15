@@ -1,6 +1,8 @@
 "use strict";
 
-function IndexCtrl($scope, $http) {}
+function IndexCtrl($scope, $http, $rootScope) {
+    $rootScope.$broadcast('authenticationChanged'); // check session to resolve the dropdown list items
+}
 
 function SignupCtrl($scope, $http, $location, $rootScope, toastr) {
     $scope.signup = function() {
@@ -80,6 +82,7 @@ app.controller('checkSigninCtrl', function($http, $rootScope, $scope) {
     });
 });
 
+// toastr congigration
 app.config(function(toastrConfig) {
     angular.extend(toastrConfig, {
         autoDismiss: false,
