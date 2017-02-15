@@ -6,15 +6,9 @@ function SignupCtrl($scope, $http, $location, $rootScope, toastr) {
     $scope.signup = function() {
         $http.post('/api/signup', $scope.formData)
             .then(function(data) {
-<<<<<<< HEAD
-                setTimeout(function() {
-                    window.location.reload();
-                }, 100);
-=======
                 toastr.success('我们已发送一封验证邮件到您的邮箱，为了安全，请在十五天内完成验证', '注册成功！', {
                     closeButton: true
                 });
->>>>>>> yuanyuan
                 console.log('signed up!');
                 $rootScope.$broadcast('authenticationChanged');
                 $location.path('/');
