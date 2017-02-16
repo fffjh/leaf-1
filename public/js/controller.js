@@ -19,8 +19,8 @@ function SignupCtrl($scope, $http, $location, $rootScope) {
             $http.post('/api/signup', $scope.formData)
                 .then(function(data) {
                     if (data.data.status) {
-                        swal('注册成功!', 'Hi, ' + data.data.email + '!\nLeaf已向您发送一封验证邮件，为了您的安全，请尽快完成验证。\n接下来将自动为您登陆.', 'success');
                         $rootScope.$broadcast('authenticationChanged');
+                        swal('注册成功!', 'Hi, ' + data.data.email + '!\nLeaf已向您发送一封验证邮件，为了您的安全，请尽快完成验证。\n接下来将自动为您登陆.', 'success');
                         $location.path('/');
                     } else {
                         swal('注册失败!', data.data.message, 'error');
@@ -38,8 +38,8 @@ function SigninCtrl($scope, $http, $location, $rootScope) {
         $http.post('/api/signin', $scope.formData)
             .then(function(data) {
                 if (data.data.status) {
-                    swal('登陆成功!', 'Hi, ' + data.data.email + ' !', 'success');
                     $rootScope.$broadcast('authenticationChanged');
+                    swal('登陆成功!', 'Hi, ' + data.data.email + ' !', 'success');
                     $location.path('/');
                 } else {
                     swal('登陆失败!', data.data.message, 'error');
@@ -66,8 +66,8 @@ function SignoutCtrl($scope, $http, $location, $rootScope) {
     }, function() {
         $http.get('/api/signout')
             .then(function() {
-                swal('登出成功!', 'Your session has been deleted!', 'success');
                 $rootScope.$broadcast('authenticationChanged');
+                swal('登出成功!', 'Your session has been deleted!', 'success');
                 $location.path('/');
             }, function(error) {
                 swal('登出失败!', '未知错误', 'error');
