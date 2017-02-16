@@ -18,11 +18,15 @@ function SignupCtrl($scope, $http, $location, $rootScope) {
         }, function() {
             $http.post('/api/signup', $scope.formData)
                 .then(function(data) {
-                    swal('注册成功!', 'Welcome, ' + data.data.email + '!\nLeaf已向您发送一封验证邮件，为了您的安全，请尽快完成验证。\n接下来将自动为您登陆.', 'success');
-                    $rootScope.$broadcast('authenticationChanged');
-                    $location.path('/');
+                    if (data.data.status) {
+                        swal('注册成功!', 'Hi, ' + data.data.email + '!\nLeaf已向您发送一封验证邮件，为了您的安全，请尽快完成验证。\n接下来将自动为您登陆.', 'success');
+                        $rootScope.$broadcast('authenticationChanged');
+                        $location.path('/');
+                    } else {
+                        swal('注册失败!', data.data.message, 'error');
+                    }
                 }, function(error) {
-                    swal('注册失败!', '请检查您的信息', 'error');
+                    swal('注册失败!', '未知错误', 'error');
                     console.log('Error: ' + error);
                 });
         });
@@ -33,11 +37,15 @@ function SigninCtrl($scope, $http, $location, $rootScope) {
     $scope.signin = function() {
         $http.post('/api/signin', $scope.formData)
             .then(function(data) {
-                swal('登陆成功!', 'Welcome, ' + data.data.email + ' !', 'success');
-                $rootScope.$broadcast('authenticationChanged');
-                $location.path('/');
+                if (data.data.status) {
+                    swal('登陆成功!', 'Hi, ' + data.data.email + ' !', 'success');
+                    $rootScope.$broadcast('authenticationChanged');
+                    $location.path('/');
+                } else {
+                    swal('登陆失败!', data.data.message, 'error');
+                }
             }, function(error) {
-                swal('登陆失败!', '请检查您的信息', 'error');
+                swal('登陆失败!', '未知错误', 'error');
                 console.log('Error: ' + error);
             });
     };
