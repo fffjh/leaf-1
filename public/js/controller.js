@@ -11,7 +11,7 @@ function SignupCtrl($scope, $http, $location, $rootScope) {
             text: "Please check your email again: \n" + $scope.formData.email,
             type: "success",
             showCancelButton: true,
-            confirmButtonColor: "#DD6B55",
+            confirmButtonColor: "#8cd4f5",
             confirmButtonText: "Yes, sign up!",
             closeOnConfirm: false,
             html: false
