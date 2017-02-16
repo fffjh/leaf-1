@@ -31,8 +31,9 @@ exports.signup = function(req, res) {
             // 将用户信息存入 session
             delete user.password;
             req.session.user = user;
-            // 跳转到首页
-            res.redirect('/');
+            res.json({
+                'email': email
+            })
         });
 };
 
@@ -55,8 +56,9 @@ exports.signin = function(req, res) {
             console.log('登陆成功');
             delete user.password;
             req.session.user = user;
-            // 跳转到主页
-            res.redirect('/');
+            res.json({
+                'email': email
+            })
         });
 };
 
@@ -68,12 +70,10 @@ exports.signout = function(req, res, next) {
 
 exports.checkSignin = function(req, res, next) {
     if (!!req.session.user) {
-        console.log('true------------------');
         res.json({
             'signedin': true
         });
     } else {
-        console.log('false=================');
         res.json({
             'signedin': false
         })

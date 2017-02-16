@@ -4,39 +4,40 @@ function IndexCtrl($scope, $http, $rootScope) {
     $rootScope.$broadcast('authenticationChanged'); // check session to resolve the dropdown list items
 }
 
-function SignupCtrl($scope, $http, $location, $rootScope, toastr) {
+function SignupCtrl($scope, $http, $location, $rootScope) {
     $scope.signup = function() {
-        $http.post('/api/signup', $scope.formData)
-            .then(function(data) {
-                toastr.success('我们已发送一封验证邮件到您的邮箱，为了安全，请在十五天内完成验证', '注册成功！', {
-                    closeButton: true
+        swal({
+            title: "Welcom to Leaf",
+            text: "Please check your email again: \n" + $scope.formData.email,
+            type: "success",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, sign up!",
+            closeOnConfirm: false,
+            html: false
+        }, function() {
+            $http.post('/api/signup', $scope.formData)
+                .then(function(data) {
+                    swal('注册成功!', 'Welcome, ' + data.data.email + '!\nLeaf已向您发送一封验证邮件，为了您的安全，请尽快完成验证。\n接下来将自动为您登陆.', 'success');
+                    $rootScope.$broadcast('authenticationChanged');
+                    $location.path('/');
+                }, function(error) {
+                    swal('注册失败!', '请检查您的信息', 'error');
+                    console.log('Error: ' + error);
                 });
-                console.log('signed up!');
-                $rootScope.$broadcast('authenticationChanged');
-                $location.path('/');
-            }, function(error) {
-                toastr.error('注册失败！', {
-                    closeButton: true
-                });
-                console.log('Error: ' + error);
-            });
+        });
     };
 };
 
-function SigninCtrl($scope, $http, $location, $rootScope, toastr) {
+function SigninCtrl($scope, $http, $location, $rootScope) {
     $scope.signin = function() {
         $http.post('/api/signin', $scope.formData)
             .then(function(data) {
-                toastr.success('登陆成功！', {
-                    closeButton: true
-                });
-                console.log('signed in!');
+                swal('登陆成功!', 'Welcome, ' + data.data.email + ' !', 'success');
                 $rootScope.$broadcast('authenticationChanged');
                 $location.path('/');
             }, function(error) {
-                toastr.error('登陆失败！', {
-                    closeButton: true
-                });
+                swal('登陆失败!', '请检查您的信息', 'error');
                 console.log('Error: ' + error);
             });
     };
@@ -44,21 +45,27 @@ function SigninCtrl($scope, $http, $location, $rootScope, toastr) {
 
 function MyprofileCtrl($scope, $http) {}
 
-function SignoutCtrl($scope, $http, $location, $rootScope, toastr) {
-    $http.get('/api/signout')
-        .then(function() {
-            toastr.success('登出成功！', {
-                closeButton: true
+function SignoutCtrl($scope, $http, $location, $rootScope) {
+    swal({
+        title: "Leave Leaf?",
+        text: "Your session will be deleted",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Yes, I'll leave!",
+        closeOnConfirm: false,
+        html: false
+    }, function() {
+        $http.get('/api/signout')
+            .then(function() {
+                swal('登出成功!', 'Your session has been deleted!', 'success');
+                $rootScope.$broadcast('authenticationChanged');
+                $location.path('/');
+            }, function(error) {
+                swal('登出失败!', '未知错误', 'error');
+                console.log('Error: ' + error);
             });
-            console.log('signed out!');
-            $rootScope.$broadcast('authenticationChanged');
-            $location.path('/');
-        }, function(error) {
-            toastr.error('登出失败！', {
-                closeButton: true
-            });
-            console.log('Error: ' + error);
-        });
+    });
 };
 
 function NewLeafCtrl($scope, $http, $location) {};
@@ -79,19 +86,5 @@ app.controller('checkSigninCtrl', function($http, $rootScope, $scope) {
             }, function(error) {
                 console.log('Error:' + data);
             });
-    });
-});
-
-// toastr congigration
-app.config(function(toastrConfig) {
-    angular.extend(toastrConfig, {
-        autoDismiss: false,
-        containerId: 'toast-container',
-        maxOpened: 0,
-        newestOnTop: true,
-        positionClass: 'toast-bottom-center',
-        preventDuplicates: false,
-        preventOpenDuplicates: false,
-        target: 'body'
     });
 });
