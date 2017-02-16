@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('myApp', ['ngRoute', 'toastr']);
+var app = angular.module('myApp', ['ngRoute']);
 
 app.config(function config($locationProvider, $routeProvider) {
     $routeProvider.
