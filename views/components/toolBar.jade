@@ -1,60 +1,106 @@
+link(href='css/toolBar.css', rel='stylesheet')
 div(name='toolBar')
-    div(ng-if="option.thinking")
-        button(ng-click='undo()') undo
-        button(ng-click='add-father-node()') add-father-node
-        button(ng-click='add-up-node()') add-up-node
-        button(ng-click='move-up()') move-up
-        button(ng-click='edit()') edit
-        br
-        button(ng-click='redo()') redo
-        button(ng-click='add-son-node()') add-son-node
-        button(ng-click='add-down-node()') add-down-node
-        button(ng-click='move-down()') move-down
-        button(ng-click='delete()') delete
-    div(ng-if="option.mark")
-        button(ng-click='delete()') delete
-        button(ng-click='one()') one
-        button(ng-click='two()') two
-        button(ng-click='three()') three
-        button(ng-click='four()') four
-        button(ng-click='five()') five
-        button(ng-click='star()') star
-        br
-        button(ng-click='done()') done
-        button(ng-click='four-quarter()') four-quarter
-        button(ng-click='three-quarter()') three-quarter
-        button(ng-click='two-quarter()') two-quarter
-        button(ng-click='one-quarter()') one-quarter
-        button(ng-click='o-quarter()') o-quarter
-    div(ng-if="option.add")
-        button(ng-click='link()') link
-        button(ng-click='note()') note
-        button(ng-click='markdown()') markdown
-        br
-        button(ng-click='picture()') picture
-        button(ng-click='file()') file
-        button(ng-click='leaf()') leaf
-    div(ng-if="option.operate")
-        button(ng-click='goto()') goto
-        button(ng-click='copy()') copy
-        button(ng-click='past()') past
-        button(ng-click='share()') share
-        br
-        button(ng-click='news()') news
-        button(ng-click='cut()') cut
-        button(ng-click='star()') star
-        button(ng-click='save-as-picture()') save-as-picture
-    div(ng-if="option.view")
-        button(ng-click='spread()') spread
-        button(ng-click='amplify()') amplify
-        button(ng-click='scatter()') scatter
-        button(ng-click='hand()') hand
-        br
-        button
-            b.caret
-        button(ng-click='shrink()') shrink
-        button(ng-click='assemble()') assemble
-        button(ng-click='search()') search
-    div(ng-if="option.appearance")
-        button(ng-click='theme()') theme
-        button(ng-click='color()') color
+  div(ng-if='option.thinking')
+    button(ng-click='undo()', title='undo')
+      img(src='')
+    button(ng-click='add-father-node()', title='add father node')
+      img(src='')
+    button(ng-click='add-up-node()', title='add up node')
+      img(src='')
+    button(ng-click='move-up()', title='move up')
+      img(src='')
+    button(ng-click='edit()', title='edit')
+      img(src='')
+    br
+    button(ng-click='redo()', title='redo')
+      img(src='')
+    button(ng-click='add-son-node()', title='add son node')
+      img(src='')
+    button(ng-click='add-down-node()', title='add down node')
+      img(src='')
+    button(ng-click='move-down()', title='move down')
+      img(src='')
+    button(ng-click='delete()', title='delete')
+      img(src='')
+  div(ng-if='option.mark')
+    button(ng-click='delete()', title='delete')
+      img(src='')
+    button(ng-click='one()', title='one')
+      img(src='')
+    button(ng-click='two()', title='two')
+      img(src='')
+    button(ng-click='three()', title='three')
+      img(src='')
+    button(ng-click='four()', title='four')
+      img(src='')
+    button(ng-click='five()', title='five')
+      img(src='')
+    button(ng-click='star()', title='star')
+      img(src='')
+    br
+    button(ng-click='done()', title='done')
+      img(src='')
+    button(ng-click='four-quarter()', title='four quarter')
+      img(src='')
+    button(ng-click='three-quarter()', title='three quarter')
+      img(src='')
+    button(ng-click='two-quarter()', title='two quarter')
+      img(src='')
+    button(ng-click='one-quarter()', title='one quarter')
+      img(src='')
+    button(ng-click='o-quarter()', title='o quarter')
+      img(src='')
+  div(ng-if='option.add')
+    button(ng-click='link()', title='link')
+      img(src='')
+    button(ng-click='note()', title='note')
+      img(src='')
+    button(ng-click='markdown()', title='markdown')
+      img(src='')
+    br
+    button(ng-click='picture()', title='picture')
+      img(src='')
+    button(ng-click='file()', title='file')
+      img(src='')
+    button(ng-click='leaf()', title='leaf')
+      img(src='')
+  div(ng-if='option.operate')
+    button(ng-click='goto()', title='goto')
+      img(src='')
+    button(ng-click='copy()', title='copy')
+      img(src='')
+    button(ng-click='past()', title='past')
+      img(src='')
+    button(ng-click='share()', title='share')
+      img(src='')
+    br
+    button(ng-click='news()', title='news')
+      img(src='')
+    button(ng-click='cut()', title='cut')
+      img(src='')
+    button(ng-click='star()', title='star')
+      img(src='')
+    button(ng-click='save-as-picture()', title='save as picture')
+      img(src='')
+  div(ng-if='option.view')
+    button(ng-click='spread()', title='spread')
+      img(src='')
+    button(ng-click='amplify()', title='amplify')
+      img(src='')
+    button(ng-click='scatter()', title='scatter')
+      img(src='')
+    button(ng-click='hand()', title='hand')
+      img(src='')
+    br
+    button(ng-click='shrink()', title='shrink')
+      span.caret
+    button(ng-click='assemble()', title='assemble')
+      img(src='')
+    button(ng-click='search()', title='search')
+      img(src='')
+  div(ng-if='option.appearance')
+    button(ng-click='theme()', title='theme')
+      img(src='')
+    button(ng-click='color()', title='theme')
+      img(src='')
+
