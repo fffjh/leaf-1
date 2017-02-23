@@ -3,7 +3,7 @@ html(ng-app='myApp')
 head
     base(href='/')
     meta(charset='utf-8')
-    title(ng-bind="title + 'Leaf'") Leaf
+    title(ng-bind="title + ' | Leaf'") Leaf
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     // Loading Bootstrap
     link(href='Flat-UI-master/dist/css/vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
@@ -12,7 +12,9 @@ head
     link(rel='shortcut icon', href='Flat-UI-master/dist/img/favicon.ico')
     link(href='css/menuBar.css', rel='stylesheet')
     script(src='Flat-UI-master/dist/js/vendor/html5shiv.js')
-    script(src='Flat-UI-master/dist/js/vendor/respond.min.js')    
+    script(src='Flat-UI-master/dist/js/vendor/respond.min.js')
+    script(src='sweetalert/dist/sweetalert.min.js')
+    link(rel='stylesheet', type='text/css', href='sweetalert/dist/sweetalert.css')
 
 body
     include components/menuBar
@@ -21,8 +23,6 @@ body
 
     script(src='js/lib/angular/angular.min.js')
     script(src='js/lib/angular-route/angular-route.min.js')
-    link(rel='stylesheet', type='text/css', href='angular-toastr/angular-toastr.css')
-    script(type='text/javascript', src='angular-toastr/angular-toastr.tpls.js')
     script(src='js/app.js')
     script(src='js/controller.js')        
     // jQuery (necessary for Flat UI's JavaScript plugins)

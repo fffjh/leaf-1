@@ -1,4 +1,4 @@
-# leaf
+# leaf dev
 this progect used to be `limb`, by team `Königsberg`.
 
 ## installation
@@ -28,6 +28,8 @@ you can use supervisor as well
 - 登录后没有跳回主页面
 - 注册／登录成功／失败无提示信息，而只能在终端里查看。
 - 登录登出等页面太原始，需要美化。
+<<<<<<< HEAD
+=======
 
 ## 开发框架（采取MVC模型）
 - config
@@ -45,3 +47,4 @@ you can use supervisor as well
 1. 入口文件index.jade
 2. components组件
 3. partials局部
+>>>>>>> upstream/master
