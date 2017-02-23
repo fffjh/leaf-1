@@ -51,7 +51,15 @@ function SigninCtrl($scope, $http, $location, $rootScope) {
     };
 };
 
-function MyprofileCtrl($scope, $http) {}
+function MyprofileCtrl($scope, $http) {
+    $http.get('/api/myprofile')
+        .then(function(data) {
+            $scope.email = data.data.email;
+            $scope.password = data.data.password;
+        }, function(error) {
+            console.log('Error: ' + error);
+        })
+}
 
 function SignoutCtrl($scope, $http, $location, $rootScope) {
     swal({
@@ -92,7 +100,7 @@ app.controller('checkSigninCtrl', function($http, $rootScope, $scope) {
             .then(function(data) {
                 $scope.signedin = data.data.signedin;
             }, function(error) {
-                console.log('Error:' + data);
+                console.log('Error: ' + error);
             });
     });
 });

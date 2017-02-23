@@ -91,6 +91,18 @@ exports.signout = function(req, res, next) {
     res.redirect('/');
 };
 
+exports.myprofile = function(req, res, next) {
+    if (!!req.session.user) {
+        UserModel.getUserByEmail(req.session.user.email)
+            .then(user => {
+                res.json({
+                    'email': user.email,
+                    'password': user.password
+                });
+            });
+    }
+};
+
 exports.checkSignin = function(req, res, next) {
     if (!!req.session.user) {
         return res.json({
