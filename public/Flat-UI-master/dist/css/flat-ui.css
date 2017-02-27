@@ -3196,7 +3196,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 @media (min-width: 768px) {
     .navbar-right .dropdown-menu {
         left: auto;
-        right: 0;
+        right: 3px;
     }
     .navbar-right .dropdown-menu-left {
         left: 0;
@@ -4325,7 +4325,7 @@ textarea.navbar-form .form-control, textarea.navbar-form .input-group-addon, tex
         margin-right: 21px;
     }
     .navbar-text.navbar-right:last-child {
-        margin-right: 0;
+        margin-right: 10px;
     }
 }
 
