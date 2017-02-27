@@ -1,4 +1,5 @@
 #menu.topArea
+<<<<<<< HEAD
     .container
         nav.navbar.navbar-inverse(role='navigation')
             // Brand and toggle get grouped for better mobile display
@@ -74,3 +75,79 @@
                                 a(href='/signup') register
                             li
                                 a(href='/signin') sign in
+=======
+    nav.navbar.navbar-inverse(role='navigation')
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                span.sr-only Toggle navigation
+            a.navbar-brand(href='/') Leaf
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            ul.nav.navbar-nav.navbar-left
+                li.dropdown
+                    a.dropdown-toggle(href='', data-toggle='dropdown')
+                        | browse
+                        b.caret
+                    ul.dropdown-menu
+                        li
+                            a(href='/') all
+                        li
+                            a(href='/') leaf
+                        li
+                            a(href='/') document
+                        li
+                            a(href='/') user
+                        li
+                            a(href='/') local
+            form.navbar-form.navbar-left(action='/', role='search')
+                .form-group.has-feedback
+                    .input-group
+                        input.form-control(type='text', placeholder='Search Leaf')
+                        span.input-group-addon
+                            span.fui-search
+            ul.nav.navbar-nav.navbar-right
+                li.dropdown
+                    a.dropdown-toggle(href='', data-toggle='dropdown')
+                        span.fui-document
+                        b.caret
+                    ul.dropdown-menu
+                        li
+                            a(href='/leaf') new public leaf
+                        li
+                            a(href='/leaf') new private leaf
+                        li
+                            a(href='/leaf') open file
+                        li
+                            a(href='/leaf') delete this leaf
+                        li.divider
+                        li
+                            a(href='/leaf') recently opened
+                li.dropdown(ng-controller='checkSigninCtrl', ng-model='signedin')
+                    a.dropdown-toggle(href='', data-toggle='dropdown')
+                        span.fui-user
+                        b.caret
+                    ul.dropdown-menu(ng-if='signedin')
+                        li
+                            a(href='/myprofile') my profile
+                        li
+                            a(href='/') my leaves
+                        li
+                            a(href='/') my stars
+                        li
+                            a(href='/') my messages
+                        li
+                            a(href='/') request
+                        li.divider
+                        li
+                            a(href='/') help
+                        li
+                            a(href='/') settings
+                        li
+                            a(href='/signout') sign out
+                    ul.dropdown-menu(ng-if='!signedin')
+                        li
+                            a(href='/signup') register
+                        li
+                            a(href='/signin') sign in
+>>>>>>> yuanyuan
