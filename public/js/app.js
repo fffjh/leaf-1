@@ -30,6 +30,7 @@ app.config(function config($locationProvider, $routeProvider) {
         controller: SignoutCtrl
     }).
     when('/leaf', {
+        title: 'Leaf',
         templateUrl: 'partials/leaf',
         controller: NewLeafCtrl
     }).
