@@ -9,6 +9,19 @@ module.exports = function(app) {
         var name = req.params.name;
         res.render('partials/' + name);
     });
+    // 优化路由
+    app.use(function(req, res, next) {
+        console.log(req.path);
+        if (req.path.indexOf('/api') >= 0) {
+            next();
+        } else if (req.path.length >= 2) {
+            res.render('index');
+            app.get(req.path);
+            next();
+        } else {
+            next();
+        }
+    });
 
     // api
     app.post('/api/signup', api.signup);
@@ -18,7 +31,7 @@ module.exports = function(app) {
     app.get('/api/checkSignin', api.checkSignin);
 
     // otherwise
-    app.get('*', function(req, res) {
-        res.redirect('/');
-    });
+    // app.get('*', function(req, res) {
+    //     res.redirect('/');
+    // });
 }

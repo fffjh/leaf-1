@@ -10,7 +10,7 @@ app.config(function config($locationProvider, $routeProvider) {
         controller: IndexCtrl
     }).
     when('/signup', {
-        title: 'Signup',
+        title: 'Register',
         templateUrl: 'partials/signup',
         controller: SignupCtrl
     }).

@@ -5,6 +5,14 @@ function IndexCtrl($scope, $http, $rootScope) {
 }
 
 function SignupCtrl($scope, $http, $location, $rootScope) {
+    $scope.switchToSignin = function() {
+        $scope.toSignin = true;
+        $rootScope.title = 'Signin';
+    };
+    $scope.switchToSignup = function() {
+        $scope.toSignin = false;
+        $rootScope.title = 'Register';
+    };
     $scope.signup = function() {
         swal({
             title: "Welcom to Leaf",
@@ -31,9 +39,58 @@ function SignupCtrl($scope, $http, $location, $rootScope) {
                 });
         });
     };
+    $scope.signin = function() {
+        $http.post('/api/signin', $scope.formData)
+            .then(function(data) {
+                if (data.data.status) {
+                    $rootScope.$broadcast('authenticationChanged');
+                    swal('登陆成功!', 'Hi, ' + data.data.email + ' !', 'success');
+                    $location.path('/');
+                } else {
+                    swal('登陆失败!', data.data.message, 'error');
+                }
+            }, function(error) {
+                swal('登陆失败!', '未知错误', 'error');
+                console.log('Error: ' + error);
+            });
+    };
 };
 
 function SigninCtrl($scope, $http, $location, $rootScope) {
+    $scope.switchToSignup = function() {
+        $scope.toSignup = true;
+        $rootScope.title = 'Register';
+    };
+    $scope.switchToSignin = function() {
+        $scope.toSignup = false;
+        $rootScope.title = 'Signin';
+    };
+    $scope.signup = function() {
+        swal({
+            title: "Welcom to Leaf",
+            text: "Please check your email again: \n" + $scope.formData.email,
+            type: "success",
+            showCancelButton: true,
+            confirmButtonColor: "#8cd4f5",
+            confirmButtonText: "Yes, sign up!",
+            closeOnConfirm: false,
+            html: false
+        }, function() {
+            $http.post('/api/signup', $scope.formData)
+                .then(function(data) {
+                    if (data.data.status) {
+                        $rootScope.$broadcast('authenticationChanged');
+                        swal('注册成功!', 'Hi, ' + data.data.email + '!\nLeaf已向您发送一封验证邮件，为了您的安全，请尽快完成验证。\n接下来将自动为您登陆.', 'success');
+                        $location.path('/');
+                    } else {
+                        swal('注册失败!', data.data.message, 'error');
+                    }
+                }, function(error) {
+                    swal('注册失败!', '未知错误', 'error');
+                    console.log('Error: ' + error);
+                });
+        });
+    };
     $scope.signin = function() {
         $http.post('/api/signin', $scope.formData)
             .then(function(data) {
@@ -68,7 +125,7 @@ function SignoutCtrl($scope, $http, $location, $rootScope) {
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: "#DD6B55",
-        confirmButtonText: "Yes, I'll leave!",
+        confirmButtonText: "leave!",
         closeOnConfirm: false,
         html: false
     }, function() {
