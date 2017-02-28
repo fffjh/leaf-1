@@ -46,3 +46,7 @@
 .navbar-inverse .navbar-collapse {
     border-color: #2f4154 !important;
 }
+
+.navbar-inverse {
+    background-color: #34495e !important;
+}
