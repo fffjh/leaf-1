@@ -1,11 +1,12 @@
+h5 Public Profile
 hr
 form(name='input', action='', method='get')
     | Name
     input#email1.form-control.input-sm(type='text', placeholder='Name')
     | Email
-    input#motto1.form-control.input-sm(type='text', placeholder='Email')
+    input#motto1.form-control.input-sm(type='email', placeholder='Email')
     | Description
     textarea#int1.form-control.input-sm(type='text', placeholder='Description')
     br
-    button#reset.btn.btn-warning(onclick='Reset()') Reset 
+    input.btn.btn-warning(type='reset', value="Reset")
     input#submit.btn.btn-success(type='submit', value='Update')

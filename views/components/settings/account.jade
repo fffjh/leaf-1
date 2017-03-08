@@ -1,19 +1,20 @@
 hr
-h3 Change Password
+h5 Change Password
 form(name='input', action='', method='get')
     | Password
-    input#pswd1.form-control.input-sm(type='password', placeholder='Password')
+    input.form-control.input-sm(type='password', placeholder='Password')
     | New Password
-    input#npswd1.form-control.input-sm(type='password', placeholder='New Password')
+    input.form-control.input-sm(type='password', placeholder='New Password')
     | Confirm Password
-    input#npswd1.form-control.input-sm(type='password', placeholder='Confirm Password')
+    input.form-control.input-sm(type='password', placeholder='Confirm Password')
     br
-    button#reset.btn.btn-warning(onclick='Reset2()') Reset
-    input#submit.btn.btn-success(type='submit', value='Update')
+    input.btn.btn-warning(type='reset', value="Reset")
+    input.btn.btn-success(type='submit', value='Update')
 
-h3 Delete Account
+hr
+h5 Delete Account
 form(name='input', action='', method='get')
     | Password
-    input#pswd1.form-control.input-sm(type='password', placeholder='Password')
+    input.form-control.input-sm(type='password', placeholder='Password')
     p Once you delete your account, there is no going back. Please be certain.
-    button#reset.btn.btn-warning(onclick='Reset2()') Delete this Account
+    input.btn.btn-danger(type='submit', value="Delete this Account") 

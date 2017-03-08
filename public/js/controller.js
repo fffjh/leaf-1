@@ -58,7 +58,7 @@ function SignupCtrl($scope, $http, $location, $rootScope) {
     };
 };
 
-function SigninCtrl($scope, $http, $location, $rootScope) {
+function SigninCtrl($scope, $http, $location, $rootScope, toastr) {
     $scope.switchToSignup = function() {
         $scope.toSignup = true;
         $rootScope.title = 'Register';
@@ -99,6 +99,7 @@ function SigninCtrl($scope, $http, $location, $rootScope) {
                 if (data.data.status) {
                     $rootScope.$broadcast('authenticationChanged');
                     swal('登陆成功!', 'Hi, ' + data.data.email + ' !', 'success');
+                    // toastr.success('Sign in Success!');
                     $location.path('/');
                 } else {
                     swal('登陆失败!', data.data.message, 'error');
@@ -120,7 +121,7 @@ function MyprofileCtrl($scope, $http) {
         })
 }
 
-function SignoutCtrl($scope, $http, $location, $rootScope) {
+function SignoutCtrl($scope, $http, $location, $rootScope, toastr) {
     swal({
         title: "Leave Leaf?",
         text: "Your session will be deleted",
@@ -135,6 +136,7 @@ function SignoutCtrl($scope, $http, $location, $rootScope) {
             .then(function() {
                 $rootScope.$broadcast('authenticationChanged');
                 swal('登出成功!', 'Your session has been deleted!', 'success');
+                // toastr.success('Your session has been deleted!', 'Sign out Success');
                 $location.path('/');
             }, function(error) {
                 swal('登出失败!', '未知错误', 'error');
@@ -178,4 +180,17 @@ app.controller('SwitchCtrl', function($scope) {
     $scope.email = function() {
         $scope.condition = "Email";
     };
+});
+
+app.config(function(toastrConfig) {
+    angular.extend(toastrConfig, {
+        autoDismiss: false,
+        containerId: 'toast-container',
+        maxOpened: 0,
+        newestOnTop: true,
+        positionClass: 'toast-bottom-center',
+        preventDuplicates: false,
+        preventOpenDuplicates: false,
+        target: 'body'
+    });
 });
