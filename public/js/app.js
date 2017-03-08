@@ -38,6 +38,11 @@ app.config(function config($locationProvider, $routeProvider) {
         templateUrl: 'partials/leaf',
         controller: OneLeafCtrl
     }).
+    when('/settings', {
+        title: 'Settings',
+        templateUrl: 'partials/settings',
+        controller: SettingsCtrl
+    }).
     otherwise({
         redirectTo: '/'
     });
