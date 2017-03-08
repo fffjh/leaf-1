@@ -4,6 +4,8 @@ function IndexCtrl($scope, $http, $rootScope) {
     $rootScope.$broadcast('authenticationChanged'); // check session to resolve the dropdown list items
 }
 
+function SettingsCtrl($scope, $http, $rootScope) {}
+
 function SignupCtrl($scope, $http, $location, $rootScope) {
     $scope.switchToSignin = function() {
         $scope.toSignin = true;
@@ -15,12 +17,12 @@ function SignupCtrl($scope, $http, $location, $rootScope) {
     };
     $scope.signup = function() {
         swal({
-            title: "Welcom to Leaf",
-            text: "Please check your email again: \n" + $scope.formData.email,
-            type: "success",
+            title: $scope.formData.email + " ?",
+            text: "Please check your email again. \n",
+            type: "info",
             showCancelButton: true,
             confirmButtonColor: "#8cd4f5",
-            confirmButtonText: "Yes, sign up!",
+            confirmButtonText: "Yes, register!",
             closeOnConfirm: false,
             html: false
         }, function() {
@@ -67,12 +69,12 @@ function SigninCtrl($scope, $http, $location, $rootScope) {
     };
     $scope.signup = function() {
         swal({
-            title: "Welcom to Leaf",
-            text: "Please check your email again: \n" + $scope.formData.email,
-            type: "success",
+            title: $scope.formData.email + " ?",
+            text: "Please check your email again. \n",
+            type: "info",
             showCancelButton: true,
             confirmButtonColor: "#8cd4f5",
-            confirmButtonText: "Yes, sign up!",
+            confirmButtonText: "Yes, register!",
             closeOnConfirm: false,
             html: false
         }, function() {
@@ -125,7 +127,7 @@ function SignoutCtrl($scope, $http, $location, $rootScope) {
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: "#DD6B55",
-        confirmButtonText: "leave!",
+        confirmButtonText: "Yes, leave!",
         closeOnConfirm: false,
         html: false
     }, function() {

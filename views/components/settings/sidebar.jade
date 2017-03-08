@@ -1,0 +1,15 @@
+.span2#menu
+    ul.nav.nav-pills.nav-stacked
+        li.active
+            a(href='#') Profile
+        li
+            a(href='#') Account
+        li
+            a(href='#') Email
+
+script(type='text/javascript').
+    $('#menu > ul li a').click(function(e) {
+        var $this = $(this);
+        $this.parent().siblings().removeClass('active').end().addClass('active');
+        e.preventDefault();
+    });
