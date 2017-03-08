@@ -2,8 +2,9 @@ br
 .container
     .col-sm-4.col-xs-12
         img#myicon(src='img/avatar.png', alt='icon')
+        p(ng-model="name") {{name}}
         p(ng-model="email") {{email}}
-        p(ng-model="description") be the change you want to see in the world.
+        p(ng-model="description") {{description}}
     .col-sm-8.col-xs-12 
         hr
         p overview leaves stars followers following

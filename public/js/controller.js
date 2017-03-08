@@ -109,38 +109,60 @@ function SigninCtrl($scope, $http, $location, $rootScope, toastr) {
     };
 };
 
-function MyprofileCtrl($scope, $http) {
+function MyprofileCtrl($scope, $http, $rootScope) {
+    $rootScope.$broadcast('authenticationChanged');
     $http.get('/api/myprofile')
         .then(function(data) {
+            $scope.name = data.data.name;
             $scope.email = data.data.email;
+            $scope.description = data.data.description;
         }, function(error) {
             console.log('Error: ' + error);
         });
 };
 
 function SettingsCtrl($scope, $http, $rootScope) {
+    $rootScope.$broadcast('authenticationChanged');
     $http.get('/api/settings')
         .then(function(data) {
+            $scope.name = data.data.name;
             $scope.email = data.data.email;
+            $scope.description = data.data.description;
         }, function(error) {
             console.log('Error: ' + error);
         });
 
     // switch condition
     $scope.condition = "";
-
     $scope._profile = function() {
         $scope.condition = "Profile";
     };
-
     $scope._account = function() {
         $scope.condition = "Account";
     };
-
     $scope._email = function() {
         $scope.condition = "Email";
     };
 };
+
+app.controller('updateProfileCtrl', function($http, $rootScope, $scope) {
+    $scope.updateProfile = function() {
+        console.log($scope.formData);
+        $http.post('/api/updateProfile', $scope.formData);
+    };
+});
+
+app.controller('updateAccountCtrl', function($http, $rootScope, $scope) {
+    $scope.updateAccount = function() {
+        $http.post('/api/updateAccount', $scope.formData);
+    };
+});
+
+app.controller('updateAvatarCtrl', function($http, $rootScope, $scope) {
+    $scope.updateAvatar = function() {
+        $http.post('/api/updateAvatar', $scope.formData);
+    };
+});
 
 function SignoutCtrl($scope, $http, $location, $rootScope, toastr) {
     swal({

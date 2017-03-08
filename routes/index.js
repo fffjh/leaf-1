@@ -26,6 +26,9 @@ module.exports = function(app) {
     // api
     app.post('/api/signup', api.signup);
     app.post('/api/signin', api.signin);
+    app.post('/api/updateProfile', api.updateProfile);
+    app.post('/api/updateAccount', api.updateAccount);
+    app.post('/api/updateAvatar', api.updateAvatar);
     app.get('/api/signout', api.signout);
     app.get('/api/myprofile', api.myprofile);
     app.get('/api/settings', api.settings);
