@@ -97,7 +97,17 @@ exports.myprofile = function(req, res, next) {
             .then(user => {
                 res.json({
                     'email': user.email,
-                    'password': user.password
+                });
+            });
+    }
+};
+
+exports.settings = function(req, res, next) {
+    if (!!req.session.user) {
+        UserModel.getUserByEmail(req.session.user.email)
+            .then(user => {
+                res.json({
+                    'email': user.email,
                 });
             });
     }

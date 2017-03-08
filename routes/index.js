@@ -28,6 +28,7 @@ module.exports = function(app) {
     app.post('/api/signin', api.signin);
     app.get('/api/signout', api.signout);
     app.get('/api/myprofile', api.myprofile);
+    app.get('/api/settings', api.settings);
     app.get('/api/checkSignin', api.checkSignin);
 
     // otherwise

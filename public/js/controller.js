@@ -4,8 +4,6 @@ function IndexCtrl($scope, $http, $rootScope) {
     $rootScope.$broadcast('authenticationChanged'); // check session to resolve the dropdown list items
 }
 
-function SettingsCtrl($scope, $http, $rootScope) {}
-
 function SignupCtrl($scope, $http, $location, $rootScope) {
     $scope.switchToSignin = function() {
         $scope.toSignin = true;
@@ -115,11 +113,34 @@ function MyprofileCtrl($scope, $http) {
     $http.get('/api/myprofile')
         .then(function(data) {
             $scope.email = data.data.email;
-            $scope.password = data.data.password;
         }, function(error) {
             console.log('Error: ' + error);
-        })
-}
+        });
+};
+
+function SettingsCtrl($scope, $http, $rootScope) {
+    $http.get('/api/settings')
+        .then(function(data) {
+            $scope.email = data.data.email;
+        }, function(error) {
+            console.log('Error: ' + error);
+        });
+
+    // switch condition
+    $scope.condition = "";
+
+    $scope._profile = function() {
+        $scope.condition = "Profile";
+    };
+
+    $scope._account = function() {
+        $scope.condition = "Account";
+    };
+
+    $scope._email = function() {
+        $scope.condition = "Email";
+    };
+};
 
 function SignoutCtrl($scope, $http, $location, $rootScope, toastr) {
     swal({
@@ -164,22 +185,6 @@ app.controller('checkSigninCtrl', function($http, $rootScope, $scope) {
                 console.log('Error: ' + error);
             });
     });
-});
-
-app.controller('SwitchCtrl', function($scope) {
-    $scope.condition = "";
-
-    $scope.profile = function() {
-        $scope.condition = "Profile";
-    };
-
-    $scope.account = function() {
-        $scope.condition = "Account";
-    };
-
-    $scope.email = function() {
-        $scope.condition = "Email";
-    };
 });
 
 app.config(function(toastrConfig) {
