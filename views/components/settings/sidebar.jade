@@ -1,10 +1,10 @@
 .span2#menu
     ul.nav.nav-pills.nav-stacked
-        li.active
+        li.active(ng-click="profile()")
             a(href='#') Profile
-        li
+        li(ng-click="account()")
             a(href='#') Account
-        li
+        li(ng-click="email()")
             a(href='#') Email
 
 script(type='text/javascript').
