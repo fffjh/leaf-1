@@ -1,6 +1,6 @@
 hr
 h5 Change Password
-form(name='input', action='', method='get')
+form
     | Password
     input.form-control.input-sm(type='password', placeholder='Password')
     | New Password
@@ -9,12 +9,12 @@ form(name='input', action='', method='get')
     input.form-control.input-sm(type='password', placeholder='Confirm Password')
     br
     input.btn.btn-warning(type='reset', value="Reset")
-    input.btn.btn-success(type='submit', value='Update')
+    a.btn.btn-success(type='submit', ng-click="updateAccount()") Update Account
 
 hr
 h5 Delete Account
-form(name='input', action='', method='get')
+form
     | Password
     input.form-control.input-sm(type='password', placeholder='Password')
     p Once you delete your account, there is no going back. Please be certain.
-    input.btn.btn-danger(type='submit', value="Delete this Account") 
+    a.btn.btn-danger(type='submit', ng-click="updateAccount()") Delete this Account

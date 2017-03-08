@@ -5,4 +5,4 @@ img#myicon(src='img/avatar.png', alt='icon')
 
 form(action='', method='post', enctype='multipart/form-data')
     input.btn(type='file', name='uploadFile')
-    input.btn.btn-success(type='submit', value='Upload new picture')
+    input.btn.btn-success(type='submit', ng-click="updateAvatar()",  value='Upload new picture')
