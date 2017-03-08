@@ -163,3 +163,19 @@ app.controller('checkSigninCtrl', function($http, $rootScope, $scope) {
             });
     });
 });
+
+app.controller('SwitchCtrl', function($scope) {
+    $scope.condition = "";
+
+    $scope.profile = function() {
+        $scope.condition = "Profile";
+    };
+
+    $scope.account = function() {
+        $scope.condition = "Account";
+    };
+
+    $scope.email = function() {
+        $scope.condition = "Email";
+    };
+});
