@@ -14,8 +14,8 @@
         var myCharts = echarts.init($("#main").get(0));
         option = {
             title: {
-                text: "Limb",
-                subtext: "Made By konigsberg",
+                // text: "Limb",
+                // subtext: "Made By konigsberg",
             },
             legend: {
                 // 和series里面的name对应
@@ -25,10 +25,10 @@
             toolbox: {
                 show: true,
                 feature: {
-                    mark: {show: true},
-                    dataZoom: {show: true},
-                    dataView: {show: true},
-                    restore: {show: true},
+                    // mark: {show: true},
+                    // dataZoom: {show: true},
+                    // dataView: {show: true},
+                    // restore: {show: true},
                     saveAsImage: {show: true},
                 }
             },
@@ -45,7 +45,7 @@
                     // 树的展示方式
                     orient: 'horizontal',
                     rootLocation: {
-                        x: 100,
+                        x: 50,
                         y: 'center',
                     },
                     nodePadding: 25,
@@ -65,7 +65,7 @@
                         }
                     },
                     // 可以点击
-                    clickable: true,
+                    // clickable: true,
                     // roam: true,
                     // 是否反转
                     // direction: 'inverse',
@@ -77,6 +77,35 @@
         myCharts.setOption(option);
         var myCopyContent = {};
         // myCharts.on("click", clickOnce);
+
+        // 调节大小
+        // $('#bigger').on('click', function() {
+        //     $('#main').css("width", bigger);
+        //     $('#main').css("height", bigger);
+        //     console.log(option);
+        //     myCharts.clear();
+        //     myCharts.setOption(option);
+        // });
+
+        // $('#smaller').on('click', function() {
+        //     $('#main').css("width", smaller);
+        //     $('#main').css("height", smaller);
+        // });
+
+        // 上移下移
+        $('#up').on('click', up);
+
+        $('#down').on('click', down);
+
+        $('div #myleft').on('click', function() {
+            console.log("FUCK!!!");
+            // $('#main').css('left', function(index, value) {
+            //     return parseInt(value)-50+"px";
+            // });
+        });
+        $('#myright').on('click', myright);
+
+
         myCharts.on("dblclick", function(ecData) {
             console.log(ecData);
             // $('#dropdown').trigger('click');
@@ -369,130 +398,6 @@
             // }, 200);
         }
 
-        // function findCurrentNodeByName(name) {
-        //     // 是否找到相应节点
-        //     var _option = option;
-        //     var len1=_option.series[0].data.length;
-        //     var d1=_option.series[0].data;//所有的d*在下面代码中均为使用到。
-        //     var _name = name;
-        //     // 开始循环_option中的信息，用来查找当前点击的节点
-        //     // console.log("len1="+len1);
-        //     for(var j = 0;j < len1;j++) {
-        //         // 从第一个节点开始找
-        //         if(_option.series[0].data[j].name == _name) {
-        //             console.log('I am in the first node!');
-        //             return _option.series[0].data[j];
-        //         }
-        //         if(_option.series[0].data[j].children) {//若存在子节点
-        //             var len2=_option.series[0].data[j].children.length;
-        //             var d2=_option.series[0].data[j].children;
-        //             for(var k=0;k<len2;k++) {
-        //                 //根据name判断节点是否是当前所点击的节点，
-        //                 if(_option.series[0].data[j].children[k].name==_name) {
-        //                     // console.log(_option.series[0].data[j].children[k]);
-        //                     console.log('I am in the second node!');
-        //                     return _option.series[0].data[j].children[k];
-        //                 }
-        //                 // 如果还有儿子
-        //                 if(_option.series[0].data[j].children[k].children){
-        //                     var len3=_option.series[0].data[j].children[k].children.length;
-        //                     var d3=_option.series[0].data[j].children[k].children;
-        //                     for(var l = 0; l < len3; l++){
-        //                         if(_option.series[0].data[j].children[k].children[l].name == _name){
-        //                             // console.log(_option.series[0].data[j].children[k].children[l]);
-        //                             console.log('I am in the third node!');
-        //                             return _option.series[0].data[j].children[k].children[l];
-        //                         }
-        //                         if(_option.series[0].data[j].children[k].children[l].children){
-        //                             var len4=_option.series[0].data[j].children[k].children[l].children.length;
-        //                             var d4=_option.series[0].data[j].children[k].children[l].children;
-        //                             for(var m=0;m<len4;m++){
-        //                                 if(_option.series[0].data[j].children[k].children[l].children[m].name==_name){
-        //                                     console.log('I am in the fourth node!');
-        //                                     return option.series[0].data[j].children[k].children[l].children[m];
-        //                                 }
-        //                                 if(_option.series[0].data[j].children[k].children[l].children[m].children){
-        //                                     var len5=_option.series[0].data[j].children[k].children[l].children[m].children.length;
-        //                                     var d5=_option.series[0].data[j].children[k].children[l].children[m].children;
-        //                                     for(var n = 0 ; n<len5;n++){
-        //                                         /**
-        //                                          * 最后一层循环
-        //                                          * 若有需要，可扩充
-        //                                          */
-        //                                         if(_option.series[0].data[j].children[k].children[l].children[m].children[n].name==_name){
-        //                                             return _option.series[0].data[j].children[k].children[l].children[m].children[n];
-        //                                         }
-        //                                     }
-        //                                 }
-        //                             }
-        //                         }
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-        // function findParentNodeByName(name) {
-        //     // 是否找到相应节点
-        //     var _option = option;
-        //     var len1=_option.series[0].data.length;
-        //     var d1=_option.series[0].data;//所有的d*在下面代码中均为使用到。
-        //     var _name = name;
-        //     //开始循环_option中的信息，用来查找当前点击的节点
-        //     for(var j = 0;j < len1;j++) {
-        //         // 从第一个节点开始找
-        //         if(_option.series[0].data[j].name == _name) {
-        //             console.log('It is the root!');
-        //             return new Error('It is the root!');
-        //         }
-        //         if(_option.series[0].data[j].children) {//若存在子节点
-        //             var len2=_option.series[0].data[j].children.length;
-        //             var d2=_option.series[0].data[j].children;
-        //             for(var k=0;k<len2;k++) {
-        //                 //根据name判断节点是否是当前所点击的节点，
-        //                 if(_option.series[0].data[j].children[k].name==_name) {
-        //                     console.log('I am in the second node!');
-        //                     return _option.series[0].data[j];
-        //                 }
-        //                 // 如果还有儿子
-        //                 if(_option.series[0].data[j].children[k].children){
-        //                     var len3=_option.series[0].data[j].children[k].children.length;
-        //                     var d3=_option.series[0].data[j].children[k].children;
-        //                     for(var l=0;l<len3;l++){
-        //                         if(_option.series[0].data[j].children[k].children[l].name==_name){
-        //                             // console.log(_option.series[0].data[j].children[k]);
-        //                             console.log('I am in the third node!');
-        //                             return _option.series[0].data[j].children[k];
-        //                         }
-        //                         if(_option.series[0].data[j].children[k].children[l].children){
-        //                             var len4=_option.series[0].data[j].children[k].children[l].children.length;
-        //                             var d4=_option.series[0].data[j].children[k].children[l].children;
-        //                             for(var m=0;m<len4;m++){
-        //                                 if(_option.series[0].data[j].children[k].children[l].children[m].name==_name){
-        //                                     console.log('I am in the fourth node!');
-        //                                     return option.series[0].data[j].children[k].children[l];
-        //                                 }
-        //                                 if(_option.series[0].data[j].children[k].children[l].children[m].children){
-        //                                     var len5=_option.series[0].data[j].children[k].children[l].children[m].children.length;
-        //                                     var d5=_option.series[0].data[j].children[k].children[l].children[m].children;
-        //                                     for(var n = 0 ; n<len5;n++){
-        //                                         /**
-        //                                          * 最后一层循环
-        //                                          * 若有需要，可扩充
-        //                                          */
-        //                                         if(_option.series[0].data[j].children[k].children[l].children[m].children[n].name==_name){
-        //                                             return _option.series[0].data[j].children[k].children[l].children[m];
-        //                                         }
-        //                                     }
-        //                                 }
-        //                             }
-        //                         }
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }i
         function findCurrentNodeByValue(value) {
             // 是否找到相应节点
             var _option = option;
@@ -623,5 +528,32 @@
             var filename = prompt('保存的文件名是：');
             inputData.filename = filename;
         });
+
+        function up() {
+            console.log("up!");
+            $('#main').css('top', function(index, value) {
+                return parseInt(value)-50+"px";
+            });
+        }
+
+        function down() {
+            $('#main').css('top', function(index, value) {
+                return parseInt(value)+50+"px";
+            });
+        }
+
+        // function myleft() {
+        //     console.log("left");
+        //     $('#main').css('left', function(index, value) {
+        //         return parseInt(value)-50+"px";
+        //     });
+        // };
+
+        // function myright() {
+        //     console.log("right");
+        //     $('#main').css('left', function(index, value) {
+        //         return parseInt(value)+50+"px";
+        //     });
+        // }
     });
-}));
+}()));
