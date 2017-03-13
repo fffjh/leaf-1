@@ -1,4 +1,4 @@
-# leaf
+# leaf dev
 this progect used to be `limb`, by team `Königsberg`.
 
 ## installation
@@ -10,12 +10,13 @@ this progect used to be `limb`, by team `Königsberg`.
 ### 2. NPM install
 
   cd leaf
+  
   npm install
 
 ### 3. start the server
 
   node index.js
-  
+
 you can use supervisor as well
 
   supervisor --hemony index
@@ -28,6 +29,7 @@ you can use supervisor as well
 - 登录后没有跳回主页面
 - 注册／登录成功／失败无提示信息，而只能在终端里查看。
 - 登录登出等页面太原始，需要美化。
+
 
 ## 开发框架（采取MVC模型）
 - config

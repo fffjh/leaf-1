@@ -3,28 +3,31 @@ html(ng-app='myApp')
 head
     base(href='/')
     meta(charset='utf-8')
-    title(ng-bind="title + 'Leaf'") Leaf
+    title(ng-bind="title + ' | Leaf'") Leaf
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     // Loading Bootstrap
     link(href='Flat-UI-master/dist/css/vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
     // Loading Flat UI
-    link(href='Flat-UI-master/dist/css/flat-ui.min.css', rel='stylesheet')
+    link(href='Flat-UI-master/dist/css/flat-ui.css', rel='stylesheet')
     link(rel='shortcut icon', href='Flat-UI-master/dist/img/favicon.ico')
     link(href='css/menuBar.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='sweetalert/dist/sweetalert.css')
+    link(rel='stylesheet', type='text/css', href='angular-toastr/angular-toastr.css')
     script(src='Flat-UI-master/dist/js/vendor/html5shiv.js')
-    script(src='Flat-UI-master/dist/js/vendor/respond.min.js')    
-
-body
-    include components/menuBar
-
-    div(ng-view)
-
+    script(src='Flat-UI-master/dist/js/vendor/respond.min.js')
+    script(src='sweetalert/dist/sweetalert.min.js')
+    // jQuery (necessary for Flat UI's JavaScript plugins)
+    script(src='Flat-UI-master/dist/js/vendor/jquery.min.js')
     script(src='js/lib/angular/angular.min.js')
     script(src='js/lib/angular-route/angular-route.min.js')
     script(src='js/app.js')
     script(src='js/controller.js')        
-    // jQuery (necessary for Flat UI's JavaScript plugins)
-    script(src='Flat-UI-master/dist/js/vendor/jquery.min.js')
     // Include all compiled plugins (below), or include individual files as needed
     script(src='Flat-UI-master/dist/js/vendor/video.js')
     script(src='Flat-UI-master/dist/js/flat-ui.min.js')
+    script(type='text/javascript', src='angular-toastr/angular-toastr.tpls.js')    
+
+body
+    include components/menuBar
+
+    div.view-frame(ng-view)

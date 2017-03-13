@@ -1,41 +1,47 @@
 "use strict";
 
-var app = angular.module('myApp', ['ngRoute']);
+var app = angular.module('myApp', ['ngRoute', 'toastr']);
 
 app.config(function config($locationProvider, $routeProvider) {
     $routeProvider.
     when('/', {
-        title: 'Home | ',
+        title: 'Home',
         templateUrl: 'partials/index',
         controller: IndexCtrl
     }).
     when('/signup', {
-        title: 'Signup | ',
+        title: 'Register',
         templateUrl: 'partials/signup',
         controller: SignupCtrl
     }).
     when('/signin', {
-        title: 'Signin | ',
+        title: 'Signin',
         templateUrl: 'partials/signin',
         controller: SigninCtrl
     }).
     when('/myprofile', {
-        title: 'My profile | ',
+        title: 'My profile',
         templateUrl: 'partials/myprofile',
         controller: MyprofileCtrl
     }).
     when('/signout', {
-        title: 'Signout | ',
+        title: 'Signout',
         templateUrl: 'partials/index',
         controller: SignoutCtrl
     }).
     when('/leaf', {
+        title: 'Leaf',
         templateUrl: 'partials/leaf',
         controller: NewLeafCtrl
     }).
     when('/leaf/:leafId', {
         templateUrl: 'partials/leaf',
         controller: OneLeafCtrl
+    }).
+    when('/settings', {
+        title: 'Settings',
+        templateUrl: 'partials/settings',
+        controller: SettingsCtrl
     }).
     otherwise({
         redirectTo: '/'

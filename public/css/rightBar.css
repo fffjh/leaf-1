@@ -1,0 +1,25 @@
+.rightbar {
+    top: 60px;
+    bottom: 0;
+    width: 40%;
+    right: -40%;
+}
+
+.sidebars .rightbar {
+    box-shadow: 0 0 3px gray;
+    position: fixed;
+    padding: 30px;
+    font-size: 18px;
+    ;
+    /*text-align: center;*/
+    overflow: auto;
+}
+
+.panel-primary {
+    border-color: #16a085;
+}
+
+.panel-primary>.panel-heading {
+    background-color: #16a085;
+    border-color: #16a085;
+}

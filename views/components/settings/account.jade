@@ -1,0 +1,20 @@
+hr
+h5 Change Password
+form
+    | Password
+    input.form-control.input-sm(type='password', placeholder='Password')
+    | New Password
+    input.form-control.input-sm(type='password', placeholder='New Password')
+    | Confirm Password
+    input.form-control.input-sm(type='password', placeholder='Confirm Password')
+    br
+    input.btn.btn-warning(type='reset', value="Reset")
+    a.btn.btn-success(type='submit', ng-click="updateAccount()") Update Account
+
+hr
+h5 Delete Account
+form
+    | Password
+    input.form-control.input-sm(type='password', placeholder='Password')
+    p Once you delete your account, there is no going back. Please be certain.
+    a.btn.btn-danger(type='submit', ng-click="updateAccount()") Delete this Account

@@ -1,27 +1,15 @@
-link(href='css/signIn.css', rel='stylesheet')
-.row
-    // /.col-md-12
-    // /.row
-    .col-sm-4
-    .col-sm-4
-        form.form-horizontal(role='form')
-            .form-group
-                label.col-lg-2.control-label(for='inputEmail1') Email
-                .col-lg-10.inputArea
-                    input#inputEmail1.form-control(type='email', placeholder='Email', ng-model='formData.email')
-                    input.crossButton(type='image', src='https://cdn2.iconfinder.com/data/icons/media-and-navigation-buttons-round/512/Button_12-128.png', onclick='reset(); return false;')
-
-            .form-group
-                label.col-lg-2.control-label(for='inputPassword1') Password
-                .col-lg-10.inputArea
-                    input#inputPassword1.form-control(type='password', placeholder='Password', ng-model='formData.password')
-                    input.crossButton(type='image', src='https://cdn2.iconfinder.com/data/icons/media-and-navigation-buttons-round/512/Button_12-128.png', onclick='reset(); return false;')
-
-            .form-group
-                #signInBtn.col-lg-offset-2.col-lg-10
-                    button.btn.btn-primary(type='submit', ng-click='signin()') Sign in
-            span.signUp
-                | New to Leaf? 
-                a(href='/signup') Sign up
-    // /.col-md-12
-// /.row
+.login-screen
+    .login-form(ng-model='toSignup')
+        .form-group
+            input#login-emal.form-control.login-field(type='email', value='', placeholder='Enter your email', ng-model='formData.email')
+            label.login-field-icon.fui-mail(for='login-mail')
+        .form-group
+            input#login-pass.form-control.login-field(type='password', value='', placeholder='Password', ng-model='formData.password')
+            label.login-field-icon.fui-lock(for='login-pass')
+        div(ng-if="!toSignup")
+            a.btn.btn-primary.btn-lg.btn-block(type='submit', ng-click='signin()') Sign in
+            a.login-link(ng-click='switchToSignup()') New to Leaf? 
+            a.login-link(href='#') Lost your password?
+        div(ng-if="toSignup")
+            a.btn.btn-primary.btn-lg.btn-block(type='submit', ng-click='signup()') Register
+            a.login-link(ng-click='switchToSignin()') Have an account already? 
