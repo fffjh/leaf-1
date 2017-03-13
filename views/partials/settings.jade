@@ -1,0 +1,13 @@
+br
+.container
+    .row(ng-switch="condition")
+        .col-xs-12.col-sm-3
+            include ../components/settings/sidebar
+        .col-xs-12.col-sm-5(ng-switch-default)
+            include ../components/settings/profile
+        .col-xs-12.col-sm-4(ng-switch-default)
+            include ../components/settings/avatar
+        .col-xs-12.col-sm-8(ng-switch-when="Account")
+            include ../components/settings/account
+        .col-xs-12.col-sm-8(ng-switch-when="Email")
+            include ../components/settings/email

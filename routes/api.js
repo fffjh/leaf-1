@@ -1,5 +1,6 @@
 'use secret';
 
+var User = require('../lib/mongo').User;
 var UserModel = require('../models/users');
 
 // Sign up
@@ -37,7 +38,10 @@ exports.signup = function(req, res) {
     // 待写入数据库的用户信息
     var user = {
         email: email,
-        password: password
+        password: password,
+        name: "",
+        description: "",
+        avatar: ""
     };
 
     // 用户信息写入数据库
@@ -96,8 +100,22 @@ exports.myprofile = function(req, res, next) {
         UserModel.getUserByEmail(req.session.user.email)
             .then(user => {
                 res.json({
+                    'name': user.name,
                     'email': user.email,
-                    'password': user.password
+                    'description': user.description,
+                });
+            });
+    }
+};
+
+exports.settings = function(req, res, next) {
+    if (!!req.session.user) {
+        UserModel.getUserByEmail(req.session.user.email)
+            .then(user => {
+                res.json({
+                    'name': user.name,
+                    'email': user.email,
+                    'description': user.description,
                 });
             });
     }
@@ -113,4 +131,50 @@ exports.checkSignin = function(req, res, next) {
             'signedin': false
         })
     };
+};
+
+// Update profile
+exports.updateProfile = function(req, res, next) {
+    console.log(req.body);
+    var MyUser = User;
+    if (req.body.name) {
+        MyUser.update({
+            email: req.session.user.email
+        }, {
+            name: req.body.name
+        }, function(error) {});
+    };
+    if (req.body.email) {
+        MyUser.update({
+            email: req.session.user.email
+        }, {
+            email: req.body.email
+        }, function(error) {});
+        UserModel.getUserByEmail(req.body.email)
+            .then(user => {
+                req.session.user = user;
+            });
+    };
+    if (req.body.description) {
+        MyUser.update({
+            email: req.session.user.email
+        }, {
+            description: req.body.description
+        }, function(error) {});
+    };
+
+    UserModel.getUserByEmail(req.session.user.email)
+        .then(user => {
+            req.session.user = user;
+        });
+};
+
+// Update avatar
+exports.updateAvatar = function(req, res, next) {
+    console.log(req.body);
+};
+
+// Update Account
+exports.updateAccount = function(req, res, next) {
+    console.log(req.body);
 };

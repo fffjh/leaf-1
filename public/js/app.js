@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('myApp', ['ngRoute']);
+var app = angular.module('myApp', ['ngRoute', 'toastr']);
 
 app.config(function config($locationProvider, $routeProvider) {
     $routeProvider.
@@ -10,7 +10,7 @@ app.config(function config($locationProvider, $routeProvider) {
         controller: IndexCtrl
     }).
     when('/signup', {
-        title: 'Signup',
+        title: 'Register',
         templateUrl: 'partials/signup',
         controller: SignupCtrl
     }).
@@ -37,6 +37,11 @@ app.config(function config($locationProvider, $routeProvider) {
     when('/leaf/:leafId', {
         templateUrl: 'partials/leaf',
         controller: OneLeafCtrl
+    }).
+    when('/settings', {
+        title: 'Settings',
+        templateUrl: 'partials/settings',
+        controller: SettingsCtrl
     }).
     otherwise({
         redirectTo: '/'
