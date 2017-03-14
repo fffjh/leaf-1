@@ -14,21 +14,22 @@
                         b.caret
                     ul.dropdown-menu
                         li
-                            a(href='/') all
+                            a(href='/browse') all
                         li
-                            a(href='/') leaf
+                            a(href='/browse/leaf') leaf
                         li
-                            a(href='/') document
+                            a(href='/browse/document') document
                         li
-                            a(href='/') user
+                            a(href='/browse/user') user
                         li
-                            a(href='/') local
-            form.navbar-form.navbar-left(action='/', role='search')
+                            a(href='/browse/local') local
+            form.navbar-form.navbar-left(role='search')
                 .form-group.has-feedback
                     .input-group
-                        input.form-control(type='text', placeholder='Search Leaf')
-                        span.input-group-addon
-                            span.fui-search
+                        input.form-control(type='search', placeholder='Search Leaf', ng-model='search')
+                        span.input-group-btn
+                            a.btn(href='/browse')
+                                span.fui-search
             ul.nav.navbar-nav.navbar-right
                 li.dropdown
                     a.dropdown-toggle(href='', data-toggle='dropdown')
@@ -54,18 +55,18 @@
                         li
                             a(href='/myprofile') my profile
                         li
-                            a(href='/') my leaves
+                            a(href='/myleaves') my leaves
                         li
-                            a(href='/') my stars
+                            a(href='/mystars') my stars
                         li
-                            a(href='/') my messages
+                            a(href='/mymessages') my messages
                         li
-                            a(href='/') request
+                            a(href='/requests') requests
                         li.divider
                         li
                             a(href='/settings') settings
                         li
-                            a(href='/') help
+                            a(href='/help') help
                         li
                             a(href='/signout') sign out
                     ul.dropdown-menu(ng-if='!signedin')
