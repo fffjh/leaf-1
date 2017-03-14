@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('myApp', ['ngRoute']);
+var app = angular.module('myApp', ['ngRoute', 'toastr']);
 
 app.config(function config($locationProvider, $routeProvider) {
     $routeProvider.
@@ -9,8 +9,18 @@ app.config(function config($locationProvider, $routeProvider) {
         templateUrl: 'partials/index',
         controller: IndexCtrl
     }).
+    when('/browse', {
+        title: 'Browse',
+        templateUrl: 'partials/browse',
+        controller: BrowseCtrl
+    }).
+    when('/browse/:type', {
+        title: 'Browse',
+        templateUrl: 'partials/browse',
+        controller: BrowseCtrl
+    }).
     when('/signup', {
-        title: 'Signup',
+        title: 'Register',
         templateUrl: 'partials/signup',
         controller: SignupCtrl
     }).
@@ -24,9 +34,34 @@ app.config(function config($locationProvider, $routeProvider) {
         templateUrl: 'partials/myprofile',
         controller: MyprofileCtrl
     }).
+    when('/myleaves', {
+        title: 'My leaves',
+        templateUrl: 'partials/myleaves',
+        controller: MyleavesCtrl
+    }).
+    when('/mystars', {
+        title: 'My stars',
+        templateUrl: 'partials/mystars',
+        controller: MystarsCtrl
+    }).
+    when('/mymessages', {
+        title: 'My messages',
+        templateUrl: 'partials/mymessages',
+        controller: MymessagesCtrl
+    }).
+    when('/requests', {
+        title: 'Requests',
+        templateUrl: 'partials/requests',
+        controller: RequestsCtrl
+    }).
+    when('/help', {
+        title: 'Help',
+        templateUrl: 'partials/help',
+        controller: HelpCtrl
+    }).
     when('/signout', {
         title: 'Signout',
-        templateUrl: 'partials/index',
+        templateUrl: 'partials/myprofile',
         controller: SignoutCtrl
     }).
     when('/leaf', {
@@ -37,6 +72,11 @@ app.config(function config($locationProvider, $routeProvider) {
     when('/leaf/:leafId', {
         templateUrl: 'partials/leaf',
         controller: OneLeafCtrl
+    }).
+    when('/settings', {
+        title: 'Settings',
+        templateUrl: 'partials/settings',
+        controller: SettingsCtrl
     }).
     otherwise({
         redirectTo: '/'
