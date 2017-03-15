@@ -33,6 +33,9 @@ module.exports = function(app) {
     app.get('/api/myprofile', api.myprofile);
     app.get('/api/settings', api.settings);
     app.get('/api/checkSignin', api.checkSignin);
+    app.get('test.json', function(req, res) {
+        console.log("get('./test.json')");
+    })
 
     // otherwise
     // app.get('*', function(req, res) {
