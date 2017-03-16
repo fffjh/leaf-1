@@ -3,23 +3,23 @@
     .col-xs-6.col-sm-3
         br
         ul#nav-tabs-wrapper.nav.nav-tabs.nav-pills.nav-stacked.well
+            li.active
+                a(ng-click='_all()') all
             li
-                a(href='/browse') all
+                a(ng-click='_leaf()') leaf
             li
-                a(href='/browse/leaf') leaf
+                a(ng-click='_document()') document
             li
-                a(href='/browse/document') document
+                a(ng-click='_user()') user
             li
-                a(href='/browse/user') user
-            li
-                a(href='/browse/local') local
+                a(ng-click='_local()') local
 
-        //- script(type='text/javascript').
-        //-     $('#nav-tabs-wrapper > li a').click(function(e) {
-        //-         var $this = $(this);
-        //-         $this.parent().siblings().removeClass('active').end().addClass('active');
-        //-         e.preventDefault();
-        //-     });
+        script(type='text/javascript').
+            $('#nav-tabs-wrapper > li a').click(function(e) {
+                var $this = $(this);
+                $this.parent().siblings().removeClass('active').end().addClass('active');
+                e.preventDefault();
+            });
 
     .col-xs-12.col-sm-9
         hr            
