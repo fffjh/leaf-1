@@ -1,29 +1,18 @@
 #toolBar
     button#up 上移
-    button#down 下移
     button#left 左移
+    button#create 创建子节点
+    button#copyContent 复制
+    button#delete 编辑
+    button#SBContent 展开/收缩
+    br
+    button#down 下移
     button#right 右移
+    button#delete 删除此节点
+    button#pasteToContent 粘贴
     input#save(type='submit', value='保存')
-    .dropdown
-        button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
-            | 菜单
-            span.caret
-        ul.dropdown-menu(aria-labelledby='dropdownMenu1')
-            li#create
-                a &#x521B;&#x5EFA;&#x5B50;&#x8282;&#x70B9;
-                    input#createContent(type='text')
-                    input(type='submit', value='确定')
-            li#delete
-                a &#x5220;&#x9664;&#x8BE5;&#x8282;&#x70B9;
-                    input(type='submit', value='确定')
-            li#SBContent
-                a &#x5C55;&#x5F00;/&#x6536;&#x7F29;
-                    li#copyContent
-                a &#x590D;&#x5236;
-                    li#pasteToContent
-                a &#x7C98;&#x8D34;
-                    li.divider(role='separator')
-                    li#detail
-                a(href='#') &#x8BE6;&#x60C5;&#x5185;&#x5BB9;
+    //- input#createContent(type='text')
+    button
+        a(href='#') 详情内容
 #parent
     #main
