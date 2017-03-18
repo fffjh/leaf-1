@@ -242,42 +242,31 @@ app.config(function(toastrConfig) {
     });
 });
 
-function BrowseCtrl($scope, $http) {
-    $scope.users = [{
-        name: "Jonh",
-        age: 21,
-        type: "user"
-    }, {
-        name: "Alice",
-        age: 29,
-        type: "user"
-    }, {
-        name: "Jack",
-        age: 21,
-        type: "user"
-    }, {
-        name: "Mongo",
-        age: 29,
-        type: "user"
-    }];
-    $scope.leaves = [{
-        topic: "web",
-        type: "leaf"
-    }, {
-        topic: "angularJS",
-        type: "leaf local"
-    }];
-    $scope.documents = [{
-        documentName: "Operating System week2.pdf",
-        type: "document loal"
-    }, {
-        documentName: "News English week3.pdf",
-        type: "document"
-    }];
-};
-
 function BrowseCtrl($scope, $http, $routeParams) {
+
+    // browse type
     $scope.type = $routeParams.type;
+    if ($scope.type == "all") {
+        $scope.type = "";
+    }
+    $scope._all = function() {
+        $scope.type = "";
+    };
+    $scope._leaf = function() {
+        $scope.type = "leaf";
+        console.log('leaf');
+    };
+    $scope._document = function() {
+        $scope.type = "document";
+    };
+    $scope._user = function() {
+        $scope.type = "user";
+    };
+    $scope._local = function() {
+        $scope.type = "local";
+    };
+
+    // data
     $scope.users = [{
         name: "Jonh",
         age: 21,

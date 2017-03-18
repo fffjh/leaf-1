@@ -47,6 +47,8 @@ $ supervisor --hemony index
 /*"mongodb": "mongodb://localhost:27017/leaf"*/
 
 ```
+这是一个远程 `mongodb` 的数据库地址，现在好像链接不上，无法注册登陆，其他正常。
+
 ## the lastest issues
 
 - 明文加密
