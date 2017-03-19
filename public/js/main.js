@@ -242,46 +242,39 @@
         var myCopyContent = {};
         // myCharts.on("click", clickOnce);
 
-        // 调节大小
-        // $('#bigger').on('click', function() {
-        //     $('#main').css("width", bigger);
-        //     $('#main').css("height", bigger);
-        //     console.log(option);
-        //     myCharts.clear();
-        //     myCharts.setOption(option);
-        // });
-
-        // $('#smaller').on('click', function() {
-        //     $('#main').css("width", smaller);
-        //     $('#main').css("height", smaller);
-        // });
-
+        console.log("in main.js");
         // 上移下移
         $('#up').on('click', up);
 
         $('#down').on('click', down);
 
-        $('div #myleft').on('click', function() {
-            console.log("FUCK!!!");
-            // $('#main').css('left', function(index, value) {
-            //     return parseInt(value)-50+"px";
-            // });
+        $('#left').on('click', function() {
+            console.log("left");
+            $('#main').css('left', function(index, value) {
+                return parseInt(value)-50+"px";
+            });
         });
-        // $('#myright').on('click', myright);
+        $('#right').on('click', function () {
+            console.log("right");
+            $('#main').css('left', function(index, value) {
+                return parseInt(value)+50+"px";
+            });
+        });
 
 
         myCharts.on("click", function(ecData) {
+            console.log("in");
             console.log(ecData);
-            console.log(121231);
             // $('#dropdown').trigger('click');
             // $('.dropdown-toggle').dropdown('toggle');
             // 创建新节点
             // var createFlag = false;
-            $('#create [type="submit"]').on('click', function(event) {
+            $('button#create').on('click', function(event) {
                 // if (!createFlag)
+                console.log("creat");
                 console.log(ecData.name);
 
-                var newNodeName = $('#create [type="text"]').val();
+                var newNodeName = window.prompt("请输入你要添加的节点的名字:");
                 var thisValue = ecData.data.value;
                 var current = findCurrentNodeByValue(thisValue);
                 var currentChildren = current.children;
@@ -297,9 +290,10 @@
                 myCharts.setOption(option);
                 myCharts.refresh();
             });
-
+            // $('button#create').trigger("click");
             // 删除节点
-            $('#delete [type="submit"]').on('click', function(event) {
+            $('#delete').on('click', function(event) {
+                console.log("delete");
                 console.log(ecData.name);
                 // var nodeName = ecData.name;
                 var thisValue = ecData.data.value;
@@ -320,26 +314,31 @@
                     console.log(parent);
                     alert("根节点不能删的哦～");
                 }
-                $('#delete [type="submit"]').off();
+                // $('#delete').off();
                 $('#main').trigger('click');
             });
-
+            // $('button#delete').trigger("click");
             // 展开和收缩节点
             $('#SBContent').on('click', ecData, SBContent);
+            // $('button#SBContent').trigger("click");
 
             // 复制节点
             $('#copyContent').on('click', function() {
-                console.log(ecData.name);
+                console.log("copyContent");
+                // console.log(ecData.name);
                 var thisValue = ecData.data.value;
                 var current = findCurrentNodeByValue(thisValue);
                 // console.log("copy:");
                 myCopyContent = JSON.parse(JSON.stringify(current));
                 // console.log(myCopyContent);
-                $('#copyContent').off();
+                // $('#copyContent').off();
+                $('#main').trigger('click');
             });
+            // $('button#copyContent').trigger("click");
 
             // 粘贴节点
             $('#pasteToContent').on('click', function() {
+                console.log("pasteToContent");
                 var thisValue = ecData.data.value;
                 var current = findCurrentNodeByValue(thisValue);
                 myCopyContent2 = {
@@ -355,14 +354,16 @@
                 myCharts.clear();
                 myCharts.setOption(option);
                 myCharts.refresh();
-                $('#pasteToContent').off();
+                // $('#pasteToContent').off();
+                $('#main').trigger('click');
             });
+            // $('button#pasteToContent').trigger("click");
 
             // 取消注册的事件，十分关键！
             $('#main').on('click', function() {
                 console.log("I am in the main!!!");
-                $('#create [type="submit"]').off();
-                $('#delete [type="submit"]').off();
+                $('#create').off();
+                $('#delete').off();
                 $('#SBContent').off();
                 $('#copyContent').off();
                 $('#pasteToContent').off();
