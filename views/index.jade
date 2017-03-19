@@ -8,10 +8,10 @@ head
     // Loading Bootstrap
     link(href='Flat-UI-master/dist/css/vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
     // Loading Flat UI
-    link(rel='shortcut Icon', href='img/favicon.ico')
+    link(rel='shortcut icon', type="image/x-icon", href='img/favicon.ico')
     link(href='Flat-UI-master/dist/css/flat-ui.css', rel='stylesheet')
-    link(rel='shortcut icon', href='Flat-UI-master/dist/img/favicon.ico')
-    link(href='css/menuBar.css', rel='stylesheet')
+    link(href='css/menuBar.css', rel='stylesheet')    
+    link(href='css/base.css', rel='stylesheet')
     link(rel='stylesheet', type='text/css', href='sweetalert/dist/sweetalert.css')
     link(rel='stylesheet', type='text/css', href='angular-toastr/angular-toastr.css')
     script(src='Flat-UI-master/dist/js/vendor/html5shiv.js')
@@ -31,6 +31,7 @@ head
 body
     include components/menuBar
 
+    //- include partials/leaf
     div.view-frame(ng-view)
 
     include components/footer
