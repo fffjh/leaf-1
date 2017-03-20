@@ -29,7 +29,7 @@ function SignupCtrl($scope, $http, $location, $rootScope) {
                     if (data.data.status) {
                         $rootScope.$broadcast('authenticationChanged');
                         swal('注册成功!', 'Hi, ' + data.data.email + '!\nLeaf已向您发送一封验证邮件，为了您的安全，请尽快完成验证。\n接下来将自动为您登陆.', 'success');
-                        $location.path('/');
+                        $location.path('/myprofile');
                     } else {
                         swal('注册失败!', data.data.message, 'error');
                     }
@@ -45,7 +45,7 @@ function SignupCtrl($scope, $http, $location, $rootScope) {
                 if (data.data.status) {
                     $rootScope.$broadcast('authenticationChanged');
                     swal('登陆成功!', 'Hi, ' + data.data.email + ' !', 'success');
-                    $location.path('/');
+                    $location.path('/myprofile');
                 } else {
                     swal('登陆失败!', data.data.message, 'error');
                 }
@@ -81,7 +81,7 @@ function SigninCtrl($scope, $http, $location, $rootScope, toastr) {
                     if (data.data.status) {
                         $rootScope.$broadcast('authenticationChanged');
                         swal('注册成功!', 'Hi, ' + data.data.email + '!\nLeaf已向您发送一封验证邮件，为了您的安全，请尽快完成验证。\n接下来将自动为您登陆.', 'success');
-                        $location.path('/');
+                        $location.path('/myprofile');
                     } else {
                         swal('注册失败!', data.data.message, 'error');
                     }
@@ -98,7 +98,7 @@ function SigninCtrl($scope, $http, $location, $rootScope, toastr) {
                     $rootScope.$broadcast('authenticationChanged');
                     swal('登陆成功!', 'Hi, ' + data.data.email + ' !', 'success');
                     // toastr.success('Sign in Success!');
-                    $location.path('/');
+                    $location.path('/myprofile');
                 } else {
                     swal('登陆失败!', data.data.message, 'error');
                 }
@@ -120,6 +120,16 @@ function MyprofileCtrl($scope, $http, $rootScope) {
             console.log('Error: ' + error);
         });
 };
+
+function MyleavesCtrl($scope, $http, $rootScope) {};
+
+function MystarsCtrl($scope, $http, $rootScope) {};
+
+function MymessagesCtrl($scope, $http, $rootScope) {};
+
+function RequestsCtrl($scope, $http, $rootScope) {};
+
+function HelpCtrl($scope, $http, $rootScope) {};
 
 function SettingsCtrl($scope, $http, $rootScope) {
     $rootScope.$broadcast('authenticationChanged');
@@ -165,6 +175,15 @@ app.controller('updateAvatarCtrl', function($http, $rootScope, $scope) {
 });
 
 function SignoutCtrl($scope, $http, $location, $rootScope, toastr) {
+    $rootScope.$broadcast('authenticationChanged');
+    $http.get('/api/myprofile')
+        .then(function(data) {
+            $scope.name = data.data.name;
+            $scope.email = data.data.email;
+            $scope.description = data.data.description;
+        }, function(error) {
+            console.log('Error: ' + error);
+        });
     swal({
         title: "Leave Leaf?",
         text: "Your session will be deleted",
@@ -209,6 +228,7 @@ app.controller('checkSigninCtrl', function($http, $rootScope, $scope) {
     });
 });
 
+// toastr config
 app.config(function(toastrConfig) {
     angular.extend(toastrConfig, {
         autoDismiss: false,
@@ -221,3 +241,61 @@ app.config(function(toastrConfig) {
         target: 'body'
     });
 });
+
+function BrowseCtrl($scope, $http, $routeParams) {
+
+    // browse type
+    $scope.type = $routeParams.type;
+    if ($scope.type == "all") {
+        $scope.type = "";
+    }
+    $scope._all = function() {
+        $scope.type = "";
+    };
+    $scope._leaf = function() {
+        $scope.type = "leaf";
+        console.log('leaf');
+    };
+    $scope._document = function() {
+        $scope.type = "document";
+    };
+    $scope._user = function() {
+        $scope.type = "user";
+    };
+    $scope._local = function() {
+        $scope.type = "local";
+    };
+
+    // data
+    $scope.users = [{
+        name: "Jonh",
+        age: 21,
+        type: "user"
+    }, {
+        name: "Alice",
+        age: 29,
+        type: "user"
+    }, {
+        name: "Jack",
+        age: 21,
+        type: "user"
+    }, {
+        name: "Mongo",
+        age: 29,
+        type: "user"
+    }];
+    $scope.leaves = [{
+        topic: "web",
+        type: "leaf"
+    }, {
+        topic: "angularJS",
+        type: "leaf local"
+    }];
+    $scope.documents = [{
+        documentName: "Operating System week2.pdf",
+        type: "document local"
+    }, {
+        documentName: "News English week3.pdf",
+        type: "document"
+    }];
+};

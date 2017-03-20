@@ -1,0 +1,62 @@
+.col-xs-6.col-sm-3
+    br
+    ul#nav-tabs-wrapper.nav.nav-tabs.nav-pills.nav-stacked.well
+        li.active
+            a(ng-click='_all()') all
+        li
+            a(ng-click='_leaf()') leaf
+        li
+            a(ng-click='_document()') document
+        li
+            a(ng-click='_user()') user
+        li
+            a(ng-click='_local()') local
+
+    script(type='text/javascript').
+        $('#nav-tabs-wrapper > li a').click(function(e) {
+            var $this = $(this);
+            $this.parent().siblings().removeClass('active').end().addClass('active');
+            e.preventDefault();
+        });
+
+.col-xs-12.col-sm-9.palette-silver
+    br
+    .col-xs-6.col-sm-6.col-md-4(ng-repeat='user in users | filter : type | filter : search')
+        .tile
+            a(href='/myprofile')
+                h3.tile-title {{user.name}}
+            br
+            p {{user.age}} years old.
+            span.label.label-info user
+
+    .col-xs-6.col-sm-6.col-md-4(ng-repeat='leaf in leaves | filter : type | filter : search')
+        .tile
+            a(href='/leaf')
+                h3.tile-title {{leaf.topic}}
+            br
+            span.label.label-success leaf
+
+    .col-xs-6.col-sm-6.col-md-4(ng-repeat='document in documents | filter : type | filter : search')
+        .tile
+            a(href='/leaf')
+                h3.tile-title {{document.documentName}}
+            br
+            span.label.label-warning document
+
+    // 页面导航栏
+    .col-xs-12.col-sm-9.col-md-9
+        ul.pagination
+            li.previous
+                a.fui-arrow-left(href='#fakelink')
+            li.active
+                a(href='#fakelink') 1
+            li
+                a(href='#fakelink') 2
+            li
+                a(href='#fakelink') 3
+            li
+                a(href='#fakelink') 4
+            li
+                a(href='#fakelink') 5
+            li.next
+                a.fui-arrow-right(href='#fakelink')

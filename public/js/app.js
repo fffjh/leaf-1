@@ -9,6 +9,11 @@ app.config(function config($locationProvider, $routeProvider) {
         templateUrl: 'partials/index',
         controller: IndexCtrl
     }).
+    when('/browse/:type', {
+        title: 'Browse',
+        templateUrl: 'partials/browse',
+        controller: BrowseCtrl
+    }).
     when('/signup', {
         title: 'Register',
         templateUrl: 'partials/signup',
@@ -24,9 +29,34 @@ app.config(function config($locationProvider, $routeProvider) {
         templateUrl: 'partials/myprofile',
         controller: MyprofileCtrl
     }).
+    when('/myleaves', {
+        title: 'My leaves',
+        templateUrl: 'partials/myleaves',
+        controller: MyleavesCtrl
+    }).
+    when('/mystars', {
+        title: 'My stars',
+        templateUrl: 'partials/mystars',
+        controller: MystarsCtrl
+    }).
+    when('/mymessages', {
+        title: 'My messages',
+        templateUrl: 'partials/mymessages',
+        controller: MymessagesCtrl
+    }).
+    when('/requests', {
+        title: 'Requests',
+        templateUrl: 'partials/requests',
+        controller: RequestsCtrl
+    }).
+    when('/help', {
+        title: 'Help',
+        templateUrl: 'partials/help',
+        controller: HelpCtrl
+    }).
     when('/signout', {
         title: 'Signout',
-        templateUrl: 'partials/index',
+        templateUrl: 'partials/myprofile',
         controller: SignoutCtrl
     }).
     when('/leaf', {

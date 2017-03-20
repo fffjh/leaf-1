@@ -1,15 +1,22 @@
-link(href='css/bootstrap.css', rel='stylesheet')
-link(rel='stylesheet', href='css/discuss.css')
-link(rel='stylesheet', href='css/fileinput.css', media='all')
-link(rel='stylesheet', href='css/rightBar.css')
-script(type='text/javascript', src='js/jquery-3.1.1.js')
-script(type='text/javascript', src='js/fileinput.js')
-script(type='text/javascript', src='js/bootstrap.js')
 .sidebars
-    .rightbar.bg-default(style='right: 0px;')
+    .rightbar.bg-default(style='right: 0px;').palette-silver
         form.form-horizontal(role='form')
             .form-group
                 h1#cnode_name.text-center Current
+            .form-group
+                .panel.panel-primary
+                    .panel-heading
+                        h3.panel-title.text-center 描述
+                    .panel-body
+                        dl
+                            dt title
+                            dd content
+                        script(type='text/javascript').
+                            $(function() {
+                            $('#tags_1').tagsInput({width:'auto'});
+                            });
+                        .tagsinput-primary
+                            input.tagsinput(name='tagsinput', data-role='tagsinput', value='公开, 未完成, school')
             .form-group
                 .panel.panel-primary
                     .panel-heading
@@ -19,39 +26,21 @@ script(type='text/javascript', src='js/bootstrap.js')
                             .panel.panel-default
                                 #headingOne.panel-heading(role='tab')
                                     h4.panel-title
-                                        a(data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
-                                            | 日期: 2016年11月25日
+                                        a(data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne') 日期: 2016年11月25日
                                 #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
-                                    .panel-body
-                                        | file #1
+                                    .panel-body file #1
                             .panel.panel-default
                                 #headingTwo.panel-heading(role='tab')
                                     h4.panel-title
-                                        a.collapsed(data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
-                                            | 日期: 2016年11月26日
+                                        a.collapsed(data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo') 日期: 2016年11月26日
                                 #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
-                                    .panel-body
-                                        | file #2
+                                    .panel-body file #2
                             .panel.panel-default
                                 #headingThree.panel-heading(role='tab')
                                     h4.panel-title
-                                        a.collapsed(data-toggle='collapse', data-parent='#accordion', href='#collapseThree', aria-expanded='false', aria-controls='collapseThree')
-                                            | 日期: 2016年12月01日
+                                        a.collapsed(data-toggle='collapse', data-parent='#accordion', href='#collapseThree', aria-expanded='false', aria-controls='collapseThree') 日期: 2016年12月01日
                                 #collapseThree.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingThree')
-                                    .panel-body
-                                        | file #3
-            .form-group
-                .panel.panel-primary
-                    .panel-heading
-                        h3.panel-title.text-center 描述
-                    .panel-body
-                        dl
-                            dt title
-                            dd content
-                        span.label.label-success 公开
-                        // <span class="label label-primary">私有</span>
-                        // <span class="label label-success">已完成</span>
-                        span.label.label-primary 未完成
+                                    .panel-body file #3
             .form-group
                 .panel.panel-primary
                     .panel-heading
@@ -67,14 +56,12 @@ script(type='text/javascript', src='js/bootstrap.js')
                                 tbody
                                     tr
                                         td
-                                            button.btn.btn-success(type='button', data-toggle='modal', data-target='#myModal')
-                                                | 第一次课后作业
+                                            button.btn.btn-success(type='button', data-toggle='modal', data-target='#myModal') 第一次课后作业
                                         td 2015年11月11日
                                         td 已完成
                                     tr
                                         td
-                                            button.btn(type='button', data-toggle='modal', data-target='#myModal')
-                                                | 实验一
+                                            button.btn(type='button', data-toggle='modal', data-target='#myModal') 实验一
                                         td 2016年12月30日
                                         td 未完成
             .form-group
@@ -101,22 +88,21 @@ script(type='text/javascript', src='js/bootstrap.js')
                             .But
                                 span.submit 发表
                         #msgpad.msgCon
+            br
+            br
+            br
+
 // 模态框（Modal）
 #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
     .modal-dialog
         .modal-content
             .modal-header
-                button.close(type='button', data-dismiss='modal', aria-hidden='true')
-                    | ×
-                h4#myModalLabel.modal-title
-                    | 尝试写一个微信小程序
-            .modal-body
-                | 小程序开发上手极其简单，我们一起开发一个集新闻阅读与电影影讯为一体的小程序，做完这个项目，你就能掌握小程序全部的常用组件、API和开发技巧，开发出你想要的小程序
+                button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                h4#myModalLabel.modal-title 尝试写一个微信小程序
+            .modal-body 小程序开发上手极其简单，我们一起开发一个集新闻阅读与电影影讯为一体的小程序，做完这个项目，你就能掌握小程序全部的常用组件、API和开发技巧，开发出你想要的小程序
             .modal-footer
-                button.btn.btn-default(type='button', data-dismiss='modal')
-                    | 未完成
-                button.btn.btn-primary(type='button')
-                    | 已完成
+                button.btn.btn-default(type='button', data-dismiss='modal') 未完成
+                button.btn.btn-primary(type='button') 已完成
         // /.modal-content
         // /.modal-dialog
         // /.modal
