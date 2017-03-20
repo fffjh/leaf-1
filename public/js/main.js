@@ -289,10 +289,11 @@
                 myCharts.clear();
                 myCharts.setOption(option);
                 myCharts.refresh();
+                $('#main').trigger('click');
             });
             // $('button#create').trigger("click");
             // 删除节点
-            $('#delete').on('click', function(event) {
+            $('button#delete').on('click', function(event) {
                 console.log("delete");
                 console.log(ecData.name);
                 // var nodeName = ecData.name;
@@ -319,11 +320,11 @@
             });
             // $('button#delete').trigger("click");
             // 展开和收缩节点
-            $('#SBContent').on('click', ecData, SBContent);
+            $('button#SBContent').on('click', ecData, SBContent);
             // $('button#SBContent').trigger("click");
 
             // 复制节点
-            $('#copyContent').on('click', function() {
+            $('button#copyContent').on('click', function() {
                 console.log("copyContent");
                 // console.log(ecData.name);
                 var thisValue = ecData.data.value;
@@ -337,7 +338,7 @@
             // $('button#copyContent').trigger("click");
 
             // 粘贴节点
-            $('#pasteToContent').on('click', function() {
+            $('button#pasteToContent').on('click', function() {
                 console.log("pasteToContent");
                 var thisValue = ecData.data.value;
                 var current = findCurrentNodeByValue(thisValue);
@@ -362,11 +363,13 @@
             // 取消注册的事件，十分关键！
             $('#main').on('click', function() {
                 console.log("I am in the main!!!");
-                $('#create').off();
-                $('#delete').off();
-                $('#SBContent').off();
-                $('#copyContent').off();
-                $('#pasteToContent').off();
+                console.log(ecData);
+                $('button#create').off();
+                $('button#delete').off();
+                $('button#SBContent').off();
+                $('button#copyContent').off();
+                $('button#pasteToContent').off();
+                $('#main').off();
             });
         });
 
