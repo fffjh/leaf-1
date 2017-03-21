@@ -14,6 +14,11 @@ app.config(function config($locationProvider, $routeProvider) {
         templateUrl: 'partials/browse',
         controller: BrowseCtrl
     }).
+    when('/browse/user/:userName', {
+        title: 'My profile',
+        templateUrl: 'partials/myprofile',
+        controller: BrowseUserCtrl
+    }).
     when('/signup', {
         title: 'Register',
         templateUrl: 'partials/signup',

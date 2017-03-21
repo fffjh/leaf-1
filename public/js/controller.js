@@ -44,7 +44,8 @@ function SignupCtrl($scope, $http, $location, $rootScope) {
             .then(function(data) {
                 if (data.data.status) {
                     $rootScope.$broadcast('authenticationChanged');
-                    swal('登陆成功!', 'Hi, ' + data.data.email + ' !', 'success');
+                    // swal('登陆成功!', 'Hi, ' + data.data.email + ' !', 'success');
+                    toastr.success('Sign in Success!');
                     $location.path('/myprofile');
                 } else {
                     swal('登陆失败!', data.data.message, 'error');
@@ -96,8 +97,8 @@ function SigninCtrl($scope, $http, $location, $rootScope, toastr) {
             .then(function(data) {
                 if (data.data.status) {
                     $rootScope.$broadcast('authenticationChanged');
-                    swal('登陆成功!', 'Hi, ' + data.data.email + ' !', 'success');
-                    // toastr.success('Sign in Success!');
+                    // swal('登陆成功!', 'Hi, ' + data.data.email + ' !', 'success');
+                    toastr.success('Sign in Success!');
                     $location.path('/myprofile');
                 } else {
                     swal('登陆失败!', data.data.message, 'error');
@@ -112,6 +113,19 @@ function SigninCtrl($scope, $http, $location, $rootScope, toastr) {
 function MyprofileCtrl($scope, $http, $rootScope) {
     $rootScope.$broadcast('authenticationChanged');
     $http.get('/api/myprofile')
+        .then(function(data) {
+            $scope.name = data.data.name;
+            $scope.email = data.data.email;
+            $scope.description = data.data.description;
+        }, function(error) {
+            console.log('Error: ' + error);
+        });
+};
+
+// Browse
+function BrowseUserCtrl($scope, $http, $rootScope, $routeParams) {
+    $rootScope.$broadcast('authenticationChanged');
+    $http.get('/api/browse/user/' + $routeParams.userName)
         .then(function(data) {
             $scope.name = data.data.name;
             $scope.email = data.data.email;
@@ -158,7 +172,10 @@ function SettingsCtrl($scope, $http, $rootScope) {
 app.controller('updateProfileCtrl', function($http, $rootScope, $scope) {
     $scope.updateProfile = function() {
         console.log($scope.formData);
-        $http.post('/api/updateProfile', $scope.formData);
+        $http.post('/api/updateProfile', $scope.formData)
+            .then(function(data) {
+                toastr.success('Update Profile Success!');
+            });
     };
 });
 
@@ -266,24 +283,15 @@ function BrowseCtrl($scope, $http, $routeParams) {
         $scope.type = "local";
     };
 
-    // data
-    $scope.users = [{
-        name: "Jonh",
-        age: 21,
-        type: "user"
-    }, {
-        name: "Alice",
-        age: 29,
-        type: "user"
-    }, {
-        name: "Jack",
-        age: 21,
-        type: "user"
-    }, {
-        name: "Mongo",
-        age: 29,
-        type: "user"
-    }];
+    // users
+    $http.get('/api/browse')
+        .then(function(data) {
+            console.log(data.data);
+            $scope.users = data.data;
+        }, function(error) {
+            console.log('Error: ' + error);
+        });
+
     $scope.leaves = [{
         topic: "web",
         type: "leaf"
