@@ -24,10 +24,10 @@
         br
         .col-xs-6.col-sm-6.col-md-4(ng-repeat='user in users | filter : type | filter : search')
             .tile
-                a(href='/myprofile')
+                a(href='/browse/user/{{user.name}}')
                     h3.tile-title {{user.name}}
                 br
-                p {{user.age}} years old.
+                p {{user.description}}
                 span.label.label-info user
 
         .col-xs-6.col-sm-6.col-md-4(ng-repeat='leaf in leaves | filter : type | filter : search')
