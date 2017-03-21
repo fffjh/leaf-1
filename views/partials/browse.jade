@@ -1,51 +1,93 @@
-#browse-main.palette-silver
-    .col-xs-6.col-sm-3
-        br
-        ul#nav-tabs-wrapper.nav.nav-tabs.nav-pills.nav-stacked.well
-            li.active
-                a(ng-click='_all()') all
-            li
-                a(ng-click='_leaf()') leaf
-            li
-                a(ng-click='_document()') document
-            li
-                a(ng-click='_user()') user
-            li
-                a(ng-click='_local()') local
+link(rel='stylesheet', href='css/browse.css')
 
-        script(type='text/javascript').
-            $('#nav-tabs-wrapper > li a').click(function(e) {
-                var $this = $(this);
-                $this.parent().siblings().removeClass('active').end().addClass('active');
-                e.preventDefault();
-            });
+#filtersAndSearch.palette-silver.container-fluit
+    p#browseTitle.lead All the Leaves on our Tree
+    p#browseIntroduction 2314 users, 5239 leaves
+    a#filtersBtn.btn.btn-inverse(type='button', ng-click="withFilters = !withFilters", data-toggle='collapse', data-target='#filtersList', aria-expanded='false', aria-controls='filtersList')
+        span.fui-plus(ng-show="withFilters") &nbsp;SHOW FILTERS
+        span.fui-cross(ng-hide="withFilters") &nbsp;HIDE FILTERS
 
-    .col-xs-12.col-sm-9
+#browse-main.palette-clouds
+    .col-xs-12.col-sm-3
+        #filtersList.collapse.in
+            br
+            ul#nav-tabs-wrapper.nav.nav-tabs.nav-pills.nav-stacked.well
+                li.active
+                    a(ng-click='_all()') all
+                        span.badge {{users.length + leaves.length + documents.length}}
+                li
+                    a(ng-click='_leaf()') leaf
+                        span.badge {{leaves.length}}
+                li
+                    a(ng-click='_document()') document
+                        span.badge {{documents.length}}
+                li
+                    a(ng-click='_user()') user 
+                        span.badge {{users.length}}
+                li
+                    a(ng-click='_local()') local
+
+            script(type='text/javascript').
+                $('#nav-tabs-wrapper > li a').click(function(e) {
+                    var $this = $(this);
+                    $this.parent().siblings().removeClass('active').end().addClass('active');
+                    e.preventDefault();
+                });
+
+
+    // with filter list
+    .col-xs-12.col-sm-9(ng-hide="withFilters")
         br
-        .col-xs-6.col-sm-6.col-md-4(ng-repeat='user in users | filter : type | filter : search')
-            .tile
+        .col-xs-6.col-sm-6.col-md-4(ng-repeat='user in users | filter : { type : type } | filter : search')
+            .tile.browse-card
                 a(href='/browse/user/{{user.name}}')
                     h3.tile-title {{user.name}}
                 br
                 p {{user.description}}
                 span.label.label-info user
 
-        .col-xs-6.col-sm-6.col-md-4(ng-repeat='leaf in leaves | filter : type | filter : search')
-            .tile
+        .col-xs-6.col-sm-6.col-md-4(ng-repeat='leaf in leaves | filter : { type : type } | filter : search')
+            .tile.browse-card
                 a(href='/leaf')
                     h3.tile-title {{leaf.topic}}
                 br
                 span.label.label-success leaf
 
-        .col-xs-6.col-sm-6.col-md-4(ng-repeat='document in documents | filter : type | filter : search')
-            .tile
+        .col-xs-6.col-sm-6.col-md-4(ng-repeat='document in documents | filter : { type : type } | filter : search')
+            .tile.browse-card
                 a(href='/leaf')
                     h3.tile-title {{document.documentName}}
                 br
                 span.label.label-warning document
 
-        // 页面导航栏
-        .col-xs-12.col-sm-9.col-md-9
+    // without filter list
+    .col-xs-12.col-sm-12(ng-show="withFilters")
+        br
+        .col-xs-6.col-sm-6.col-md-4(ng-repeat='user in users | filter : { type : type } | filter : search')
+            .tile.browse-card
+                a(href='/browse/user/{{user.name}}')
+                    h3.tile-title {{user.name}}
+                br
+                p {{user.description}}
+                span.label.label-info user
+
+        .col-xs-6.col-sm-6.col-md-4(ng-repeat='leaf in leaves | filter : { type : type } | filter : search')
+            .tile.browse-card
+                a(href='/leaf')
+                    h3.tile-title {{leaf.topic}}
+                br
+                span.label.label-success leaf
+
+        .col-xs-6.col-sm-6.col-md-4(ng-repeat='document in documents | filter : { type : type } | filter : search')
+            .tile.browse-card
+                a(href='/leaf')
+                    h3.tile-title {{document.documentName}}
+                br
+                span.label.label-warning document
+
+    // 页面导航栏
+    .col-xs-12
+        center
             ul.pagination
                 li.previous
                     a.fui-arrow-left(href='#fakelink')

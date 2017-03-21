@@ -1,0 +1,39 @@
+#filtersAndSearch {
+    height: 120px;
+    position: relative;
+}
+
+#filtersBtn {
+    position: relative;
+    left: 30px;
+    top: 100px;
+}
+
+#browseTitle {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+}
+
+#browseIntroduction {
+    position: absolute;
+    font-size: 16px;
+    left: 20px;
+    top: 60px;
+    opacity: 0.5;
+}
+
+#ngview {
+    background-color: #ecf0f1;
+}
+
+.browse-card {
+    background-color: white;
+    transition-duration: 1s;
+}
+
+.browse-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 1px black;
+    transition-duration: 0s;
+}

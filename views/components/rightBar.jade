@@ -1,11 +1,24 @@
 .sidebars
     .rightbar.bg-default(style='right: 0px;').palette-silver
+        a#authorInfoBtn.btn.btn-inverse(type='button', data-toggle='collapse', data-target='#authorInfo', aria-expanded='false', aria-controls='authorInfo') 
+        #authorInfoContainer
+            center#authorInfo.collapse
+                br
+                img#myicon(src='img/avatar.png', alt='icon')
+                h5 
+                    a(href='/browse/user/chroslen') chroslen
+                p sophomore
         br
-        br
+        ol.breadcrumb
+            li
+                a(href='#') Home
+            li
+                a(href='#') Library
+            li.active Data
+        .tagsinput-primary
+            input.tagsinput(name='tagsinput', data-role='tagsinput', value='未完成, school')
         form.form-horizontal(role='form')
-            .form-group
-                h1#cnode_name.text-center Current
-            .form-group
+            .form-group.rightBar-card
                 .panel.panel-primary
                     .panel-heading
                         h3.panel-title.text-center 描述
@@ -17,33 +30,53 @@
                             $(function() {
                             $('#tags_1').tagsInput({width:'auto'});
                             });
-                        .tagsinput-primary
-                            input.tagsinput(name='tagsinput', data-role='tagsinput', value='公开, 未完成, school')
-            .form-group
+            .form-group.rightBar-card
+                .panel.panel-primary
+                    .panel-heading
+                        h3.panel-title.text-center 笔记
+                    .panel-body
+                        textarea.form-control(rows='10', cols='50', autofocus='', placeholder='在这里写下笔记')
+            .form-group.rightBar-card
                 .panel.panel-primary
                     .panel-heading
                         h3.panel-title.text-center 资料
                     .panel-body
-                        #accordion.panel-group(role='tablist', aria-multiselectable='true')
-                            .panel.panel-default
-                                #headingOne.panel-heading(role='tab')
-                                    h4.panel-title
-                                        a(data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne') 日期: 2016年11月25日
-                                #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
-                                    .panel-body file #1
-                            .panel.panel-default
-                                #headingTwo.panel-heading(role='tab')
-                                    h4.panel-title
-                                        a.collapsed(data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo') 日期: 2016年11月26日
-                                #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
-                                    .panel-body file #2
-                            .panel.panel-default
-                                #headingThree.panel-heading(role='tab')
-                                    h4.panel-title
-                                        a.collapsed(data-toggle='collapse', data-parent='#accordion', href='#collapseThree', aria-expanded='false', aria-controls='collapseThree') 日期: 2016年12月01日
-                                #collapseThree.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingThree')
-                                    .panel-body file #3
-            .form-group
+                        table.table
+                            thead
+                                tr
+                                    th #
+                                    th Name
+                                    th Date Modified
+                                    th Size
+                            tbody
+                                tr
+                                    th(scope='row') 1
+                                    td 
+                                        a Mark.doc
+                                    td 13,Mar, 2017
+                                    td 2Mb
+                                tr
+                                    th(scope='row') 2
+                                    td 
+                                        a Jacob.css
+                                    td 13,Mar, 2017
+                                    td 2kb
+                                tr
+                                    th(scope='row') 3
+                                    td 
+                                        a Larry.rmvb
+                                    td 15,Mar, 2017
+                                    td 234Mb
+                        .row(style='padding:5px 16px 5px 16px;')
+                            input#input-700.file-loading(name='kartik-input-700[]', type='file', multiple='')
+                            script.
+                                $("#input-700").fileinput({
+                                uploadUrl: "http://localhost/file-upload/", // server upload action
+                                uploadAsync: true,
+                                maxFileCount: 5
+                                });
+
+            .form-group.rightBar-card
                 .panel.panel-primary
                     .panel-heading
                         h3.panel-title.text-center 计划
@@ -66,21 +99,7 @@
                                             button.btn(type='button', data-toggle='modal', data-target='#myModal') 实验一
                                         td 2016年12月30日
                                         td 未完成
-            .form-group
-                .panel.panel-primary
-                    .panel-heading
-                        h3.panel-title.text-center 记录
-                    .panel-body
-                        textarea.form-control(rows='10', cols='50', autofocus='', placeholder='在这里写下笔记')
-                        .row(style='padding:5px 16px 5px 16px;')
-                            input#input-700.file-loading(name='kartik-input-700[]', type='file', multiple='')
-                            script.
-                                $("#input-700").fileinput({
-                                uploadUrl: "http://localhost/file-upload/", // server upload action
-                                uploadAsync: true,
-                                maxFileCount: 5
-                                });
-            .form-group
+            .form-group.rightBar-card
                 .panel.panel-primary(style='overflow: auto; height: 360px;')
                     .panel-heading
                         h3.panel-title.text-center 留言
@@ -90,6 +109,7 @@
                             .But
                                 span.submit 发表
                         #msgpad.msgCon
+            br
             br
             br
             br

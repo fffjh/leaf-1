@@ -8,17 +8,53 @@
 .sidebars .rightbar {
     box-shadow: 0 0 3px gray;
     position: fixed;
-    padding: 30px;
-    font-size: 18px;
+    padding: 0px;
+    font-size: 16px;
     height: 100%;
     overflow: auto;
 }
 
+.panel {
+    margin-bottom: 0px;
+}
+
 .panel-primary {
-    border-color: #16a085;
+    /*border-color: #16a085;*/
+    border: none;
 }
 
 .panel-primary>.panel-heading {
     background-color: #16a085;
     border-color: #16a085;
+}
+
+.bootstrap-tagsinput {
+    border: none;
+}
+
+.breadcrumb, .tagsinput-primary, .rightBar-card {
+    /*background-color: white;*/
+    transition-duration: 1s;
+}
+
+.breadcrumb:hover, .tagsinput-primary:hover, .rightBar-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 1px black;
+    transition-duration: 0s;
+}
+
+#authorInfoBtn {
+    width: 100%;
+    height: 60px;
+    background-color: #222;
+}
+
+#authorInfoContainer {
+    background-color: #222;
+    color: #999;
+}
+
+.breadcrumb, .tagsinput-primary, .form-horizontal .form-group {
+    margin-left: 15px;
+    margin-right: 15px;
 }
