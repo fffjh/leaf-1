@@ -29,29 +29,45 @@
         li.active 课程作业
     .tagsinput-primary
         input.tagsinput(name='tagsinput', data-role='tagsinput', value='未完成, school')
+
     form.form-horizontal(role='form')
+
         .form-group.rightBar-card
             .panel.panel-primary
                 .panel-heading
                     h3.panel-title 描述
+                    .topRightBtn.topRightBtn-2(type='submit', ng-click='editDescription = !editDescription' data-toggle='collapse', data-target='#updateDescription', aria-expanded='false', aria-controls='updateDescription')
+                        span.fui-check(ng-show="editDescription")
+                    .topRightBtn.topRightBtn-1(type='button', ng-click='editDescription = !editDescription' data-toggle='collapse', data-target='#updateDescription', aria-expanded='false', aria-controls='updateDescription')
+                        span.glyphicon.glyphicon-edit(ng-hide="editDescription")
+                        span.fui-cross(ng-show="editDescription")
                 .panel-body
-                    dl
-                        dt title
-                        dd content
-                    script(type='text/javascript').
-                        $(function() {
-                        $('#tags_1').tagsInput({width:'auto'});
-                        });
+                    center#updateDescription.collapse
+                        textarea.form-control(rows='10', cols='2', autofocus='', placeholder='description') description
+                .panel-body(ng-hide="editDescription")
+                    p description
+
         .form-group.rightBar-card
             .panel.panel-primary
                 .panel-heading
                     h3.panel-title 笔记
+                    .topRightBtn.topRightBtn-2(type='submit', ng-click='editNotes = !editNotes' data-toggle='collapse', data-target='#updateNotes', aria-expanded='false', aria-controls='updateNotes')
+                        span.fui-check(ng-show="editNotes")
+                    .topRightBtn.topRightBtn-1(type='button', ng-click='editNotes = !editNotes' data-toggle='collapse', data-target='#updateNotes', aria-expanded='false', aria-controls='updateNotes')
+                        span.glyphicon.glyphicon-edit(ng-hide="editNotes")
+                        span.fui-cross(ng-show="editNotes")
                 .panel-body
-                    textarea.form-control(rows='10', cols='50', autofocus='', placeholder='在这里写下笔记')
+                    center#updateNotes.collapse
+                        textarea.form-control(rows='10', cols='40', autofocus='', placeholder='在这里写下笔记') Lato is free web-font designed by Lukasz Dziedzic from Warsaw. Here you can feel the color, size, line height and margins between paragraphs. Don’t forget to underline your links, they are an important visual marker for users.
+                    p(ng-hide="editNotes") Lato is free web-font designed by Lukasz Dziedzic from Warsaw. Here you can feel the color, size, line height and margins between paragraphs. Don’t forget to underline your links, they are an important visual marker for users.
+
         .form-group.rightBar-card
             .panel.panel-primary
                 .panel-heading
                     h3.panel-title 资料
+                    .topRightBtn.topRightBtn-1(type='button', ng-click='spanUploadFiles = !spanUploadFiles' data-toggle='collapse', data-target='#uploadFiles', aria-expanded='false', aria-controls='uploadFiles')
+                        span.fui-plus(ng-hide="spanUploadFiles")
+                        span.fui-cross(ng-show="spanUploadFiles")
                 .panel-body
                     .table-responsive
                         table.table
@@ -92,9 +108,6 @@
                                             .btn 下载
                                     td 15,Mar, 2017
                                     td 234Mb
-                    a#UpLoadFileBtn.btn.btn-inverse(type='button', ng-click='spanUploadFiles = !spanUploadFiles' data-toggle='collapse', data-target='#uploadFiles', aria-expanded='false', aria-controls='uploadFiles') 
-                        span.fui-plus(ng-hide="spanUploadFiles") &nbsp; Upload Files
-                        span.fui-cross(ng-show="spanUploadFiles") &nbsp; Upload Files
                     center#uploadFiles.collapse
                         .row(style='padding:5px 16px 5px 16px;')
                             input#input-700.file-loading(name='kartik-input-700[]', type='file', multiple='')
@@ -109,6 +122,8 @@
             .panel.panel-primary
                 .panel-heading
                     h3.panel-title 计划
+                    .topRightBtn.topRightBtn-1
+                        span.fui-plus
                 .panel-body
                     .table-responsive
                         table.table
@@ -148,7 +163,8 @@
                         .But
                             span.submit 发表
                     #msgpad.msgCon
-        br
-        br
+        center            
+            span.buttomEditButton.fui-plus
+            span.buttomEditButton.fui-gear
         br
         br
