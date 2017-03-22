@@ -1,18 +1,10 @@
-.rightbar {
-    top: 0px;
-    bottom: 0;
-    width: 40%;
-    right: -40%;
-    background-color: #D6D0CE;
-}
-
-.sidebars .rightbar {
+#leaf-right-bar {
     box-shadow: 0 0 3px gray;
-    position: fixed;
     padding: 0px;
     font-size: 16px;
     height: 100%;
     overflow: auto;
+    background-color: #D6D0CE;
 }
 
 .panel {
@@ -55,12 +47,22 @@ h3 {
 #authorInfoContainer {
     background-color: #222;
     color: #999;
-    margin-top: 53px;
     box-shadow: inset 0 -10px 10px black;
 }
 
 #authorInfoBtn {
+    width: 70%;
+    background-color: #222;
+}
+
+#UpLoadFileBtn {
     width: 100%;
+    background-color: #222;
+}
+
+#goToLeafBtn {
+    float: right;
+    width: 20%;
     background-color: #222;
 }
 
