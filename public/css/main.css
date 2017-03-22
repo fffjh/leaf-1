@@ -8,11 +8,28 @@
 
 #toolBar {
     width: 60%;
+    position: absolute;
+    z-index: 1000;
 }
 
 #parent {
-    height: 700px;
+    height: calc(100% - 54px);
     width: 60%;
     position: relative;
     overflow: scroll;
+}
+
+.btn, .btn-primary, .btn-sm {
+    margin: 2px;
+    color: gray;
+    background-color: white;
+}
+
+.btn-tool {
+    background: transparent;
+}
+
+.btn:hover, .btn-primary:hover, .btn-sm:hover {
+    color: white;
+    background-color: #222;
 }
