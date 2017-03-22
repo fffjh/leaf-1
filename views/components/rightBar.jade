@@ -3,21 +3,22 @@
         a#authorInfoBtn.btn.btn-inverse(type='button', ng-click='spanAuthor = !spanAuthor' data-toggle='collapse', data-target='#authorInfo', aria-expanded='false', aria-controls='authorInfo') 
             span.fui-plus(ng-hide="spanAuthor") &nbsp;SHOW AUTHOR
             span.fui-cross(ng-show="spanAuthor") &nbsp;HIDE AUTHOR
-        a#goToLeafBtn.btn.btn-inverse(href="#leaf-main") leaf
+        a#goToLeafBtn.btn.btn-inverse(href="#leaf-main") tree
         center#authorInfo.collapse
             br
             img#myicon(src='img/avatar.png', alt='icon')
             h5 
                 a(href='/browse/user/chroslen') chroslen
-            p sophomore, this author is the current node's author
+            p sophomore, at SYSU.
             a 4 leaves - 
             span
                 a 3 tags
             br
             a 
-                span.fui-github GitHub &nbsp;&nbsp;
+                span.fui-github GitHub &nbsp;
             a 
                 span.fui-mail chroslen@gmail.com
+            br
             br
     br
     ol.breadcrumb
