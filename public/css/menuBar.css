@@ -50,3 +50,57 @@
 .navbar-inverse {
     background-color: #34495e !important;
 }
+
+.menuToggle {
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    top: 8px;
+    right: 18px;
+}
+
+
+/*logo start*/
+
+.navbar-brand img {
+    position: relative;
+    top: -2px;
+    height: 26px;
+    width: 26px;
+}
+
+
+/*logo end*/
+
+
+/*search bar start*/
+
+.phoneSearchBar {
+    position: absolute;
+    top: 8px;
+    right: 52px;
+    height: 36px;
+    border-radius: 18px;
+}
+
+.phoneSearchBar>input, .form-control {
+    position: absolute;
+    right: 30px;
+    height: 36px;
+    width: 180px;
+    border-radius: 18px;
+}
+
+.phoneSearchBar a {
+    position: absolute;
+    right: 0px;
+    font-size: 20px;
+    color: white;
+}
+
+.phoneSearchBar a:hover {
+    color: green;
+}
+
+
+/*search bar end*/
