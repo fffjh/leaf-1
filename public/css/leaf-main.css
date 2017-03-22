@@ -1,22 +1,28 @@
+#leaf-main {
+    padding: 0px;
+    height: 100%;
+    border-bottom: 10px gray solid;
+    overflow: scroll;
+}
+
+#toolBar {
+    position: absolute;
+    background: transparent;
+    z-index: 1000;
+}
+
+#parent {
+    height: 100%;
+    position: relative;
+    overflow: scroll;
+}
+
 #main {
     height: 5000px;
     width: 5000px;
     position: relative;
     top: -2000px;
     left: 100px;
-}
-
-#toolBar {
-    width: 60%;
-    position: absolute;
-    z-index: 1000;
-}
-
-#parent {
-    height: calc(100% - 54px);
-    width: 60%;
-    position: relative;
-    overflow: scroll;
 }
 
 .btn, .btn-primary, .btn-sm {
@@ -32,4 +38,8 @@
 .btn:hover, .btn-primary:hover, .btn-sm:hover {
     color: white;
     background-color: #222;
+}
+
+2;
+
 }

@@ -1,155 +1,153 @@
-.sidebars
-    .rightbar.bg-default(style='right: 0px;')
-        #authorInfoContainer
-            a#authorInfoBtn.btn.btn-inverse(type='button', ng-click='spanAuthor = !spanAuthor' data-toggle='collapse', data-target='#authorInfo', aria-expanded='false', aria-controls='authorInfo') 
-                span.fui-plus(ng-hide="spanAuthor") &nbsp;SHOW AUTHOR
-                span.fui-cross(ng-show="spanAuthor") &nbsp;HIDE AUTHOR
-            center#authorInfo.collapse
-                br
-                img#myicon(src='img/avatar.png', alt='icon')
-                h5 
-                    a(href='/browse/user/chroslen') chroslen
-                p sophomore, this author is the current node's author
-                a 4 leaves - 
-                span
-                    a 3 tags
-                br
-                a 
-                    span.fui-github GitHub &nbsp;&nbsp;
-                a 
-                    span.fui-mail chroslen@gmail.com
-                br
-                br
+#leaf-right-bar
+    #authorInfoContainer
+        a#authorInfoBtn.btn.btn-inverse(type='button', ng-click='spanAuthor = !spanAuthor' data-toggle='collapse', data-target='#authorInfo', aria-expanded='false', aria-controls='authorInfo') 
+            span.fui-plus(ng-hide="spanAuthor") &nbsp;SHOW AUTHOR
+            span.fui-cross(ng-show="spanAuthor") &nbsp;HIDE AUTHOR
+        a#goToLeafBtn.btn.btn-inverse(href="#leaf-main") leaf
+        center#authorInfo.collapse
+            br
+            img#myicon(src='img/avatar.png', alt='icon')
+            h5 
+                a(href='/browse/user/chroslen') chroslen
+            p sophomore, this author is the current node's author
+            a 4 leaves - 
+            span
+                a 3 tags
+            br
+            a 
+                span.fui-github GitHub &nbsp;&nbsp;
+            a 
+                span.fui-mail chroslen@gmail.com
+            br
+    br
+    ol.breadcrumb
+        li
+            a(href='#') 作业汇总
+        li
+            a(href='#') web2.0
+        li.active 课程作业
+    .tagsinput-primary
+        input.tagsinput(name='tagsinput', data-role='tagsinput', value='未完成, school')
+    form.form-horizontal(role='form')
+        .form-group.rightBar-card
+            .panel.panel-primary
+                .panel-heading
+                    h3.panel-title 描述
+                .panel-body
+                    dl
+                        dt title
+                        dd content
+                    script(type='text/javascript').
+                        $(function() {
+                        $('#tags_1').tagsInput({width:'auto'});
+                        });
+        .form-group.rightBar-card
+            .panel.panel-primary
+                .panel-heading
+                    h3.panel-title 笔记
+                .panel-body
+                    textarea.form-control(rows='10', cols='50', autofocus='', placeholder='在这里写下笔记')
+        .form-group.rightBar-card
+            .panel.panel-primary
+                .panel-heading
+                    h3.panel-title 资料
+                .panel-body
+                    .table-responsive
+                        table.table
+                            thead
+                                tr
+                                    th #
+                                    th Name
+                                    th Date Modified
+                                    th Size
+                            tbody
+                                tr
+                                    th(scope='row') 1
+                                    td 
+                                        a(type='button', data-toggle='collapse', data-target='#file1', aria-expanded='false', aria-controls='file1')
+                                            | Mark.doc
+                                        #file1.collapse
+                                            .btn 预览
+                                            .btn 下载
+                                    td 13,Mar, 2017
+                                    td 2Mb
+                                tr
+                                    th(scope='row') 2
+                                    td 
+                                        a(type='button', data-toggle='collapse', data-target='#file2', aria-expanded='false', aria-controls='file2')
+                                            | Jacob.css
+                                        #file2.collapse
+                                            .btn 预览
+                                            .btn 下载
+                                    td 13,Mar, 2017
+                                    td 2kb
+                                tr
+                                    th(scope='row') 3
+                                    td 
+                                        a(type='button', data-toggle='collapse', data-target='#file3', aria-expanded='false', aria-controls='file3')
+                                            | Larry.rmvb
+                                        #file3.collapse
+                                            .btn 预览
+                                            .btn 下载
+                                    td 15,Mar, 2017
+                                    td 234Mb
+                    a#UpLoadFileBtn.btn.btn-inverse(type='button', ng-click='spanUploadFiles = !spanUploadFiles' data-toggle='collapse', data-target='#uploadFiles', aria-expanded='false', aria-controls='uploadFiles') 
+                        span.fui-plus(ng-hide="spanUploadFiles") &nbsp; Upload Files
+                        span.fui-cross(ng-show="spanUploadFiles") &nbsp; Upload Files
+                    center#uploadFiles.collapse
+                        .row(style='padding:5px 16px 5px 16px;')
+                            input#input-700.file-loading(name='kartik-input-700[]', type='file', multiple='')
+                            script.
+                                $("#input-700").fileinput({
+                                uploadUrl: "http://localhost/file-upload/", // server upload action
+                                uploadAsync: true,
+                                maxFileCount: 5
+                                });
 
+        .form-group.rightBar-card
+            .panel.panel-primary
+                .panel-heading
+                    h3.panel-title 计划
+                .panel-body
+                    .table-responsive
+                        table.table
+                            thead
+                                tr
+                                    th 状态
+                                    th 任务
+                                    th 截止时间
+                            tbody
+                                tr
+                                    td 
+                                        input(type='checkbox', value='', data-toggle='checkbox')
+                                    td  
+                                        a(type='button', data-toggle='collapse', data-target='#planOne', aria-expanded='false', aria-controls='planOne') 
+                                            span 第一次课后作业
+                                        #planOne.collapse
+                                            p 第一次课后作业
+                                    td 2015年11月11日
+                                tr
+                                    td 
+                                        input(type='checkbox', value='', data-toggle='checkbox')
+                                    td
+                                        a(type='button', data-toggle='collapse', data-target='#planTwo', aria-expanded='false', aria-controls='planTwo') 
+                                            span 实验一
+                                        #planTwo.collapse
+                                            p 实验一
+                                    td 2016年12月30日
+
+
+        .form-group.rightBar-card
+            .panel.panel-primary(style='overflow: auto; height: 360px;')
+                .panel-heading
+                    h3.panel-title 留言
+                .panel-body
+                    #qdiscuss
+                        textarea#mesg.message.form-control(contenteditable='true')
+                        .But
+                            span.submit 发表
+                    #msgpad.msgCon
         br
-        ol.breadcrumb
-            li
-                a(href='#') 作业汇总
-            li
-                a(href='#') web2.0
-            li.active 课程作业
-        .tagsinput-primary
-            input.tagsinput(name='tagsinput', data-role='tagsinput', value='未完成, school')
-        form.form-horizontal(role='form')
-            .form-group.rightBar-card
-                .panel.panel-primary
-                    .panel-heading
-                        h3.panel-title 描述
-                    .panel-body
-                        dl
-                            dt title
-                            dd content
-                        script(type='text/javascript').
-                            $(function() {
-                            $('#tags_1').tagsInput({width:'auto'});
-                            });
-            .form-group.rightBar-card
-                .panel.panel-primary
-                    .panel-heading
-                        h3.panel-title 笔记
-                    .panel-body
-                        textarea.form-control(rows='10', cols='50', autofocus='', placeholder='在这里写下笔记')
-            .form-group.rightBar-card
-                .panel.panel-primary
-                    .panel-heading
-                        h3.panel-title 资料
-                    .panel-body
-                        .table-responsive
-                            table.table
-                                thead
-                                    tr
-                                        th #
-                                        th Name
-                                        th Date Modified
-                                        th Size
-                                tbody
-                                    tr
-                                        th(scope='row') 1
-                                        td 
-                                            a(type='button', data-toggle='collapse', data-target='#file1', aria-expanded='false', aria-controls='file1')
-                                                | Mark.doc
-                                            #file1.collapse
-                                                .btn 预览
-                                                .btn 下载
-                                        td 13,Mar, 2017
-                                        td 2Mb
-                                    tr
-                                        th(scope='row') 2
-                                        td 
-                                            a(type='button', data-toggle='collapse', data-target='#file2', aria-expanded='false', aria-controls='file2')
-                                                | Jacob.css
-                                            #file2.collapse
-                                                .btn 预览
-                                                .btn 下载
-                                        td 13,Mar, 2017
-                                        td 2kb
-                                    tr
-                                        th(scope='row') 3
-                                        td 
-                                            a(type='button', data-toggle='collapse', data-target='#file3', aria-expanded='false', aria-controls='file3')
-                                                | Larry.rmvb
-                                            #file3.collapse
-                                                .btn 预览
-                                                .btn 下载
-                                        td 15,Mar, 2017
-                                        td 234Mb
-                        a#authorInfoBtn.btn.btn-inverse(type='button', ng-click='spanUploadFiles = !spanUploadFiles' data-toggle='collapse', data-target='#uploadFiles', aria-expanded='false', aria-controls='uploadFiles') 
-                            span.fui-plus(ng-hide="spanUploadFiles") &nbsp; Upload Files
-                            span.fui-cross(ng-show="spanUploadFiles") &nbsp; Upload Files
-                        center#uploadFiles.collapse
-                            .row(style='padding:5px 16px 5px 16px;')
-                                input#input-700.file-loading(name='kartik-input-700[]', type='file', multiple='')
-                                script.
-                                    $("#input-700").fileinput({
-                                    uploadUrl: "http://localhost/file-upload/", // server upload action
-                                    uploadAsync: true,
-                                    maxFileCount: 5
-                                    });
-
-            .form-group.rightBar-card
-                .panel.panel-primary
-                    .panel-heading
-                        h3.panel-title 计划
-                    .panel-body
-                        .table-responsive
-                            table.table
-                                thead
-                                    tr
-                                        th 状态
-                                        th 任务
-                                        th 截止时间
-                                tbody
-                                    tr
-                                        td 
-                                            input(type='checkbox', value='', data-toggle='checkbox')
-                                        td  
-                                            a(type='button', data-toggle='collapse', data-target='#planOne', aria-expanded='false', aria-controls='planOne') 
-                                                span 第一次课后作业
-                                            #planOne.collapse
-                                                p 第一次课后作业
-                                        td 2015年11月11日
-                                    tr
-                                        td 
-                                            input(type='checkbox', value='', data-toggle='checkbox')
-                                        td
-                                            a(type='button', data-toggle='collapse', data-target='#planTwo', aria-expanded='false', aria-controls='planTwo') 
-                                                span 实验一
-                                            #planTwo.collapse
-                                                p 实验一
-                                        td 2016年12月30日
-
-
-            .form-group.rightBar-card
-                .panel.panel-primary(style='overflow: auto; height: 360px;')
-                    .panel-heading
-                        h3.panel-title 留言
-                    .panel-body
-                        #qdiscuss
-                            textarea#mesg.message.form-control(contenteditable='true')
-                            .But
-                                span.submit 发表
-                        #msgpad.msgCon
-            br
-            br
-            br
-            br
+        br
+        br
+        br
