@@ -1,6 +1,6 @@
 link(rel='stylesheet', href='css/browse.css')
 
-#filtersAndSearch.palette-silver.container-fluit
+#filtersAndSearch.container-fluit
     p#browseTitle.lead Lots of Leaves, one Tree
     p#browseIntroduction 2314 users, 5239 leaves
     a#filtersBtn.btn.btn-inverse(type='button', ng-click="withFilters = !withFilters", data-toggle='collapse', data-target='#filtersList', aria-expanded='false', aria-controls='filtersList')
@@ -39,26 +39,27 @@ link(rel='stylesheet', href='css/browse.css')
     .col-xs-12.col-sm-9(ng-hide="withFilters")
         br
         .col-xs-6.col-sm-6.col-md-4(ng-repeat='user in users | filter : { type : type } | filter : search')
-            .tile.browse-card
-                a(href='/browse/user/{{user.name}}')
+
+            a(href='/browse/user/{{user.name}}')
+                .tile.browse-card
                     h3.tile-title {{user.name}}
-                br
-                p {{user.description}}
-                span.label.label-info user
+                    br
+                    p {{user.description}}
+                    span.label.label-info user
 
         .col-xs-6.col-sm-6.col-md-4(ng-repeat='leaf in leaves | filter : { type : type } | filter : search')
-            .tile.browse-card
-                a(href='/leaf')
+            a(href='/leaf')
+                .tile.browse-card
                     h3.tile-title {{leaf.topic}}
-                br
-                span.label.label-success leaf
+                    br
+                    span.label.label-success leaf
 
         .col-xs-6.col-sm-6.col-md-4(ng-repeat='document in documents | filter : { type : type } | filter : search')
-            .tile.browse-card
-                a(href='/leaf')
+            a(href='/leaf')           
+                .tile.browse-card
                     h3.tile-title {{document.documentName}}
-                br
-                span.label.label-warning document
+                    br
+                    span.label.label-warning document
 
     // without filter list
     .col-xs-12.col-sm-12(ng-show="withFilters")
