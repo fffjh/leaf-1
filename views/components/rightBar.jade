@@ -81,14 +81,18 @@
                                         a Larry.rmvb
                                     td 15,Mar, 2017
                                     td 234Mb
-                        .row(style='padding:5px 16px 5px 16px;')
-                            input#input-700.file-loading(name='kartik-input-700[]', type='file', multiple='')
-                            script.
-                                $("#input-700").fileinput({
-                                uploadUrl: "http://localhost/file-upload/", // server upload action
-                                uploadAsync: true,
-                                maxFileCount: 5
-                                });
+                        a#authorInfoBtn.btn.btn-inverse(type='button', ng-click='spanAuthor = !spanAuthor' data-toggle='collapse', data-target='#uploadFiles', aria-expanded='false', aria-controls='uploadFiles') 
+                            span.fui-plus(ng-hide="spanAuthor") &nbsp;SHOW uploadFiles
+                            span.fui-cross(ng-show="spanAuthor") &nbsp;HIDE uploadFiles
+                        center#uploadFiles.collapse
+                            .row(style='padding:5px 16px 5px 16px;')
+                                input#input-700.file-loading(name='kartik-input-700[]', type='file', multiple='')
+                                script.
+                                    $("#input-700").fileinput({
+                                    uploadUrl: "http://localhost/file-upload/", // server upload action
+                                    uploadAsync: true,
+                                    maxFileCount: 5
+                                    });
 
             .form-group.rightBar-card
                 .panel.panel-primary

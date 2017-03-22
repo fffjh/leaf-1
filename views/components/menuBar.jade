@@ -48,7 +48,8 @@
                             a(href='/leaf') delete this leaf
                         li.divider
                         li
-                            a(href='/leaf') recently opened
+                            a(href='/leaf') recently opened &nbsp;
+                                span.label.label-info 5
                 li.dropdown(ng-controller='checkSigninCtrl', ng-model='signedin')
                     a.dropdown-toggle(href='', data-toggle='dropdown')
                         span.fui-user
@@ -61,9 +62,11 @@
                         li
                             a(href='/mystars') my stars
                         li
-                            a(href='/mymessages') my messages
+                            a(href='/mymessages') my messages &nbsp;
+                                span.label.label-info 3
                         li
-                            a(href='/requests') requests
+                            a(href='/requests') requests &nbsp;
+                                span.label.label-info 1
                         li.divider
                         li
                             a(href='/settings') settings
