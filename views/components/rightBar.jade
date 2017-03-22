@@ -1,13 +1,27 @@
 .sidebars
     .rightbar.bg-default(style='right: 0px;').palette-silver
-        a#authorInfoBtn.btn.btn-inverse(type='button', data-toggle='collapse', data-target='#authorInfo', aria-expanded='false', aria-controls='authorInfo') 
         #authorInfoContainer
+            a#authorInfoBtn.btn.btn-inverse(type='button', ng-click='spanAuthor = !spanAuthor' data-toggle='collapse', data-target='#authorInfo', aria-expanded='false', aria-controls='authorInfo') 
+                span.fui-plus(ng-hide="spanAuthor") &nbsp;SHOW AUTHOR
+                span.fui-cross(ng-show="spanAuthor") &nbsp;HIDE AUTHOR
             center#authorInfo.collapse
                 br
                 img#myicon(src='img/avatar.png', alt='icon')
                 h5 
                     a(href='/browse/user/chroslen') chroslen
-                p sophomore
+                p sophomore, this author is the current node's author
+                a 4 leaves - 
+                span
+                    a 3 tags
+                br
+                a 
+                    span.fui-github GitHub &nbsp;&nbsp;
+                a 
+                    span.fui-mail chroslen@gmail.com
+                br
+                br
+
+
         br
         ol.breadcrumb
             li
@@ -125,10 +139,10 @@
             .modal-footer
                 button.btn.btn-default(type='button', data-dismiss='modal') 未完成
                 button.btn.btn-primary(type='button') 已完成
-        // /.modal-content
-        // /.modal-dialog
-        // /.modal
-        // jQuery (necessary for Bootstrap's JavaScript plugins)
-        script(src='https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js')
-        // Include all compiled plugins (below), or include individual files as needed
-        script(src='js/bootstrap.min.js')
+        //- // /.modal-content
+        //- // /.modal-dialog
+        //- // /.modal
+        //- // jQuery (necessary for Bootstrap's JavaScript plugins)
+        //- script(src='https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js')
+        //- // Include all compiled plugins (below), or include individual files as needed
+        //- script(src='js/bootstrap.min.js')
