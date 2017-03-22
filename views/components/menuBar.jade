@@ -2,11 +2,17 @@
     nav.navbar.navbar-inverse(role='navigation')
         // Brand and toggle get grouped for better mobile display
         .navbar-header
-            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
-                span.sr-only Toggle navigation
+            .menuToggle.visible-xs(type='button', ng-click='collapseList = !collapseList', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                span.fui-list(ng-hide='collapseList')
+                span.fui-cross(ng-show='collapseList')
             a.navbar-brand(href='/') 
-                img(src='img/leaf.png', height='26px', width='26px')
+                img(src='img/leaf.png')
                 | &nbsp; Leaf &nbsp;
+            .phoneSearchBar.visible-xs
+                form
+                    input.form-control(type='search', placeholder='Search Leaf', ng-model='search', ng-show='clickSearch')
+                    a(href='/browse/all', ng-click='clickSearch = !clickSearch')
+                        span.fui-search
         // Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
             ul.nav.navbar-nav.navbar-left
@@ -25,7 +31,7 @@
                             a(href='/browse/user') user
                         li
                             a(href='/browse/local') local
-            form.navbar-form.navbar-left(role='search')
+            form.navbar-form.navbar-left(role='search').hidden-xs
                 .form-group.has-feedback
                     .input-group
                         input.form-control(type='search', placeholder='Search Leaf', ng-model='search')

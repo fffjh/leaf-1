@@ -17,3 +17,15 @@ html, body {
     height: calc(100% - 53px);
     overflow: scroll;
 }
+
+#menu, .topArea, .navbar-inverse {
+    background: #495a80 !important;
+}
+
+.navbar-nav>.open>.dropdown-menu {
+    background: #544946 !important;
+}
+
+.navbar-inverse, .navbar-collapse, .navbar-form {
+    border: none;
+}
