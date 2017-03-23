@@ -22,7 +22,7 @@
     width: 40%;
 }
 
-#drag-vertical {
+#drag {
     position: absolute;
     left: -4px;
     top: 0;
@@ -31,28 +31,19 @@
     cursor: col-resize;
 }
 
-#top_panel {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 100%;
-    background: white;
-}
-
-#bottom_panel {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 40%;
-}
-
-#drag-horizontal {
-    position: absolute;
-    top: -4px;
-    left: 0;
-    right: 0;
-    height: 8px;
-    cursor: row-resize;
+@media only screen and (max-width: 500px) {
+    #left_panel {
+        position: relative;
+        width: 100%;
+        height: calc(100% - 10px);
+    }
+    #right_panel {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        border-top: gray 10px solid;
+    }
+    #drag {
+        display: none;
+    }
 }
