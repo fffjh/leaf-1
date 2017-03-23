@@ -155,18 +155,6 @@ function SettingsCtrl($scope, $http, $rootScope) {
         }, function(error) {
             console.log('Error: ' + error);
         });
-
-    // switch condition
-    $scope.condition = "";
-    $scope._profile = function() {
-        $scope.condition = "Profile";
-    };
-    $scope._account = function() {
-        $scope.condition = "Account";
-    };
-    $scope._email = function() {
-        $scope.condition = "Email";
-    };
 };
 
 app.controller('updateProfileCtrl', function($http, $rootScope, $scope) {
