@@ -5,16 +5,38 @@
     overflow: scroll;
 }
 
+#toolToggle {
+    position: absolute;
+    height: 78px;
+    width: 10px !important;
+    background: transparent;
+}
+
+#toolToggle:hover {
+    background-color: #222;
+}
+
 #toolBar {
     position: fixed;
     background: transparent;
     z-index: 10;
 }
 
+#toolList {
+    margin-left: 30px;
+}
+
 #parent {
     height: 100%;
+    width: 100%;
     position: relative;
     overflow: scroll;
+}
+
+@media only screen and (max-width: 750px) {
+    #parent, #main {
+        position: fixed;
+    }
 }
 
 #main {
@@ -26,6 +48,12 @@
 }
 
 .btn, .btn-primary, .btn-sm {
+    margin: 2px;
+    color: gray;
+    background-color: white;
+}
+
+.btn:focus, .btn-primary:focus, .btn-sm:focus {
     margin: 2px;
     color: gray;
     background-color: white;
