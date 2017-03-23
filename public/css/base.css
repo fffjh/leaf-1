@@ -4,28 +4,8 @@ html, body {
     padding: 0;
 }
 
-#footer {
-    height: 100px;
-    width: 100%;
-    bottom: -100px;
-    position: absolute;
-    z-index: 1000;
-}
-
 #ngview {
     width: 100%;
     height: calc(100% - 53px);
     overflow: scroll;
-}
-
-#menu, .topArea, .navbar-inverse {
-    background: #495a80 !important;
-}
-
-.navbar-nav>.open>.dropdown-menu {
-    background: #544946 !important;
-}
-
-.navbar-inverse, .navbar-collapse, .navbar-form {
-    border: none;
 }

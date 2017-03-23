@@ -2,7 +2,7 @@ link(rel='stylesheet', href='css/browse.css')
 
 #filtersAndSearch.container-fluit
     p#browseTitle.lead Lots of Leaves, one Tree
-    p#browseIntroduction 2314 users, 5239 leaves
+    p#browseIntroduction {{users.length}} users, {{leaves.length}} leaves
     a#filtersBtn.btn.btn-inverse(type='button', ng-click="withFilters = !withFilters", data-toggle='collapse', data-target='#filtersList', aria-expanded='false', aria-controls='filtersList')
         span.fui-plus(ng-show="withFilters") &nbsp;SHOW FILTERS
         span.fui-cross(ng-hide="withFilters") &nbsp;HIDE FILTERS
@@ -13,19 +13,19 @@ link(rel='stylesheet', href='css/browse.css')
             br
             ul#nav-tabs-wrapper.nav.nav-tabs.nav-pills.nav-stacked.well
                 li.active
-                    a(ng-click='_all()') all
-                        span.badge {{users.length + leaves.length + documents.length}}
+                    a(ng-click='ngfilter = "all"', ng-init='ngfilter="all"') all
+                        span.badge {{filteredUsers.length + filteredLeaves.length + filteredDocs.length}}
                 li
-                    a(ng-click='_leaf()') leaf
-                        span.badge {{leaves.length}}
+                    a(ng-click='ngfilter = "leaf"') leaf
+                        span.badge {{filteredLeaves.length}}
                 li
-                    a(ng-click='_document()') document
-                        span.badge {{documents.length}}
+                    a(ng-click='ngfilter = "document"') document
+                        span.badge {{filteredDocs.length}}
                 li
-                    a(ng-click='_user()') user 
-                        span.badge {{users.length}}
+                    a(ng-click='ngfilter = "user"') user 
+                        span.badge {{filteredUsers.length}}
                 li
-                    a(ng-click='_local()') local
+                    a(ng-click='ngfilter = "local"') local
 
             script(type='text/javascript').
                 $('#nav-tabs-wrapper > li a').click(function(e) {
@@ -34,12 +34,24 @@ link(rel='stylesheet', href='css/browse.css')
                     e.preventDefault();
                 });
 
-
     // with filter list
     .col-xs-12.col-sm-9(ng-hide="withFilters")
         br
-        .col-xs-6.col-sm-6.col-md-4(ng-repeat='user in users | filter : { type : type } | filter : search')
+        .col-xs-6.col-sm-6.col-md-4(ng-repeat='leaf in leaves | filter : search as filteredLeaves', ng-show="ngfilter == 'all' || ngfilter == 'leaf'")
+            a(href='/leaf')
+                .tile.browse-card
+                    h3.tile-title {{leaf.topic}}
+                    br
+                    span.label.label-success leaf
 
+        .col-xs-6.col-sm-6.col-md-4(ng-repeat='document in documents | filter : search as filteredDocs', ng-show="ngfilter == 'all' || ngfilter == 'document'")
+            a(href='/leaf')
+                .tile.browse-card
+                    h3.tile-title {{document.documentName}}
+                    br
+                    span.label.label-warning document
+
+        .col-xs-6.col-sm-6.col-md-4(ng-repeat='user in users | filter : search as filteredUsers', ng-show="ngfilter == 'all' || ngfilter == 'user'")
             a(href='/browse/user/{{user.name}}')
                 .tile.browse-card
                     h3.tile-title {{user.name}}
@@ -47,44 +59,30 @@ link(rel='stylesheet', href='css/browse.css')
                     p {{user.description}}
                     span.label.label-info user
 
-        .col-xs-6.col-sm-6.col-md-4(ng-repeat='leaf in leaves | filter : { type : type } | filter : search')
-            a(href='/leaf')
-                .tile.browse-card
-                    h3.tile-title {{leaf.topic}}
-                    br
-                    span.label.label-success leaf
-
-        .col-xs-6.col-sm-6.col-md-4(ng-repeat='document in documents | filter : { type : type } | filter : search')
-            a(href='/leaf')           
-                .tile.browse-card
-                    h3.tile-title {{document.documentName}}
-                    br
-                    span.label.label-warning document
-
     // without filter list
     .col-xs-12.col-sm-12(ng-show="withFilters")
         br
-        .col-xs-6.col-sm-6.col-md-4(ng-repeat='user in users | filter : { type : type } | filter : search')
-            .tile.browse-card
-                a(href='/browse/user/{{user.name}}')
-                    h3.tile-title {{user.name}}
-                br
-                p {{user.description}}
-                span.label.label-info user
-
-        .col-xs-6.col-sm-6.col-md-4(ng-repeat='leaf in leaves | filter : { type : type } | filter : search')
+        .col-xs-6.col-sm-6.col-md-4(ng-repeat='leaf in leaves | filter : search as filteredLeaves', ng-if="ngfilter == 'all' || ngfilter == 'leaf'")
             .tile.browse-card
                 a(href='/leaf')
                     h3.tile-title {{leaf.topic}}
                 br
                 span.label.label-success leaf
 
-        .col-xs-6.col-sm-6.col-md-4(ng-repeat='document in documents | filter : { type : type } | filter : search')
+        .col-xs-6.col-sm-6.col-md-4(ng-repeat='document in documents | filter : search as filteredDocs', ng-if="ngfilter == 'all' || ngfilter == 'document'")
             .tile.browse-card
                 a(href='/leaf')
                     h3.tile-title {{document.documentName}}
                 br
                 span.label.label-warning document
+
+        .col-xs-6.col-sm-6.col-md-4(ng-repeat='user in users | filter : search as filteredUsers', ng-if="ngfilter == 'all' || ngfilter == 'user'")
+            .tile.browse-card
+                a(href='/browse/user/{{user.name}}')
+                    h3.tile-title {{user.name}}
+                br
+                p {{user.description}}
+                span.label.label-info user
 
     // 页面导航栏
     .col-xs-12

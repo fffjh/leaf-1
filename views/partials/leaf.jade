@@ -2,14 +2,24 @@ link(rel='stylesheet', href='css/discuss.css')
 link(rel='stylesheet', href='css/fileinput.css', media='all')
 link(rel='stylesheet', href='css/rightBar.css')
 link(rel='stylesheet', href='css/leaf-main.css')
+link(rel='stylesheet', href='css/dragBar.css')
 script(type='text/javascript', src='js/bootstrap.js')
 script(type='text/javascript', src='Flat-UI-master/dist/js/flat-ui.min.js')
 script(type='text/javascript', src='js/jquery-3.1.1.js')
 script(type='text/javascript', src='js/fileinput.js')
 script(type='text/javascript', src='js/echarts-all.js')
 script(type='text/javascript', src='js/leaf-main.js')
+script(type='text/javascript', src='js/dragBar.js')
 
-#leaf-main.col-xs-12.col-sm-7
-    include ../components/leaf
-#leaf-right-bar.col-xs-12.col-sm-5
-    include ../components/rightBar
+#container.hidden-xs
+    #left_panel
+        include ../components/leaf
+    #right_panel
+        #drag-vertical
+        include ../components/rightBar
+#container.visible-xs
+    #top_panel
+        include ../components/leaf
+    #bottom_panel
+        #drag-horizontal
+        include ../components/rightBar

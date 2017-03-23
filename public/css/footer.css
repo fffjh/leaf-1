@@ -1,0 +1,31 @@
+#footer {
+    width: 100%;
+    position: absolute;
+    z-index: 1000;
+}
+
+.footer1 {
+    height: 97px;
+    bottom: -97px;
+}
+
+.footer2 {
+    height: 120px;
+    bottom: -120px;
+}
+
+span img {
+    width: 20px;
+    height: 20px;
+}
+
+small, small a {
+    font-weight: 100;
+    color: #bfc7cd;
+    transition-delay: 0.1s;
+}
+
+small a:hover {
+    border-bottom: 1px #16a085 solid;
+    transition-delay: 0s;
+}
