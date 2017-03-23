@@ -31,7 +31,7 @@
     cursor: col-resize;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 750px) {
     #left_panel {
         position: relative;
         width: 100%;
