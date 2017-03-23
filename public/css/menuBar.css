@@ -1,7 +1,3 @@
-.navbar {
-    margin-bottom: 0px;
-}
-
 .navbar-inverse .navbar-form .form-control, .navbar-inverse .navbar-form .select2-search input[type="text"] {
     color: /536a81;
     border-color: transparent;
@@ -10,14 +6,14 @@
 
 .navbar {
     min-height: 53px;
-    margin-bottom: 30px;
     font-size: 16px;
     border: none;
     border-radius: 0px;
+    margin-bottom: 0px;
 }
 
 .topArea {
-    height: 53px;
+    /*height: 53px;*/
     background-color: #34495e;
 }
 
@@ -35,6 +31,14 @@
     z-index: 19999;
 }
 
+#menu, .topArea, .navbar-inverse {
+    background: #495a80 !important;
+}
+
+.navbar-nav>.open>.dropdown-menu {
+    background: #586582 !important;
+}
+
 .navbar-inverse .navbar-brand {
     color: #ffffff !important;
 }
@@ -43,12 +47,8 @@
     color: #ffffff !important;
 }
 
-.navbar-inverse .navbar-collapse {
-    border-color: #2f4154 !important;
-}
-
-.navbar-inverse {
-    background-color: #34495e !important;
+.navbar-inverse, .navbar-collapse, .navbar-form {
+    border: none;
 }
 
 .menuToggle {
@@ -83,12 +83,16 @@
     border-radius: 18px;
 }
 
-.phoneSearchBar>input, .form-control {
+.phoneSearchBar>input, .phoneSearchBarFormCtrl {
     position: absolute;
+    border: none;
+    border-radius: 0px;
+    border-bottom: 2px gray solid;
+    background: transparent;
+    color: #1abc9c;
     right: 30px;
     height: 36px;
     width: 180px;
-    border-radius: 18px;
 }
 
 .phoneSearchBar a {
@@ -99,7 +103,7 @@
 }
 
 .phoneSearchBar a:hover {
-    color: green;
+    color: #16a085;
 }
 
 

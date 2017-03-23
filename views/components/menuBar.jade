@@ -10,7 +10,7 @@
                 | &nbsp; Leaf &nbsp;
             .phoneSearchBar.visible-xs
                 form
-                    input.form-control(type='search', placeholder='Search Leaf', ng-model='search', ng-show='clickSearch')
+                    input.form-control.phoneSearchBarFormCtrl(type='search', placeholder='Search Leaf', ng-model='search', ng-show='clickSearch')
                     a(href='/browse/all', ng-click='clickSearch = !clickSearch')
                         span.fui-search
         // Collect the nav links, forms, and other content for toggling
