@@ -13,7 +13,7 @@ link(rel='stylesheet', href='css/browse.css')
             br
             ul#nav-tabs-wrapper.nav.nav-tabs.nav-pills.nav-stacked.well
                 li.active
-                    a(ng-click='ngfilter = "all"') all
+                    a(ng-click='ngfilter = "all"', ng-init='ngfilter="all"') all
                         span.badge {{filteredUsers.length + filteredLeaves.length + filteredDocs.length}}
                 li
                     a(ng-click='ngfilter = "leaf"') leaf
@@ -21,7 +21,6 @@ link(rel='stylesheet', href='css/browse.css')
                 li
                     a(ng-click='ngfilter = "document"') document
                         span.badge {{filteredDocs.length}}
-
                 li
                     a(ng-click='ngfilter = "user"') user 
                         span.badge {{filteredUsers.length}}
@@ -35,25 +34,24 @@ link(rel='stylesheet', href='css/browse.css')
                     e.preventDefault();
                 });
 
-
     // with filter list
     .col-xs-12.col-sm-9(ng-hide="withFilters")
         br
-        .col-xs-6.col-sm-6.col-md-4(ng-repeat='leaf in leaves | filter : { type : type } | filter : search as filteredLeaves', ng-show="ngfilter == 'all' || ngfilter == 'local' || ngfilter == 'leaf'")
+        .col-xs-6.col-sm-6.col-md-4(ng-repeat='leaf in leaves | filter : search as filteredLeaves', ng-show="ngfilter == 'all' || ngfilter == 'leaf'")
             a(href='/leaf')
                 .tile.browse-card
                     h3.tile-title {{leaf.topic}}
                     br
                     span.label.label-success leaf
 
-        .col-xs-6.col-sm-6.col-md-4(ng-repeat='document in documents | filter : { type : type } | filter : search as filteredDocs', ng-show="ngfilter == 'all' || ngfilter == 'local' || ngfilter == 'document'")
-            a(href='/leaf')           
+        .col-xs-6.col-sm-6.col-md-4(ng-repeat='document in documents | filter : search as filteredDocs', ng-show="ngfilter == 'all' || ngfilter == 'document'")
+            a(href='/leaf')
                 .tile.browse-card
                     h3.tile-title {{document.documentName}}
                     br
                     span.label.label-warning document
 
-        .col-xs-6.col-sm-6.col-md-4(ng-repeat='user in users | filter : { type : type } | filter : search as filteredUsers', ng-show="ngfilter == 'all' || ngfilter == 'local' || ngfilter == 'user'")
+        .col-xs-6.col-sm-6.col-md-4(ng-repeat='user in users | filter : search as filteredUsers', ng-show="ngfilter == 'all' || ngfilter == 'user'")
             a(href='/browse/user/{{user.name}}')
                 .tile.browse-card
                     h3.tile-title {{user.name}}
@@ -64,21 +62,21 @@ link(rel='stylesheet', href='css/browse.css')
     // without filter list
     .col-xs-12.col-sm-12(ng-show="withFilters")
         br
-        .col-xs-6.col-sm-6.col-md-4(ng-repeat='leaf in leaves | filter : { type : type } | filter : search as filteredLeaves', ng-if="ngfilter == 'all' || ngfilter == 'local' || ngfilter == 'leaf'")
+        .col-xs-6.col-sm-6.col-md-4(ng-repeat='leaf in leaves | filter : search as filteredLeaves', ng-if="ngfilter == 'all' || ngfilter == 'leaf'")
             .tile.browse-card
                 a(href='/leaf')
                     h3.tile-title {{leaf.topic}}
                 br
                 span.label.label-success leaf
 
-        .col-xs-6.col-sm-6.col-md-4(ng-repeat='document in documents | filter : { type : type } | filter : search as filteredDocs', ng-if="ngfilter == 'all' || ngfilter == 'local' || ngfilter == 'document'")
+        .col-xs-6.col-sm-6.col-md-4(ng-repeat='document in documents | filter : search as filteredDocs', ng-if="ngfilter == 'all' || ngfilter == 'document'")
             .tile.browse-card
                 a(href='/leaf')
                     h3.tile-title {{document.documentName}}
                 br
                 span.label.label-warning document
 
-        .col-xs-6.col-sm-6.col-md-4(ng-repeat='user in users | filter : { type : type } | filter : search as filteredUsers', ng-if="ngfilter == 'all' || ngfilter == 'local' || ngfilter == 'user'")
+        .col-xs-6.col-sm-6.col-md-4(ng-repeat='user in users | filter : search as filteredUsers', ng-if="ngfilter == 'all' || ngfilter == 'user'")
             .tile.browse-card
                 a(href='/browse/user/{{user.name}}')
                     h3.tile-title {{user.name}}
