@@ -11,15 +11,9 @@ script(type='text/javascript', src='js/echarts-all.js')
 script(type='text/javascript', src='js/leaf-main.js')
 script(type='text/javascript', src='js/dragBar.js')
 
-#container.hidden-xs
+#container
     #left_panel
         include ../components/leaf
     #right_panel
-        #drag-vertical
-        include ../components/rightBar
-#container.visible-xs
-    #top_panel
-        include ../components/leaf
-    #bottom_panel
-        #drag-horizontal
+        #drag
         include ../components/rightBar
