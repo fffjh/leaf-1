@@ -1,30 +1,39 @@
-var i = 0;
-var dragging = false;
-$('#dragbar').mousedown(function(e) {
-    e.preventDefault();
+var isResizing = false,
+    lastDownX = 0,
+    lastDownY = 0;
 
-    dragging = true;
-    var main = $('#main');
-    var ghostbar = $('<div>', {
-        id: 'ghostbar',
-        css: {
-            height: main.outerHeight(),
-            top: main.offset().top,
-            left: main.offset().left
-        }
-    }).appendTo('body');
+$(function() {
+    var container = $('#container'),
+        left = $('#left_panel'),
+        right = $('#right_panel'),
+        top = $('#top_panel'),
+        bottom = $('#bottom_panel'),
+        dragVertical = $('#drag-vertical'),
+        dragHorizontal = $('#drag-horizontal');
 
-    $(document).mousemove(function(e) {
-        ghostbar.css("left", e.pageX + 2);
+    dragVertical.on('mousedown', function(e) {
+        isResizing = true;
+        lastDownX = e.clientX;
     });
-});
+    dragHorizontal.on('mousedown', function(e) {
+        isResizing = true;
+        lastDownY = e.clientY;
+    });
 
-$(document).mouseup(function(e) {
-    if (dragging) {
-        $('#sidebar').css("width", e.pageX + 2);
-        $('#main').css("left", e.pageX + 2);
-        $('#ghostbar').remove();
-        $(document).unbind('mousemove');
-        dragging = false;
-    }
+    $(document).on('mousemove', function(e) {
+        // we don't want to do anything if we aren't resizing.
+        if (!isResizing)
+            return;
+
+        var offsetRight = container.width() - (e.clientX - container.offset().left);
+        var offsetBottom = $(window).height() - (e.clientY - container.offset().top);
+
+        left.css('right', offsetRight);
+        right.css('width', offsetRight);
+        top.css('bottom', offsetBottom);
+        bottom.css('height', offsetBottom);
+    }).on('mouseup', function(e) {
+        // stop resizing
+        isResizing = false;
+    });
 });

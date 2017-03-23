@@ -8,7 +8,7 @@
 #toolBar {
     position: absolute;
     background: transparent;
-    z-index: 1000;
+    z-index: 10 !important;
 }
 
 #parent {
@@ -29,6 +29,7 @@
     margin: 2px;
     color: gray;
     background-color: white;
+    z-index: 10 !important;
 }
 
 .btn-tool {

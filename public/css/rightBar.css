@@ -5,6 +5,7 @@
     height: 100%;
     overflow: auto;
     background-color: #D6D0CE;
+    z-index: 100 !important;
 }
 
 .panel {
