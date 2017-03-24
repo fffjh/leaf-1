@@ -44,9 +44,9 @@
                         span.fui-cross(ng-show="editDescription")
                 .panel-body
                     center#updateDescription.collapse
-                        textarea.form-control(rows='10', cols='2', autofocus='', placeholder='description') description
+                        textarea.form-control(rows='3', autofocus='', ng-model="description", placeholder='description') {{description}}
                 .panel-body(ng-hide="editDescription")
-                    p description
+                    p {{description}}
 
         .form-group.rightBar-card
             .panel.panel-primary
@@ -59,9 +59,8 @@
                         span.fui-cross(ng-show="editNotes")
                 .panel-body
                     center#updateNotes.collapse
-                        textarea.form-control(rows='10', cols='40', autofocus='', placeholder='在这里写下笔记') Lato is free web-font designed by Lukasz Dziedzic from Warsaw. Here you can feel the color, size, line height and margins between paragraphs. Don’t forget to underline your links, they are an important visual marker for users.
-                    p(ng-hide="editNotes") Lato is free web-font designed by Lukasz Dziedzic from Warsaw. Here you can feel the color, size, line height and margins between paragraphs. Don’t forget to underline your links, they are an important visual marker for users.
-
+                        textarea.form-control(rows='7', autofocus='', ng-model="notes", placeholder='在这里写下笔记') 
+                    p(ng-hide="editNotes") {{notes}} 
         .form-group.rightBar-card
             .panel.panel-primary
                 .panel-heading

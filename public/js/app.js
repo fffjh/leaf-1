@@ -67,11 +67,11 @@ app.config(function config($locationProvider, $routeProvider) {
     when('/leaf', {
         title: 'Leaf',
         templateUrl: 'partials/leaf',
-        controller: NewLeafCtrl
+        controller: LeafCtrl
     }).
     when('/leaf/:leafId', {
         templateUrl: 'partials/leaf',
-        controller: OneLeafCtrl
+        controller: LeafCtrl
     }).
     when('/settings', {
         title: 'Settings',

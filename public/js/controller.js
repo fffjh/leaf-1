@@ -212,9 +212,10 @@ function SignoutCtrl($scope, $http, $location, $rootScope, toastr) {
     });
 };
 
-function NewLeafCtrl($scope, $http, $location) {};
-
-function OneLeafCtrl($scope, $http, $location) {};
+function LeafCtrl($scope, $http, $location) {
+    $scope.description = "this is a description."
+    $scope.notes = "Lato is free web-font designed by Lukasz Dziedzic from Warsaw. Here you can feel the color, size, line height and margins between paragraphs. Don’t forget to underline your links, they are an important visual marker for users."
+};
 
 app.run(['$rootScope', function($rootScope) {
     $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
