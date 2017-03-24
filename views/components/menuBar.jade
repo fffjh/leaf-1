@@ -11,7 +11,7 @@
             .phoneSearchBar.visible-xs
                 form
                     input.form-control.phoneSearchBarFormCtrl(type='search', placeholder='Search Leaf', ng-model='search', ng-show='clickSearch')
-                    a(href='/browse/all', ng-click='clickSearch = !clickSearch')
+                    a(href='/browse', ng-click='clickSearch = !clickSearch')
                         span.fui-search
         // Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
@@ -22,21 +22,21 @@
                         b.caret
                     ul.dropdown-menu
                         li
-                            a(href='/browse/all') all
+                            a(href='/browse', ng-click='ngfilter = "all"') all
                         li
-                            a(href='/browse/leaf') leaf
+                            a(href='/browse', ng-click='ngfilter = "leaf"') leaf
                         li
-                            a(href='/browse/document') document
+                            a(href='/browse', ng-click='ngfilter = "document"') document
                         li
-                            a(href='/browse/user') user
+                            a(href='/browse', ng-click='ngfilter = "user"') user
                         li
-                            a(href='/browse/local') local
+                            a(href='/browse', ng-click='ngfilter = "local"') local
             form.navbar-form.navbar-left(role='search').hidden-xs
                 .form-group.has-feedback
                     .input-group
                         input.form-control(type='search', placeholder='Search Leaf', ng-model='search')
                         span.input-group-btn
-                            a.btn(href='/browse/all')
+                            a.btn(href='/browse')
                                 span.fui-search
             ul.nav.navbar-nav.navbar-right
                 li.dropdown
