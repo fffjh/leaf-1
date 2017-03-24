@@ -34,16 +34,6 @@ app.config(function config($locationProvider, $routeProvider) {
         templateUrl: 'partials/myprofile',
         controller: MyprofileCtrl
     }).
-    when('/myleaves', {
-        title: 'My leaves',
-        templateUrl: 'partials/myleaves',
-        controller: MyleavesCtrl
-    }).
-    when('/mystars', {
-        title: 'My stars',
-        templateUrl: 'partials/mystars',
-        controller: MystarsCtrl
-    }).
     when('/mymessages', {
         title: 'My messages',
         templateUrl: 'partials/mymessages',

@@ -1,17 +1,15 @@
 #footer {
     width: 100%;
-    position: absolute;
+    position: relative;
     z-index: 1000;
 }
 
 .footer1 {
     height: 97px;
-    bottom: -97px;
 }
 
 .footer2 {
     height: 120px;
-    bottom: -120px;
 }
 
 span img {

@@ -3,8 +3,8 @@
         a#authorInfoBtn.btn.btn-inverse(type='button', ng-click='spanAuthor = !spanAuthor', data-toggle='collapse', data-target='#authorInfo', aria-expanded='false', aria-controls='authorInfo') 
             span.fui-plus(ng-hide="spanAuthor") &nbsp;SHOW AUTHOR
             span.fui-cross(ng-show="spanAuthor") &nbsp;HIDE AUTHOR
-        a#goToLeafBtn.btn.btn-inverse(href="#menu").visible-xs       
-            span.icon-double-angle-up.visible-xs 
+        //- a#goToLeafBtn.btn.btn-inverse(href="#menu").visible-xs       
+        //-     span.icon-double-angle-up.visible-xs 
         center#authorInfo.collapse
             br
             img#myicon(src='img/avatar.png', alt='icon')
@@ -21,7 +21,6 @@
                 span.fui-mail chroslen@gmail.com
             br
             br
-    br
     ol.breadcrumb
         li
             a(href='#') 作业汇总
@@ -163,6 +162,7 @@
                         .But
                             span.submit 发表
                     #msgpad.msgCon
+        br
         center            
             span.buttomEditButton.fui-plus
             span.buttomEditButton.fui-gear
