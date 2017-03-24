@@ -9,7 +9,7 @@ app.config(function config($locationProvider, $routeProvider) {
         templateUrl: 'partials/index',
         controller: IndexCtrl
     }).
-    when('/browse/:type', {
+    when('/browse', {
         title: 'Browse',
         templateUrl: 'partials/browse',
         controller: BrowseCtrl
