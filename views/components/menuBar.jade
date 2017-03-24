@@ -22,15 +22,15 @@
                         b.caret
                     ul.dropdown-menu
                         li
-                            a(href='/browse', ng-click='ngfilter = "all"') all
+                            a(href='/browse', ng-click='ngfilter-menu = "all"') all
                         li
-                            a(href='/browse', ng-click='ngfilter = "leaf"') leaf
+                            a(href='/browse', ng-click='ngfilter-menu = "leaf"') leaf
                         li
-                            a(href='/browse', ng-click='ngfilter = "document"') document
+                            a(href='/browse', ng-click='ngfilter-menu = "document"') document
                         li
-                            a(href='/browse', ng-click='ngfilter = "user"') user
+                            a(href='/browse', ng-click='ngfilter-menu = "user"') user
                         li
-                            a(href='/browse', ng-click='ngfilter = "local"') local
+                            a(href='/browse', ng-click='ngfilter-menu = "local"') local
             form.navbar-form.navbar-left(role='search').hidden-xs
                 .form-group.has-feedback
                     .input-group
@@ -63,10 +63,6 @@
                     ul.dropdown-menu(ng-if='signedin')
                         li
                             a(href='/myprofile') my profile
-                        li
-                            a(href='/myleaves') my leaves
-                        li
-                            a(href='/mystars') my stars
                         li
                             a(href='/mymessages') my messages &nbsp;
                                 span.label.label-info 3

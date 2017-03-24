@@ -6,7 +6,11 @@ link(rel='stylesheet', href='css/homePage.css')
                 small Königsberg
             p.lead welcome to leaf
             br
-        .col-xs-12.col-sm-5
+        .col-xs-12.visible-xs
+            .login-screen.screen-xs
+                .login-form
+                    a.btn.btn-primary.btn-lg.btn-block(href='/signup') Register / Sign In
+        .col-xs-12.col-sm-5.hidden-xs
             .login-screen
                 .login-form(ng-model='toSignup')
                     .form-group
@@ -28,3 +32,4 @@ link(rel='stylesheet', href='css/homePage.css')
     row.vertical-align
 .container-fluid#main-part3.main-part
     row.vertical-align
+include ../components/footer

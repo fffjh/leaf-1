@@ -184,10 +184,6 @@ function BrowseUserCtrl($scope, $http, $rootScope, $routeParams) {
         });
 };
 
-function MyleavesCtrl($scope, $http, $rootScope) {};
-
-function MystarsCtrl($scope, $http, $rootScope) {};
-
 function MymessagesCtrl($scope, $http, $rootScope) {};
 
 function RequestsCtrl($scope, $http, $rootScope) {};

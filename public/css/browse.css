@@ -1,3 +1,14 @@
+#browse-main {
+    position: relative;
+    height: 100% !important;
+    min-height: 100% !important;
+}
+
+.browse-results {
+    position: relative;
+    min-height: 100% !important;
+}
+
 #filtersAndSearch {
     height: 120px;
     position: relative;
@@ -5,9 +16,10 @@
 }
 
 #filtersBtn {
-    position: relative;
+    position: absolute;
     left: 30px;
     top: 100px;
+    z-index: 100;
 }
 
 #browseTitle {
