@@ -33,7 +33,7 @@
     overflow: scroll;
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 500px) {
     #parent, #main {
         position: fixed;
     }
