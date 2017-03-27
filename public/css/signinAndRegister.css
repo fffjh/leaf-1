@@ -1,5 +1,6 @@
 #ngview {
-    background: #495a80 !important;
+    background-image: url(../img/signInBackground.jpg) !important;
+    background-size: 100% auto;
 }
 
 .login-form {
@@ -8,4 +9,13 @@
 
 .login-screen {
     min-height: 100% !important;
+}
+
+a:hover {
+    color: #056956;
+    text-decoration: none;
+}
+
+.login-link {
+    color: black;
 }
