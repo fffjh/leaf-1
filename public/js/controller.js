@@ -1,10 +1,59 @@
 "use strict";
 
-function IndexCtrl($scope, $http, $rootScope) {
-    $rootScope.$broadcast('authenticationChanged'); // check session to resolve the dropdown list items
+function IndexCtrl($scope, $http, $location, $rootScope, toastr) {
+    $scope.switchToSignup = function() {
+        $scope.toSignup = true;
+        $rootScope.title = 'Register';
+    };
+    $scope.switchToSignin = function() {
+        $scope.toSignup = false;
+        $rootScope.title = 'Signin';
+    };
+    $scope.signup = function() {
+        swal({
+            title: $scope.formData.email + " ?",
+            text: "Please check your email again. \n",
+            type: "info",
+            showCancelButton: true,
+            confirmButtonColor: "#8cd4f5",
+            confirmButtonText: "Yes, register!",
+            closeOnConfirm: false,
+            html: false
+        }, function() {
+            $http.post('/api/signup', $scope.formData)
+                .then(function(data) {
+                    if (data.data.status) {
+                        $rootScope.$broadcast('authenticationChanged');
+                        swal('注册成功!', 'Hi, ' + data.data.email + '!\nLeaf已向您发送一封验证邮件，为了您的安全，请尽快完成验证。\n接下来将自动为您登陆.', 'success');
+                        $location.path('/myprofile');
+                    } else {
+                        swal('注册失败!', data.data.message, 'error');
+                    }
+                }, function(error) {
+                    swal('注册失败!', '未知错误', 'error');
+                    console.log('Error: ' + error);
+                });
+        });
+    };
+    $scope.signin = function() {
+        $http.post('/api/signin', $scope.formData)
+            .then(function(data) {
+                if (data.data.status) {
+                    $rootScope.$broadcast('authenticationChanged');
+                    // swal('登陆成功!', 'Hi, ' + data.data.email + ' !', 'success');
+                    toastr.success('Sign in Success!');
+                    $location.path('/myprofile');
+                } else {
+                    swal('登陆失败!', data.data.message, 'error');
+                }
+            }, function(error) {
+                swal('登陆失败!', '未知错误', 'error');
+                console.log('Error: ' + error);
+            });
+    };
 }
 
-function SignupCtrl($scope, $http, $location, $rootScope) {
+function SignupCtrl($scope, $http, $location, $rootScope, toastr) {
     $scope.switchToSignin = function() {
         $scope.toSignin = true;
         $rootScope.title = 'Signin';
@@ -135,10 +184,6 @@ function BrowseUserCtrl($scope, $http, $rootScope, $routeParams) {
         });
 };
 
-function MyleavesCtrl($scope, $http, $rootScope) {};
-
-function MystarsCtrl($scope, $http, $rootScope) {};
-
 function MymessagesCtrl($scope, $http, $rootScope) {};
 
 function RequestsCtrl($scope, $http, $rootScope) {};
@@ -155,18 +200,6 @@ function SettingsCtrl($scope, $http, $rootScope) {
         }, function(error) {
             console.log('Error: ' + error);
         });
-
-    // switch condition
-    $scope.condition = "";
-    $scope._profile = function() {
-        $scope.condition = "Profile";
-    };
-    $scope._account = function() {
-        $scope.condition = "Account";
-    };
-    $scope._email = function() {
-        $scope.condition = "Email";
-    };
 };
 
 app.controller('updateProfileCtrl', function($http, $rootScope, $scope) {
@@ -224,9 +257,10 @@ function SignoutCtrl($scope, $http, $location, $rootScope, toastr) {
     });
 };
 
-function NewLeafCtrl($scope, $http, $location) {};
-
-function OneLeafCtrl($scope, $http, $location) {};
+function LeafCtrl($scope, $http, $location) {
+    $scope.description = "this is a description."
+    $scope.notes = "Lato is free web-font designed by Lukasz Dziedzic from Warsaw. Here you can feel the color, size, line height and margins between paragraphs. Don’t forget to underline your links, they are an important visual marker for users."
+};
 
 app.run(['$rootScope', function($rootScope) {
     $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
@@ -260,29 +294,6 @@ app.config(function(toastrConfig) {
 });
 
 function BrowseCtrl($scope, $http, $routeParams) {
-
-    // browse type
-    $scope.type = $routeParams.type;
-    if ($scope.type == "all") {
-        $scope.type = "";
-    }
-    $scope._all = function() {
-        $scope.type = "";
-    };
-    $scope._leaf = function() {
-        $scope.type = "leaf";
-        console.log('leaf');
-    };
-    $scope._document = function() {
-        $scope.type = "document";
-    };
-    $scope._user = function() {
-        $scope.type = "user";
-    };
-    $scope._local = function() {
-        $scope.type = "local";
-    };
-
     // users
     $http.get('/api/browse')
         .then(function(data) {

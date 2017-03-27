@@ -9,7 +9,7 @@ app.config(function config($locationProvider, $routeProvider) {
         templateUrl: 'partials/index',
         controller: IndexCtrl
     }).
-    when('/browse/:type', {
+    when('/browse', {
         title: 'Browse',
         templateUrl: 'partials/browse',
         controller: BrowseCtrl
@@ -34,16 +34,6 @@ app.config(function config($locationProvider, $routeProvider) {
         templateUrl: 'partials/myprofile',
         controller: MyprofileCtrl
     }).
-    when('/myleaves', {
-        title: 'My leaves',
-        templateUrl: 'partials/myleaves',
-        controller: MyleavesCtrl
-    }).
-    when('/mystars', {
-        title: 'My stars',
-        templateUrl: 'partials/mystars',
-        controller: MystarsCtrl
-    }).
     when('/mymessages', {
         title: 'My messages',
         templateUrl: 'partials/mymessages',
@@ -67,11 +57,11 @@ app.config(function config($locationProvider, $routeProvider) {
     when('/leaf', {
         title: 'Leaf',
         templateUrl: 'partials/leaf',
-        controller: NewLeafCtrl
+        controller: LeafCtrl
     }).
     when('/leaf/:leafId', {
         templateUrl: 'partials/leaf',
-        controller: OneLeafCtrl
+        controller: LeafCtrl
     }).
     when('/settings', {
         title: 'Settings',
