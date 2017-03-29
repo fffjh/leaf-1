@@ -1,6 +1,7 @@
 "use strict";
 
 function IndexCtrl($scope, $http, $location, $rootScope, toastr) {
+    $scope.ngViewClass = 'page-home';
     $scope.switchToSignup = function() {
         $scope.toSignup = true;
         $rootScope.title = 'Register';
@@ -107,6 +108,7 @@ function SignupCtrl($scope, $http, $location, $rootScope, toastr) {
 };
 
 function SigninCtrl($scope, $http, $location, $rootScope, toastr) {
+    $scope.ngViewClass = 'page-signin';
     $scope.switchToSignup = function() {
         $scope.toSignup = true;
         $rootScope.title = 'Register';
@@ -294,6 +296,7 @@ app.config(function(toastrConfig) {
 });
 
 function BrowseCtrl($scope, $http, $routeParams) {
+    $scope.ngViewClass = 'page-browse';
     // users
     $http.get('/api/browse')
         .then(function(data) {
