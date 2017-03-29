@@ -1,6 +1,7 @@
 "use strict";
 
 function IndexCtrl($scope, $http, $location, $rootScope, toastr) {
+    $scope.ngViewClass = 'page-home';
     $scope.switchToSignup = function() {
         $scope.toSignup = true;
         $rootScope.title = 'Register';
@@ -107,6 +108,7 @@ function SignupCtrl($scope, $http, $location, $rootScope, toastr) {
 };
 
 function SigninCtrl($scope, $http, $location, $rootScope, toastr) {
+    $scope.ngViewClass = 'page-signin';
     $scope.switchToSignup = function() {
         $scope.toSignup = true;
         $rootScope.title = 'Register';
@@ -174,7 +176,7 @@ function MyprofileCtrl($scope, $http, $rootScope) {
 // Browse
 function BrowseUserCtrl($scope, $http, $rootScope, $routeParams) {
     $rootScope.$broadcast('authenticationChanged');
-    $http.get('/api/browse/user/' + $routeParams.userName)
+    $http.get('/api/browse/user/' + $routeParams.userEmail)
         .then(function(data) {
             $scope.name = data.data.name;
             $scope.email = data.data.email;
@@ -258,8 +260,48 @@ function SignoutCtrl($scope, $http, $location, $rootScope, toastr) {
 };
 
 function LeafCtrl($scope, $http, $location) {
-    $scope.description = "this is a description."
-    $scope.notes = "Lato is free web-font designed by Lukasz Dziedzic from Warsaw. Here you can feel the color, size, line height and margins between paragraphs. Don’t forget to underline your links, they are an important visual marker for users."
+    // leaf 页面 右边栏数据
+    $scope.nodeData = {
+        nodeId: '这是这一组数据的ID，这些数据可以通过ID来获取',
+        author: {
+            avatar: 'img/avatar.png',
+            profile: '/browse/user/chroslen',
+            name: 'Larry',
+            description: 'sophomore, at SYSU.',
+            leavesNum: 4,
+            tagsNum: 3,
+            github: 'https://github.com/',
+            mail: 'larry@gmail.com'
+        },
+        themes: ['作业汇总', 'web2.0', '课程作业'],
+        tags: '未完成,school',
+        description: "this is a description.",
+        notes: "Lato is free web-font designed by Lukasz Dziedzic from Warsaw. Here you can feel the color, size, line height and margins between paragraphs. Don’t forget to underline your links, they are an important visual marker for users.",
+        documents: [{
+            name: '06-physics.pdf',
+            date: '17, Mar, 2017',
+            size: '2Mb'
+        }, {
+            name: 'Jacob.css',
+            date: '13, Mar, 2017',
+            size: '1kb'
+        }, {
+            name: 'Larry.rmvb',
+            date: '15, Mar, 2017',
+            size: '234Mb'
+        }],
+        plans: [{
+            state: true,
+            title: '实验一',
+            content: '到实验室完成实验一',
+            deadline: '4, Mar. 2017'
+        }, {
+            state: false,
+            title: '实验二',
+            content: '到实验室完成实验二',
+            deadline: '11, Mar. 2017'
+        }]
+    }
 };
 
 app.run(['$rootScope', function($rootScope) {
@@ -294,6 +336,7 @@ app.config(function(toastrConfig) {
 });
 
 function BrowseCtrl($scope, $http, $routeParams) {
+    $scope.ngViewClass = 'page-browse';
     // users
     $http.get('/api/browse')
         .then(function(data) {
@@ -318,3 +361,5 @@ function BrowseCtrl($scope, $http, $routeParams) {
         type: "document"
     }];
 };
+
+function new_functionCtrl($scope, $http, $routeParams) {}

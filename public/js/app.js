@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('myApp', ['ngRoute', 'toastr']);
+var app = angular.module('myApp', ['ngAnimate', 'ngRoute', 'toastr']);
 
 app.config(function config($locationProvider, $routeProvider) {
     $routeProvider.
@@ -14,7 +14,12 @@ app.config(function config($locationProvider, $routeProvider) {
         templateUrl: 'partials/browse',
         controller: BrowseCtrl
     }).
-    when('/browse/user/:userName', {
+    when('/new_function', {
+        title: 'New function',
+        templateUrl: 'partials/new_function',
+        controller: new_functionCtrl
+    }).
+    when('/browse/user/:userEmail', {
         title: 'My profile',
         templateUrl: 'partials/myprofile',
         controller: BrowseUserCtrl

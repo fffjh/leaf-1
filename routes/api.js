@@ -118,7 +118,7 @@ exports.myprofile = function(req, res, next) {
 };
 
 exports.browse.user = function(req, res, next) {
-    UserModel.getUserByName(req.params.userName)
+    UserModel.getUserByEmail(req.params.userEmail)
         .then(user => {
             res.json({
                 'name': user.name,
