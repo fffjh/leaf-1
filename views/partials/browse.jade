@@ -6,7 +6,7 @@ link(rel='stylesheet', href='css/browse.css')
         span.fui-plus(ng-show="withFilters") &nbsp;SHOW FILTERS
         span.fui-cross(ng-hide="withFilters") &nbsp;HIDE FILTERS
 
-#browse-main.palette-clouds
+#browse-main
     .row.browse-results
         .col-xs-12.col-sm-3
             #filtersList.collapse.in
@@ -49,7 +49,7 @@ link(rel='stylesheet', href='css/browse.css')
         // with filter list
         .col-xs-12.col-sm-9(ng-hide="withFilters")
             br
-            .grid
+            center.grid
                 .grid-item.animate-repeat(ng-repeat='leaf in leaves | filter : search as filteredLeaves', ng-if="ngfilter == 'all' || ngfilter == 'leaf'")
                     a(href='/leaf')
                         .browse-card
@@ -63,7 +63,7 @@ link(rel='stylesheet', href='css/browse.css')
                             span.label.label-warning document
 
                 .grid-item.animate-repeat(ng-repeat='user in users | filter : search as filteredUsers', ng-if="ngfilter == 'all' || ngfilter == 'user'")
-                    a(href='/browse/user/{{user.name}}')
+                    a(href='/browse/user/{{user.email}}')
                         .browse-card
                             img(src="img/avatar.png")
                             h3 {{user.name}}
@@ -73,7 +73,7 @@ link(rel='stylesheet', href='css/browse.css')
         // without filter list
         .col-xs-12.col-sm-12(ng-show="withFilters")
             br    
-            .grid
+            center.grid
                 .grid-item.animate-repeat(ng-repeat='leaf in leaves | filter : search as filteredLeaves', ng-if="ngfilter == 'all' || ngfilter == 'leaf'")
                     a(href='/leaf')
                         .browse-card
@@ -87,7 +87,7 @@ link(rel='stylesheet', href='css/browse.css')
                             span.label.label-warning document
 
                 .grid-item.animate-repeat(ng-repeat='user in users | filter : search as filteredUsers', ng-if="ngfilter == 'all' || ngfilter == 'user'")
-                    a(href='/browse/user/{{user.name}}')
+                    a(href='/browse/user/{{user.email}}')
                         .browse-card
                             img(src="img/avatar.png")
                             h3 {{user.name}}
