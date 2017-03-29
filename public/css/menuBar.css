@@ -6,11 +6,13 @@
 
 .navbar {
     min-height: 53px;
-    font-size: 0px;
+    font-size: 20px;
     border: none;
     border-radius: 0px;
     margin-bottom: 0px;
 }
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {}
 
 .topArea {
     /*height: 53px;*/
@@ -133,10 +135,8 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 
 .browseIconBg {
-    display: table-cell;
-    position: relative;
-    left: 8px;
-    bottom: 8px;
+    position: absolute;
+    right: 0;
     opacity: 0;
     transition: 0.5s;
 }
