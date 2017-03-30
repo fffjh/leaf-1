@@ -22,10 +22,16 @@
             br
             br
 
+    //- 几个节点例子
+    | 试着点击这些节点，默认为 root 节点
+    ol
+        li(ng-repeat='node in nodes')
+            button(ng-click='getNodeData(node)') {{node}}
+
     //-路径
     ol.breadcrumb
-        li.animate-repeat(ng-repeat='theme in nodeData.themes')
-            a(href='#') {{theme}}
+        li.animate-repeat(ng-repeat='node in nodeData.nodeString')
+            a(ng-click='getNodeData(node)') {{node}}
 
     //- 标签
     .tagsinput-primary

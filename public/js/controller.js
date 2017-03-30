@@ -261,47 +261,21 @@ function SignoutCtrl($scope, $http, $location, $rootScope, toastr) {
 };
 
 function LeafCtrl($scope, $http, $location) {
-    // leaf 页面 右边栏数据
-    $scope.nodeData = {
-        nodeId: '这是这一组数据的ID，这些数据可以通过ID来获取',
-        author: {
-            avatar: 'img/avatar.png',
-            profile: '/browse/user/chroslen',
-            name: 'Larry',
-            description: 'sophomore, at SYSU.',
-            leavesNum: 4,
-            tagsNum: 3,
-            github: 'https://github.com/',
-            mail: 'larry@gmail.com'
-        },
-        themes: ['作业汇总', 'web2.0', '课程作业'],
-        tags: '未完成,school',
-        description: "this is a description.",
-        notes: "Lato is free web-font designed by Lukasz Dziedzic from Warsaw. Here you can feel the color, size, line height and margins between paragraphs. Don’t forget to underline your links, they are an important visual marker for users.",
-        documents: [{
-            name: '06-physics.pdf',
-            date: '17, Mar, 2017',
-            size: '2Mb'
-        }, {
-            name: 'Jacob.css',
-            date: '13, Mar, 2017',
-            size: '1kb'
-        }, {
-            name: 'Larry.rmvb',
-            date: '15, Mar, 2017',
-            size: '234Mb'
-        }],
-        plans: [{
-            state: true,
-            title: '实验一',
-            content: '到实验室完成实验一',
-            deadline: '4, Mar. 2017'
-        }, {
-            state: false,
-            title: '实验二',
-            content: '到实验室完成实验二',
-            deadline: '11, Mar. 2017'
-        }]
+    // 几组 node id
+    $scope.nodes = ['root', 'web2.0', '课程作业', '模电homework'];
+
+    // 默认读取跟节点数据
+    $http.get('/api/getNodeData/root')
+        .then(function(data) {
+            $scope.nodeData = data.data;
+        });
+
+    // 选中其他节点时
+    $scope.getNodeData = function(nodeId) {
+        $http.get('/api/getNodeData/' + nodeId)
+            .then(function(data) {
+                $scope.nodeData = data.data;
+            });
     }
 };
 
