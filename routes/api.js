@@ -198,3 +198,142 @@ exports.updateAvatar = function(req, res, next) {
 exports.updateAccount = function(req, res, next) {
     console.log(req.body);
 };
+
+
+exports.getNodeData = function(req, res, next) {
+    if (req.params.nodeId == '模电homework') {
+        return res.json({
+            nodeId: '模电homework',
+            author: {
+                avatar: 'img/avatar.png',
+                profile: '/browse/user/chroslen',
+                name: 'Larry',
+                description: 'sophomore, at SYSU.',
+                leavesNum: 4,
+                tagsNum: 3,
+                github: 'https://github.com/',
+                mail: 'larry@gmail.com'
+            },
+            nodeString: ['作业汇总', '模电homework'],
+            tags: '未完成, 害怕',
+            description: "模电，亦称‘魔电’。",
+            notes: "我们来看一下这个单词是什么意思。——郭东亮",
+            documents: [{
+                name: 'first.css',
+                date: '13, Mar, 2017',
+                size: '1kb'
+            }],
+            plans: [{
+                state: true,
+                title: '作业一',
+                content: '提交到课程网站上互评',
+                deadline: '4, Mar. 2017'
+            }]
+        });
+    }
+    if (req.params.nodeId == '课程作业') {
+        return res.json({
+            nodeId: '课程作业',
+            author: {
+                avatar: 'img/avatar.png',
+                profile: '/browse/user/chroslen',
+                name: 'Larry',
+                description: 'sophomore, at SYSU.',
+                leavesNum: 4,
+                tagsNum: 3,
+                github: 'https://github.com/',
+                mail: 'larry@gmail.com'
+            },
+            nodeString: ['作业汇总', 'web2.0', '课程作业'],
+            tags: '未完成,school',
+            description: "this is a description.",
+            notes: "Lato is free web-font designed by Lukasz Dziedzic from Warsaw. Here you can feel the color, size, line height and margins between paragraphs. Don’t forget to underline your links, they are an important visual marker for users.",
+            documents: [{
+                name: '06-physics.pdf',
+                date: '17, Mar, 2017',
+                size: '2Mb'
+            }, {
+                name: 'Jacob.css',
+                date: '13, Mar, 2017',
+                size: '1kb'
+            }, {
+                name: 'Larry.rmvb',
+                date: '15, Mar, 2017',
+                size: '234Mb'
+            }],
+            plans: [{
+                state: true,
+                title: '实验一',
+                content: '到实验室完成实验一',
+                deadline: '4, Mar. 2017'
+            }, {
+                state: false,
+                title: '实验二',
+                content: '到实验室完成实验二',
+                deadline: '11, Mar. 2017'
+            }]
+        });
+    } else if (req.params.nodeId == 'web2.0') {
+        return res.json({
+            nodeId: 'web2.0',
+            author: {
+                avatar: 'img/avatar.png',
+                profile: '/browse/user/chroslen',
+                name: 'Larry',
+                description: 'sophomore, at SYSU.',
+                leavesNum: 4,
+                tagsNum: 3,
+                github: 'https://github.com/',
+                mail: 'larry@gmail.com'
+            },
+            nodeString: ['作业汇总', 'web2.0'],
+            tags: '未完成, 王青',
+            description: "web课程，大二上",
+            notes: "此时 chrome 横空出世，将 ie 和火狐干翻在地。——王青",
+            documents: [{
+                name: 'first.css',
+                date: '13, Mar, 2017',
+                size: '1kb'
+            }, {
+                name: '真正的coder.mp4',
+                date: '15, Mar, 2017',
+                size: '234Mb'
+            }],
+            plans: [{
+                state: true,
+                title: '作业一',
+                content: '提交到课程网站上互评',
+                deadline: '4, Mar. 2017'
+            }]
+        });
+    } else {
+        return res.json({
+            nodeId: '作业汇总',
+            author: {
+                avatar: 'img/avatar.png',
+                profile: '/browse/user/chroslen',
+                name: 'Larry',
+                description: 'sophomore, at SYSU.',
+                leavesNum: 4,
+                tagsNum: 3,
+                github: 'https://github.com/',
+                mail: 'larry@gmail.com'
+            },
+            nodeString: ['作业汇总'],
+            tags: 'sophomore,这个有bug',
+            description: "大二上的所有作业",
+            notes: "这是根节点，没有选中其他节点就会显示跟节点的数据。",
+            documents: [{
+                name: '学期总结.html',
+                date: '13, Mar, 2017',
+                size: '1kb'
+            }],
+            plans: [{
+                state: true,
+                title: '运动计划',
+                content: '提交到课程网站上互评',
+                deadline: '4, Mar. 2017'
+            }]
+        });
+    };
+};
