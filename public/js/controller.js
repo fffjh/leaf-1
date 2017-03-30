@@ -337,4 +337,8 @@ function BrowseCtrl($scope, $http, $routeParams) {
     }];
 };
 
+function AboutCtrl($scope, $http, $routeParams) {
+    $scope.ngViewClass = 'page-about';
+};
+
 function new_functionCtrl($scope, $http, $routeParams) {}

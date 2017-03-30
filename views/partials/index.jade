@@ -1,29 +1,6 @@
 link(rel='stylesheet', href='css/homePage.css')
 .container-fluid#main-intro
-    center.col-xs-12.col-sm-7#welcome
-        h2 LEAF
-            small Königsberg
-        p.lead welcome to leaf
-        br
-    .col-xs-12.visible-xs
-        .wrapper-home
-            .container
-                a(href='/signin')
-                    form
-                        button(href='/signin') Register / Sign In
-    .col-xs-12.col-sm-5.hidden-xs
-        .wrapper-home
-            .container
-                form.form-login(ng-model='toSignup')
-                    input.input-login(type='email', value='', placeholder='Email', ng-model='formData.email')
-                    input.input-login(type='password', value='', placeholder='Password', ng-model='formData.password')
-                    div(ng-if="!toSignup")
-                        button(type='submit', ng-click='signin()') Sign in
-                        a.login-link(ng-click='switchToSignup()') New to Leaf? 
-                        a.login-link(href='#') Lost your password?
-                    div(ng-if="toSignup")
-                        button(type='submit', ng-click='signup()') Register
-                        a.login-link(ng-click='switchToSignin()') Have an account already? 
+
 .container-fluid#main-part1.main-part
     row.vertical-align
 .container-fluid#main-part2.main-part
