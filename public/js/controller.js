@@ -55,6 +55,7 @@ function IndexCtrl($scope, $http, $location, $rootScope, toastr) {
 }
 
 function SignupCtrl($scope, $http, $location, $rootScope, toastr) {
+    $scope.ngViewClass = 'page-signin';
     $scope.switchToSignin = function() {
         $scope.toSignin = true;
         $rootScope.title = 'Signin';
