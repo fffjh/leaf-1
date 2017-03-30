@@ -6,13 +6,18 @@ app.config(function config($locationProvider, $routeProvider) {
     $routeProvider.
     when('/', {
         title: 'Home',
-        templateUrl: 'partials/index',
-        controller: IndexCtrl
+        templateUrl: 'partials/browse',
+        controller: BrowseCtrl
     }).
     when('/browse', {
         title: 'Browse',
         templateUrl: 'partials/browse',
         controller: BrowseCtrl
+    }).
+    when('/about', {
+        title: 'About',
+        templateUrl: 'partials/about',
+        controller: AboutCtrl
     }).
     when('/new_function', {
         title: 'New function',

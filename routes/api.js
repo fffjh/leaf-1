@@ -320,7 +320,7 @@ exports.getNodeData = function(req, res, next) {
                 mail: 'larry@gmail.com'
             },
             nodeString: ['作业汇总'],
-            tags: 'sophomore,这个有bug',
+            tags: 'sophomore, tag, bug',
             description: "大二上的所有作业",
             notes: "这是根节点，没有选中其他节点就会显示跟节点的数据。",
             documents: [{
