@@ -48,7 +48,7 @@
     background-color: white;
     transition-duration: 1s;
     border-radius: 2px;
-    box-shadow: 0px 2px 1px gray;
+    box-shadow: 0px 1px 7px #a4a5a7;
     min-height: 150px;
 }
 
@@ -90,7 +90,7 @@
 
 .browse-card:hover {
     transform: translate(0px, -3px);
-    box-shadow: 0px 2px 7px black;
+    box-shadow: 0px 2px 7px gray;
     transition-duration: 0s;
 }
 

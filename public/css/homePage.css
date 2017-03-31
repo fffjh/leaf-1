@@ -1,6 +1,4 @@
-#main-intro {
-    background: linear-gradient(to bottom, #495a80 100%, #75e8b8);
-}
+#main-intro {}
 
 .vertical-align {
     display: flex;
