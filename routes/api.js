@@ -215,7 +215,7 @@ exports.getNodeData = function(req, res, next) {
                 mail: 'larry@gmail.com'
             },
             nodeString: ['作业汇总', '模电homework'],
-            tags: '未完成, 害怕',
+            tags: '未完成,害怕',
             description: "模电，亦称‘魔电’。",
             notes: "我们来看一下这个单词是什么意思。——郭东亮",
             documents: [{
@@ -288,7 +288,7 @@ exports.getNodeData = function(req, res, next) {
             },
             nodeString: ['作业汇总', 'web2.0'],
             tags: '未完成, 王青',
-            description: "web课程，大二上",
+            description: "web课程,大二上",
             notes: "此时 chrome 横空出世，将 ie 和火狐干翻在地。——王青",
             documents: [{
                 name: 'first.css',
@@ -320,7 +320,7 @@ exports.getNodeData = function(req, res, next) {
                 mail: 'larry@gmail.com'
             },
             nodeString: ['作业汇总'],
-            tags: 'sophomore, tag, bug',
+            tags: 'sophomore,tag,bug',
             description: "大二上的所有作业",
             notes: "这是根节点，没有选中其他节点就会显示跟节点的数据。",
             documents: [{

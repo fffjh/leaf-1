@@ -4,7 +4,7 @@
     font-size: 16px;
     height: 100%;
     overflow: auto;
-    background-color: #D6D0CE;
+    background: linear-gradient(70deg, #b889ef, #97d0e1);
     position: relative;
     z-index: 100 !important;
 }
@@ -48,7 +48,7 @@ h3 {
 
 .breadcrumb:hover, .tagsinput-primary:hover, .rightBar-card:hover {
     transform: translate(0px, -3px);
-    box-shadow: 0px 2px 2px black;
+    box-shadow: 0px 1px 5px gray;
     transition-duration: 0s;
 }
 

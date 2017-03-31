@@ -6,8 +6,8 @@ app.config(function config($locationProvider, $routeProvider) {
     $routeProvider.
     when('/', {
         title: 'Home',
-        templateUrl: 'partials/browse',
-        controller: BrowseCtrl
+        templateUrl: 'partials/index',
+        controller: IndexCtrl
     }).
     when('/browse', {
         title: 'Browse',
