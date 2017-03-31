@@ -1,0 +1,14 @@
+link(rel='stylesheet', href='css/new_function.css')
+.container
+    .row
+        h2 ng-repeat recursive list example
+        |         
+        ul
+            li(ng-repeat='item in tree', ng-include="'treeItem'")
+
+script#treeItem(type='text/ng-template').
+    <h1>{{item.name}}</h1>
+    <ul ng-if="item.children">
+    <li ng-repeat="item in item.children" ng-include="'treeItem'">
+    </li>
+    </ul>

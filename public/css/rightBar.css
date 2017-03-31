@@ -19,8 +19,13 @@
     margin-bottom: 0px;
 }
 
+.tagsinput-primary, .form-horizontal .form-group {
+    background: transparent !important;
+}
+
 .panel-primary {
     border: none;
+    border-radius: 2px !important;
 }
 
 .panel-primary>.panel-heading {
@@ -64,6 +69,7 @@ h3 {
     width: 100%;
     background-color: #222;
     margin: 0;
+    border: none;
 }
 
 #goToLeafBtn {
@@ -73,10 +79,11 @@ h3 {
 }
 
 .breadcrumb, .tagsinput-primary, .form-horizontal .form-group {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 12px;
+    margin-right: 12px;
     margin-top: 9px;
     margin-bottom: 0;
+    background-color: white;
 }
 
 
@@ -124,6 +131,10 @@ h3 {
 
 ol li:last-child a {
     color: gray !important;
+}
+
+ol li:last-child a:hover {
+    border: none;
 }
 
 

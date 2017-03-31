@@ -26,6 +26,6 @@ small, small a {
 
 small a:hover {
     color: #16a085;
-    border-bottom: 1px #16a085 solid;
+    border-bottom: 1px #1abc9c solid;
     transition-delay: 0s;
 }

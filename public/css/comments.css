@@ -9,9 +9,12 @@ hr {
     border-top: 1px solid #FFFFFF;
 }
 
-a {
-    color: #82b440;
-    text-decoration: none;
+a:hover {
+    border-bottom: 1px #1abc9c solid;
+}
+
+.container.bootstrap.snippet {
+    width: 100%;
 }
 
 .blog-comment::before, .blog-comment::after, .blog-comment-form::before, .blog-comment-form::after {
@@ -72,7 +75,7 @@ a {
     border-bottom: 1px solid #eee;
 }
 
-.blog-comment ul.comments ul {
+.blog-comment li ul.comments {
     list-style-type: none;
     padding: 0;
     margin-left: 50px;

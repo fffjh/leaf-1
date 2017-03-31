@@ -206,7 +206,7 @@ exports.getNodeData = function(req, res, next) {
             nodeId: '模电homework',
             author: {
                 avatar: 'img/avatar.png',
-                profile: '/browse/user/chroslen',
+                profile: '/browse/user/asdunfa@gmail.com',
                 name: 'Larry',
                 description: 'sophomore, at SYSU.',
                 leavesNum: 4,
@@ -236,7 +236,7 @@ exports.getNodeData = function(req, res, next) {
             nodeId: '课程作业',
             author: {
                 avatar: 'img/avatar.png',
-                profile: '/browse/user/chroslen',
+                profile: '/browse/user/asdunfa@gmail.com',
                 name: 'Larry',
                 description: 'sophomore, at SYSU.',
                 leavesNum: 4,
@@ -278,7 +278,7 @@ exports.getNodeData = function(req, res, next) {
             nodeId: 'web2.0',
             author: {
                 avatar: 'img/avatar.png',
-                profile: '/browse/user/chroslen',
+                profile: '/browse/user/asdunfa@gmail.com',
                 name: 'Larry',
                 description: 'sophomore, at SYSU.',
                 leavesNum: 4,
@@ -311,7 +311,7 @@ exports.getNodeData = function(req, res, next) {
             nodeId: '作业汇总',
             author: {
                 avatar: 'img/avatar.png',
-                profile: '/browse/user/chroslen',
+                profile: '/browse/user/asdunfa@gmail.com',
                 name: 'Larry',
                 description: 'sophomore, at SYSU.',
                 leavesNum: 4,

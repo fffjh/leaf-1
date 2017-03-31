@@ -251,8 +251,9 @@ form button:hover {
 
 a.login-link {
     font-size: 16px;
+    color: white !important;
 }
 
 a.login-link:hover {
-    color: white !important;
+    color: #53e3a6!important;
 }
