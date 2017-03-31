@@ -42,7 +42,6 @@ h3 {
 }
 
 .breadcrumb, .tagsinput-primary, .rightBar-card {
-    /*background-color: white;*/
     transition-duration: 1s;
 }
 
@@ -126,3 +125,31 @@ h3 {
 ol li:last-child a {
     color: gray !important;
 }
+
+
+/*markdown editor*/
+
+.md-editor.md-fullscreen-mode .md-header {
+    top: 53px !important;
+}
+
+.md-editor.md-fullscreen-mode {
+    top: 53px !important;
+}
+
+
+/*markdown editor end*/
+
+
+/*panel-body padding*/
+
+.panel-body {
+    padding: 7px;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+
+/*panel-body padding end*/

@@ -322,7 +322,7 @@ exports.getNodeData = function(req, res, next) {
             nodeString: ['作业汇总'],
             tags: 'sophomore,tag,bug',
             description: "大二上的所有作业",
-            notes: "这是根节点，没有选中其他节点就会显示跟节点的数据。",
+            notes: "# notes \n这是`根节点`，没有选中其他节点就会显示跟节点的数据。",
             documents: [{
                 name: '学期总结.html',
                 date: '13, Mar, 2017',
