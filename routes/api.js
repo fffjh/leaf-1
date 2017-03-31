@@ -228,6 +228,13 @@ exports.getNodeData = function(req, res, next) {
                 title: '作业一',
                 content: '提交到课程网站上互评',
                 deadline: '4, Mar. 2017'
+            }],
+            comments: [{
+                avatar: 'http://bootdey.com/img/Content/user_1.jpg',
+                date: 'Dec 18, 2014 ',
+                name: 'chroslen',
+                profile: '/browse/user/chroslen@gmail.com',
+                content: '我爱学习'
             }]
         });
     }
@@ -271,6 +278,13 @@ exports.getNodeData = function(req, res, next) {
                 title: '实验二',
                 content: '到实验室完成实验二',
                 deadline: '11, Mar. 2017'
+            }],
+            comments: [{
+                avatar: 'http://bootdey.com/img/Content/user_1.jpg',
+                date: 'Dec 18, 2014 ',
+                name: 'chroslen',
+                profile: '/browse/user/chroslen@gmail.com',
+                content: '作业好多，感觉要gg'
             }]
         });
     } else if (req.params.nodeId == 'web2.0') {
@@ -304,6 +318,26 @@ exports.getNodeData = function(req, res, next) {
                 title: '作业一',
                 content: '提交到课程网站上互评',
                 deadline: '4, Mar. 2017'
+            }],
+            comments: [{
+                avatar: 'http://bootdey.com/img/Content/user_1.jpg',
+                date: 'Dec 18, 2014 ',
+                name: 'chroslen',
+                profile: '/browse/user/chroslen@gmail.com',
+                content: '王青老师好强壮啊'
+            }, {
+                avatar: 'http://bootdey.com/img/Content/user_2.jpg',
+                date: 'Dec 19, 2014 ',
+                name: 'Asdunfa',
+                profile: '/browse/user/asdunfa@gmail.com',
+                content: '链接出了问题，真正的coder的视频还在吗',
+                children: [{
+                    avatar: 'http://bootdey.com/img/Content/user_3.jpg',
+                    date: 'Dec 19, 2014 ',
+                    name: 'guest',
+                    profile: '/browse/user/asdunfa@gmail.com',
+                    content: '同求'
+                }]
             }]
         });
     } else {
@@ -333,6 +367,26 @@ exports.getNodeData = function(req, res, next) {
                 title: '运动计划',
                 content: '提交到课程网站上互评',
                 deadline: '4, Mar. 2017'
+            }],
+            comments: [{
+                avatar: 'http://bootdey.com/img/Content/user_1.jpg',
+                date: 'Dec 18, 2014 ',
+                name: 'Asdunfa',
+                profile: '/browse/user/asdunfa@gmail.com',
+                content: '沙发'
+            }, {
+                avatar: 'http://bootdey.com/img/Content/user_2.jpg',
+                date: 'Dec 19, 2014 ',
+                name: 'Asdunfa',
+                profile: '/browse/user/asdunfa@gmail.com',
+                content: '我是楼上，不信看我的名字',
+                children: [{
+                    avatar: 'http://bootdey.com/img/Content/user_3.jpg',
+                    date: 'Dec 19, 2014 ',
+                    name: 'Asdunfa',
+                    profile: '/browse/user/asdunfa@gmail.com',
+                    content: '楼主说得有道理'
+                }]
             }]
         });
     };

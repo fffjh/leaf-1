@@ -277,27 +277,6 @@ function LeafCtrl($scope, $http, $location) {
                 $scope.nodeData = data.data;
             });
     }
-
-    $scope.comments = [{
-        avatar: 'http://bootdey.com/img/Content/user_1.jpg',
-        date: 'Dec 18, 2014 ',
-        name: 'Asdunfa',
-        profile: '/browse/user/asdunfa@gmail.com',
-        content: '沙发'
-    }, {
-        avatar: 'http://bootdey.com/img/Content/user_2.jpg',
-        date: 'Dec 19, 2014 ',
-        name: 'Asdunfa',
-        profile: '/browse/user/asdunfa@gmail.com',
-        content: '我是楼上，不信看我的名字',
-        children: [{
-            avatar: 'http://bootdey.com/img/Content/user_3.jpg',
-            date: 'Dec 19, 2014 ',
-            name: 'Asdunfa',
-            profile: '/browse/user/asdunfa@gmail.com',
-            content: '楼主说得有道理'
-        }]
-    }];
 };
 
 app.run(['$rootScope', function($rootScope) {
