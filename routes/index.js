@@ -32,12 +32,14 @@ module.exports = function(app) {
     app.get('/api/signout', api.signout);
     app.get('/api/browse', api.browse);
     app.get('/api/myprofile', api.myprofile);
-    app.get('/api/browse/user/:userName', api.browse.user);
+    app.get('/api/browse/user/:userEmail', api.browse.user);
     app.get('/api/settings', api.settings);
     app.get('/api/checkSignin', api.checkSignin);
+    app.get('/api/getNodeData/:nodeId', api.getNodeData);
     app.get('test.json', function(req, res) {
         console.log("get('./test.json')");
-    })
+    });
+
 
     // otherwise
     // app.get('*', function(req, res) {

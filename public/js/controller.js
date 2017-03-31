@@ -1,6 +1,7 @@
 "use strict";
 
 function IndexCtrl($scope, $http, $location, $rootScope, toastr) {
+    $scope.ngViewClass = 'page-home';
     $scope.switchToSignup = function() {
         $scope.toSignup = true;
         $rootScope.title = 'Register';
@@ -54,6 +55,7 @@ function IndexCtrl($scope, $http, $location, $rootScope, toastr) {
 }
 
 function SignupCtrl($scope, $http, $location, $rootScope, toastr) {
+    $scope.ngViewClass = 'page-signin';
     $scope.switchToSignin = function() {
         $scope.toSignin = true;
         $rootScope.title = 'Signin';
@@ -107,6 +109,7 @@ function SignupCtrl($scope, $http, $location, $rootScope, toastr) {
 };
 
 function SigninCtrl($scope, $http, $location, $rootScope, toastr) {
+    $scope.ngViewClass = 'page-signin';
     $scope.switchToSignup = function() {
         $scope.toSignup = true;
         $rootScope.title = 'Register';
@@ -174,7 +177,7 @@ function MyprofileCtrl($scope, $http, $rootScope) {
 // Browse
 function BrowseUserCtrl($scope, $http, $rootScope, $routeParams) {
     $rootScope.$broadcast('authenticationChanged');
-    $http.get('/api/browse/user/' + $routeParams.userName)
+    $http.get('/api/browse/user/' + $routeParams.userEmail)
         .then(function(data) {
             $scope.name = data.data.name;
             $scope.email = data.data.email;
@@ -258,8 +261,22 @@ function SignoutCtrl($scope, $http, $location, $rootScope, toastr) {
 };
 
 function LeafCtrl($scope, $http, $location) {
-    $scope.description = "this is a description."
-    $scope.notes = "Lato is free web-font designed by Lukasz Dziedzic from Warsaw. Here you can feel the color, size, line height and margins between paragraphs. Don’t forget to underline your links, they are an important visual marker for users."
+    // 几组 node id
+    $scope.nodes = ['root', 'web2.0', '课程作业', '模电homework'];
+
+    // 默认读取跟节点数据
+    $http.get('/api/getNodeData/root')
+        .then(function(data) {
+            $scope.nodeData = data.data;
+        });
+
+    // 选中其他节点时
+    $scope.getNodeData = function(nodeId) {
+        $http.get('/api/getNodeData/' + nodeId)
+            .then(function(data) {
+                $scope.nodeData = data.data;
+            });
+    }
 };
 
 app.run(['$rootScope', function($rootScope) {
@@ -294,6 +311,7 @@ app.config(function(toastrConfig) {
 });
 
 function BrowseCtrl($scope, $http, $routeParams) {
+    $scope.ngViewClass = 'page-browse';
     // users
     $http.get('/api/browse')
         .then(function(data) {
@@ -318,3 +336,90 @@ function BrowseCtrl($scope, $http, $routeParams) {
         type: "document"
     }];
 };
+
+function AboutCtrl($scope, $http, $routeParams) {
+    $scope.ngViewClass = 'page-about';
+};
+
+function new_functionCtrl($scope, $http, $routeParams) {
+    $scope.tree = [{
+            id: 1,
+            name: 'John',
+            score: 130,
+            city: 'New York',
+            birthday: '1980/2/5',
+            children: [{
+                    id: 6,
+                    name: 'John2',
+                    score: 82,
+                    city: 'San Fran1',
+                    birthday: '1990/1/21'
+                },
+                {
+                    id: 7,
+                    name: 'John2',
+                    score: 81,
+                    city: 'San Fran2',
+                    birthday: '1990/1/22',
+                    children: [{
+                        id: 8,
+                        name: 'John3',
+                        score: 89,
+                        city: 'San Francisco',
+                        birthday: '1990/1/21'
+                    }]
+                }
+            ]
+        },
+        {
+            id: 2,
+            name: 'Alice',
+            score: 123,
+            city: 'Washington',
+            birthday: '1984/3/7'
+        },
+        {
+            id: 3,
+            name: 'Lee',
+            score: 149,
+            city: 'Shanghai',
+            birthday: '1986/10/8'
+        },
+        {
+            id: 4,
+            name: 'Mike',
+            score: 100,
+            city: 'London',
+            birthday: '1988/8/12'
+        },
+        {
+            id: 5,
+            name: 'Tom',
+            score: 89,
+            city: 'San Francisco',
+            birthday: '1990/1/21',
+            children: [{
+                    id: 9,
+                    name: 'Tom1',
+                    score: 77,
+                    city: 'San Francisco',
+                    birthday: '1990/1/21'
+                },
+                {
+                    id: 10,
+                    name: 'Tom2',
+                    score: 85,
+                    city: 'San Francisco',
+                    birthday: '1990/1/21'
+                },
+                {
+                    id: 11,
+                    name: 'Tom3',
+                    score: 83,
+                    city: 'San Francisco',
+                    birthday: '1990/1/21'
+                }
+            ]
+        }
+    ];
+}
